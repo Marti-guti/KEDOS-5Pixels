@@ -1,1 +1,1 @@
-# FivePixels - ACME Group
+# FivePixels - KEDOS
