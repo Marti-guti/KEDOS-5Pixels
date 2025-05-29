@@ -1,0 +1,127 @@
+/* ===== Base (Mobile First) ===== */
+body {
+  margin: 0; /* Rimuove i margini di default del browser */
+  font-family: Arial, sans-serif; /* Imposta il font di sistema semplice e leggibile */
+}
+
+nav {
+  background-color: #3d466f; /* Colore di sfondo blu scuro */
+  color: white; /* Colore del testo bianco */
+  display: flex; /* Flexbox per allineare i figli orizzontalmente */
+  align-items: center; /* Centra verticalmente gli elementi nella navbar */
+  justify-content: space-between; /* Spazio tra logo a sinistra e menu/hamburger a destra */
+  padding: 0; /* Nessun padding interno */
+  position: relative; /* Necessario per posizionare elementi assoluti figli come dropdown */
+	height: 10vh;
+}
+
+.logo {
+  font-weight: bold; /* Logo in grassetto */
+  font-size: 1.2rem; /* Dimensione del font del logo */
+}
+
+.logo img {
+  width: 18%; /* Imposta larghezza dell'immagine logo al 30% del contenitore */
+              /* Occupa tutta l'altezza disponibile (potrebbe essere rischioso se il contenitore non ha altezza definita) */
+}
+
+/* Menu principale (desktop) */
+.menu {
+  display: none; /* Di default non viene mostrato nel mobile */
+  align-items: center; /* Allinea verticalmente gli elementi */
+  gap: 15%; /* Spaziatura tra gli elementi (non supportata nei browser molto vecchi, ma accettabile oggi) */
+  padding-right: 5%;
+}
+
+.menu a {
+  color: white; /* Colore del testo nei link */
+  text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+/* Icona bandiera per il selettore lingua */
+.flag {
+  width: 24px; /* Larghezza bandiera */
+  height: auto; /* Altezza proporzionale */
+  cursor: pointer; /* Cambia il cursore al passaggio */
+}
+
+/* Contenitore dropdown per la bandiera */
+.dropdown-flag {
+  position: relative; /* Necessario per posizionare assolutamente il dropdown-flag-content rispetto a questo contenitore */
+}
+
+/* Menu a tendina della lingua */
+.dropdown-flag-content {
+  display: none; /* Nascosto di default */
+  position: absolute; /* Si posiziona in base al contenitore .dropdown-flag */
+  background-color: white; /* Sfondo bianco */
+  top: 36px; /* Distanza dal top del contenitore */
+  left: 0; /* Allineato a sinistra */
+  list-style: none; /* Nessun punto elenco */
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc; /* Bordo grigio chiaro */
+  z-index: 100; /* Sovrapposizione garantita */
+}
+
+.dropdown-flag-content li a {
+  color: black; /* Colore del testo */
+  text-decoration: none;
+  padding: 10px 12px; /* Spaziatura interna per ogni voce */
+  display: block; /* Ogni voce prende tutta la larghezza */
+}
+
+/* Quando si passa sopra al contenitore dropdown-flag, mostra il menu */
+.dropdown-flag:hover .dropdown-flag-content {
+  display: block;
+}
+
+/* Icona hamburger (mobile) */
+.hamburger {
+  background: none; /* Nessun sfondo */
+  border: none; /* Nessun bordo */
+  font-size: 24px; /* Grandezza icona */
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Menu che compare nel mobile quando si clicca l’hamburger */
+.mobile-menu {
+  display: none; /* Nascosto finché non viene attivato via JS */
+  background-color: #3d466f; 
+}
+
+
+/* Struttura della lista del menu mobile */
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu li {
+  border-top: 1px solid #fff; /* Separatore tra le voci */
+}
+
+.mobile-menu li a {
+  display: block;
+  padding: 12px; /* Spazio interno verticale */
+  color: white;
+  text-decoration: none;
+}
+
+/* ===== Desktop Version (min-width: 900px) ===== */
+@media (min-width: 900px) {
+  .menu {
+    display: flex; /* Mostra il menu nella versione desktop */
+  }
+
+  .hamburger {
+    display: none; /* Nasconde il menu hamburger nella versione desktop */
+  }
+
+  .mobile-menu {
+    display: none; /* Garantisce che il menu mobile resti nascosto anche se per errore fosse visibile */
+  }
+}
