@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="css/home-style.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="img/logo.webp" alt="logo di keodos"></div>
+            <div class="menu">
+                <div class="dropdown-flag language">
+                    <img src="italy.png" alt="Select Language" class="flag" />
+                    <ul class="dropdown-flag-content">
+                        <li><a href="#">Italiano</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Español</a></li>
+                    </ul>
+                </div>
+                <a href="#">Chi siamo</a>
+                <a href="#">Blockchain?</a>
+            </div>
+            <button class="hamburger" id="hamburger-exist">&#9776;</button>
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li class="dropdown language">
+                        <a href="#"><img src="italy.png" alt="Select Language" class="flag" /></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Italiano</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">Español</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Chi siamo</a></li>
+                    <li><a href="#">Blockchain?</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1>Blockchain Certificate Configurator</h1>
+            <p>Customize your certificate with our easy-to-use configurator.</p>
+            <a href="SetUp.html" class="btn">Get Started</a>
+    </header>
+    <script src="scripts/mainHome.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</body>
+
+</html>

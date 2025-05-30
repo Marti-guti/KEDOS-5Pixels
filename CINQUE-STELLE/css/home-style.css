@@ -1,0 +1,15 @@
+.dropdown-item{
+  text-align: justify;
+  align-items: center;
+}
+.lingua{
+  height: 30px;
+  width: 30px;
+}
+.logo{
+  height: 20%;
+  width: 20%;
+}
+.menu{
+  align-items: center;
+}
