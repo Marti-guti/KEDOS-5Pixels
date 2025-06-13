@@ -1,0 +1,105 @@
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Backup e temporanei
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Output di compilazione
+*.class
+*.exe
+*.dll
+*.out
+*.o
+*.obj
+*.pyc
+*.pyo
+__pycache__/
+
+# Cartelle virtual environment (Python)
+env/
+venv/
+ENV/
+.venv/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Java
+*.jar
+*.war
+*.ear
+
+# C/C++
+*.a
+*.so
+
+# Visual Studio Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Linux
+*~
+.cache
+.config
+.local
+
+# Archivi compressi
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Database locali
+*.sqlite
+*.db
+
+# Altri
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# File personali
+*.key
+*.pem
+*.crt
+*.env
+.secret
