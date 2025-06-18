@@ -2,12 +2,14 @@
 const cardContainer = document.getElementById("cards");
 // BUTTONS
 const nextBtn = document.getElementById("nextBtn");
-const secondPageBtn = document.getElementById("secondPage");
+const durationPageBtn = document.getElementById("durationPage");
 const setUpPage = document.getElementById("setUpPage");
 // VAR TO KNOW WHICH CARD IS CURRENTLY SELECTED
 let selectedOption = null;
 // VAR TO KNOW WHICH PAGE IS CURRENTLTY ACTIVE
 let currentPage = null;
+//VAR TO KNOW WHICH LANG IS CURRENTLY USED
+let currentLang = null;
 // CONST TO GET ALL PROGRESS BAR BUTTONS
 const progressBarNodes = document.querySelectorAll(".progressBarNode");
 // OBJ WHERE TO PUT ALL SELECTED VALUE OF EACH PAGE
@@ -61,17 +63,17 @@ function initializeCards() {
 
 //first "page" of the configurator
   if (currentPage === "setUpPage") {
-    let base = new CardConstructor("Setup Base", "Include la configurazione iniziale", "base");
-    let api = new CardConstructor("Setup Avanzato", "Include la configurazione + API KedosInclude la configurazione iniziale", "advanced");
+    let baseEng = new CardConstructor("Manual certificate registration.", "Ideal for individual users or small teams. All certificates are registered manually through our platform, without API integration.", "base");
+    let apiEng = new CardConstructor("Automated certificate registration via API.", "Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for seamless and scalable blockchain certificate issuance.", "advanced");
 
-    const leftCard = base.createCard();
-    const rightCard = api.createCard();
+    const leftCard = baseEng.createCard();
+    const rightCard = apiEng.createCard();
     cardContainer.appendChild(leftCard);
     cardContainer.appendChild(rightCard);
   };
 
 // second "page" of the configurator
-  if (currentPage === "secondPage") {
+  if (currentPage === "durationPage") {
     let seconda1 = new CardConstructor("seconda pagina", "Include la configurazione iniziale", "base");
     let seconda2 = new CardConstructor("seconda pagina ma a destra", "Include la configurazione + API KedosInclude la configurazione iniziale", "advanced");
 
@@ -154,8 +156,8 @@ initializeNodeListeners();
  */
 function progressBarProgress(){
   if (currentPage === "setUpPage" && sessionData.setUpPage) {
-    currentPage = "secondPage";
-    secondPageBtn.disabled = false;
+    currentPage = "durationPage";
+    durationPageBtn.disabled = false;
   }; 
 }
 
