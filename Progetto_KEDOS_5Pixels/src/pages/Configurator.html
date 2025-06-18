@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Configuratore Certificati</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <link rel="stylesheet" href="../../public/css/styleSetUp.css" />
 </head>
+
 <body>
 
-<!-- CONTAINER -->
-  <div class="container">
-  <button id="setUpPage" class="active progressBarNode">Set-Up</button>  
-  <button id="durationPage" class="progressBarNode" disabled>Certificate Duration</button>  
-  <button id="classNumberPage" class="progressBarNode" disabled>third Page</button>  
-  <button id="formPage" class="progressBarNode" disabled>fourth Page</button>  
-<!-- DOMANDA -->
-    <h1 class="title">Quale configurazione desideri?</h1>
-<!-- CONTAINER DELLE CARD     -->
-    <div class="cards" id="cards">
-      
-    </div>
-    <button id="nextBtn" disabled>Avanti</button>
+  <!-- MENU PER LINGUE -->
+  <div class="dropdown-personal">
+    <select id="languageSelect">
+      <option value="en">english</option>
+      <option value="it">italiano</option>
+      <option value="es">español</option>
+    </select>
   </div>
+  <div id="en-page" class="container-personal">
+    <button id="setUpPage" class="active progressBarNode">Set-Up</button>
+    <button id="durationPage" class="progressBarNode" disabled>Certificate Duration</button>
+    <button id="classNumberPage" class="progressBarNode" disabled>third Page</button>
+    <button id="formPage" class="progressBarNode" disabled>fourth Page</button>
+    <!-- QUESTION SET-UP -->
+    <h1 id="question" class="title-personal">Choose your configuration</h1>
+    <!-- CARD CONTAINER -->
+    <div id="cards-setUp-En" class="cards" id="cards">
+      <div class="card" data-option="base">
+        <h2>Manual certificate registration.</h2>
+        <p>Ideal for individual users or small teams. All certificates are registered manually through our platform,
+          without API integration.</p>
+      </div>
+      <div class="card" data-option="advanced">
+        <h2>Automated certificate registration via API.</h2>
+        <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
+          seamless and scalable blockchain certificate issuance.</p>
+      </div>
+    </div>
+    <button id="nextBtnEn" disabled>Next</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+    </script>
   <script src="../../public/scripts/SetUp.js"></script>
 </body>
+
 </html>

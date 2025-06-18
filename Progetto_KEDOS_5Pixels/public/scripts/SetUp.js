@@ -1,3 +1,5 @@
+//CONFIGURATOR QUESTION
+let question = document.getElementById("question");
 // CARDS CONTAINER
 const cardContainer = document.getElementById("cards");
 // BUTTONS
@@ -9,7 +11,12 @@ let selectedOption = null;
 // VAR TO KNOW WHICH PAGE IS CURRENTLTY ACTIVE
 let currentPage = null;
 //VAR TO KNOW WHICH LANG IS CURRENTLY USED
-let currentLang = null;
+let currentLang = "en";
+//VAR TO TAKE THE LANG MENU
+let languageSelect = document.querySelector("#languageSelect");
+//VAR FOR LANG OPTIONS
+
+
 // CONST TO GET ALL PROGRESS BAR BUTTONS
 const progressBarNodes = document.querySelectorAll(".progressBarNode");
 // OBJ WHERE TO PUT ALL SELECTED VALUE OF EACH PAGE
@@ -20,6 +27,14 @@ const initiallyActive = document.querySelector(".progressBarNode.active");
 if (initiallyActive) {
   currentPage = initiallyActive.id;
 }
+//initialize the language
+console.log(currentLang);
+languageSelect.addEventListener("change", ()=>{
+  currentLang = languageSelect.value;
+  console.log(currentLang);
+  initializeCards();
+  initializeCardsListener();
+});
 
 /**
  * @constructor
@@ -39,8 +54,8 @@ function CardConstructor(title, description, optionValue) {
   this.optionValue = optionValue;
 
   this.createCard = function () {
-    const card = document.createElement('div');
-    card.classList.add('card');
+    const card = document.createElement("div");
+    card.classList.add("card");
     card.dataset.option = this.optionValue;
 
     card.innerHTML = `
@@ -61,18 +76,19 @@ function CardConstructor(title, description, optionValue) {
 function initializeCards() {
   cardContainer.innerHTML = "";
 
-//first "page" of the configurator
+  //first "page" of the configurator
   if (currentPage === "setUpPage") {
-    let baseEng = new CardConstructor("Manual certificate registration.", "Ideal for individual users or small teams. All certificates are registered manually through our platform, without API integration.", "base");
-    let apiEng = new CardConstructor("Automated certificate registration via API.", "Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for seamless and scalable blockchain certificate issuance.", "advanced");
-
-    const leftCard = baseEng.createCard();
-    const rightCard = apiEng.createCard();
-    cardContainer.appendChild(leftCard);
-    cardContainer.appendChild(rightCard);
+    if (currentLang === "en") {
+      let baseEng = new CardConstructor("Manual certificate registration.", "Ideal for individual users or small teams. All certificates are registered manually through our platform, without API integration.", "base");
+      let apiEng = new CardConstructor("Automated certificate registration via API.", "Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for seamless and scalable blockchain certificate issuance.", "advanced");
+      const leftCard = baseEng.createCard();
+      const rightCard = apiEng.createCard();
+      cardContainer.appendChild(leftCard);
+      cardContainer.appendChild(rightCard);
+    }
   };
 
-// second "page" of the configurator
+  // second "page" of the configurator
   if (currentPage === "durationPage") {
     let seconda1 = new CardConstructor("seconda pagina", "Include la configurazione iniziale", "base");
     let seconda2 = new CardConstructor("seconda pagina ma a destra", "Include la configurazione + API KedosInclude la configurazione iniziale", "advanced");
@@ -103,16 +119,16 @@ initializeCards();
 function initializeCardsListener() {
   let cards = document.querySelectorAll(".card");
   cards.forEach(card => {
-  card.addEventListener("click", () => {
-    cards.forEach(card => card.classList.remove("selected"));
-    card.classList.add("selected");
+    card.addEventListener("click", () => {
+      cards.forEach(card => card.classList.remove("selected"));
+      card.classList.add("selected");
 
-    // Salva il valore selezionato
-    selectedOption = card.dataset.option;
-    nextBtn.disabled = false;
+      // Save selected value
+      selectedOption = card.dataset.option;
+      nextBtn.disabled = false;
 
+    });
   });
-});
 };
 
 initializeCardsListener();
@@ -129,19 +145,19 @@ initializeCardsListener();
  */
 function initializeNodeListeners() {
   progressBarNodes.forEach(node => {
-  // Add an event listener to each progress bar node like the card listener  
-  node.addEventListener("click", () => {
-    // use a foreach to take all the progressBarNodes and remove the class active
-    progressBarNodes.forEach(allNode => allNode.classList.remove("active"));
-    // Add the class active to the clicked node
-    node.classList.add("active");
-    nextBtn.disabled = true;
-    currentPage = node.id;
-    initializeCards();
-    initializeCardsListener();
-    console.log(currentPage);
+    // Add an event listener to each progress bar node like the card listener  
+    node.addEventListener("click", () => {
+      // use a foreach to take all the progressBarNodes and remove the class active
+      progressBarNodes.forEach(allNode => allNode.classList.remove("active"));
+      // Add the class active to the clicked node
+      node.classList.add("active");
+      nextBtn.disabled = true;
+      currentPage = node.id;
+      initializeCards();
+      initializeCardsListener();
+      console.log(currentPage);
+    });
   });
-});
 };
 
 initializeNodeListeners();
@@ -154,11 +170,11 @@ initializeNodeListeners();
  * 
  * @returns {void}
  */
-function progressBarProgress(){
+function progressBarProgress() {
   if (currentPage === "setUpPage" && sessionData.setUpPage) {
     currentPage = "durationPage";
     durationPageBtn.disabled = false;
-  }; 
+  };
 }
 
 

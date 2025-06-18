@@ -9,11 +9,11 @@ body {
   height: 100vh;
 }
 
-.container {
+.container-personal {
   text-align: center;
 }
 
-.title {
+.title-personal {
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
@@ -60,4 +60,18 @@ button {
 button:disabled {
   background-color: gray;
   cursor: not-allowed;
+}
+
+.dropdown-personal {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+.dropdown-personal select {
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
