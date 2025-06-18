@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KeCert Blockchain</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero {
+      background-image: url(./img/sfondo-home.PNG);
+      color: white;
+      padding: 100px 20px;
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      
+    }
+    .dropdown-item img{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+    .config-box {
+      background: white;
+      color: black;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 250px;
+    }
+    .section-padding {
+      padding: 60px 0;
+    }
+    footer {
+      background: black;
+      color: white;
+      padding: 40px 0;
+    }
+    .square {
+      background-color: #4c4c96;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-light bg-white px-4">
+  <a class="navbar-brand" href="#">KeCert</a>
+  <div class="d-flex align-items-center">
+    <a href="#sezione1" class="me-3">CHI SIAMO</a>
+    <a href="#sezione2" class="me-3">BLOCKCHAIN</a>
+
+    <!-- Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Seleziona
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item " href="#"><img src="./img/inglese-menu.webp" alt="inglese">Inglese</a></li>
+        <li><a class="dropdown-item " href="#"><img src="./img/spagna-menu.webp" alt="spagnolo">Spagnolo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero text-center">
+  <div class="container">
+    <div class="config-box mx-auto mb-4">
+      <h6>CONFIGURATORE</h6>
+      <p>Lorem ipsum dolor sit amet, elit do eiusmod tempor.</p>
+      <a href="#" class="btn btn-dark btn-sm">CONFIGURA ORA</a>
+    </div>
+    <h2 class="fw-bold">KeCert BLOCKCHAIN</h2>
+    <p>Connessione, sicurezza, efficienza: fiducia su ogni valore</p>
+  </div>
+</section>
+
+<!-- Chi siamo -->
+<section class="text-center section-padding">
+  <div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a short card.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="img/sfondo.avif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Blockchain -->
+<section class="bg-light section-padding">
+  <div class="container" id="sezione2">
+    <h3 class="fw-bold text-center mb-5">LA BLOCKCHAIN</h3>
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <div class="square rounded mx-auto" style="height: 150px;"></div>
+      </div>
+      <div class="col-md-8">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi etiam dignissim diam quis enim lobortis. Risus nec feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat.</p>
+        <button type="button" class="btn btn-outline-primary">Configura ora</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-3">Item 1<br>Voce di piè di pagina</div>
+      <div class="col-12 col-md-4 mb-3">Configuratore</div>
+      <div class="col-12 col-md-4 mb-3">
+        <div class="d-flex justify-content-center gap-2">
+          <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+          <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+          <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+          <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
