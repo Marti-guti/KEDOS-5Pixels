@@ -14,8 +14,8 @@ const pageEs = document.getElementById("es-page");
 const pageEn = document.getElementById("en-page");
 // EN PAGES
 const setUpPageEn = document.getElementById("setUp-En");
-const durationEn = document.getElementById("duration-En");
-const classNumberEn = document.getElementById("classes-En");
+const durationPageEn = document.getElementById("duration-En");
+const classNumberPageEn = document.getElementById("classes-En");
 const formPageEn = document.getElementById("form-En");
 // ES PAGES
 const setUpPageEs = document.getElementById("setUp-Es");
@@ -43,9 +43,9 @@ function getCurrentNextBtn() {
 }
 
 // initialize the currentPage using the active class from the html
-function initialize(){
-    currentPage = "setUpPage"
-  };
+function initialize() {
+  currentPage = "setUpPage"
+};
 
 initialize();
 
@@ -72,13 +72,13 @@ function initializeCardsListener() {
 
       // Save selected value
       selectedOption = card.dataset.option;
-      if (currentLang === "en"){
+      if (currentLang === "en") {
         nextBtnEn.disabled = false;
       }
-      if (currentLang === "es"){
+      if (currentLang === "es") {
         nextBtnEs.disabled = false;
       }
-      if (currentLang === "it"){
+      if (currentLang === "it") {
         nextBtnIt.disabled = false;
       }
     });
@@ -92,8 +92,8 @@ function initializeLangPage() {
   pageIt.classList.add("d-none");
 
   setUpPageEn.classList.add("d-none");
-  durationEn.classList.add("d-none");
-  classNumberEn.classList.add("d-none");
+  durationPageEn.classList.add("d-none");
+  classNumberPageEn.classList.add("d-none");
   formPageEn.classList.add("d-none");
   setUpPageEs.classList.add("d-none");
   setUpPageIt.classList.add("d-none");
@@ -102,8 +102,8 @@ function initializeLangPage() {
     pageEn.classList.remove("d-none");
 
     if (currentPage === "setUpPage") setUpPageEn.classList.remove("d-none");
-    if (currentPage === "durationPage") durationEn.classList.remove("d-none");
-    if (currentPage === "classNumberPage") classNumberEn.classList.remove("d-none");
+    if (currentPage === "durationPage") durationPageEn.classList.remove("d-none");
+    if (currentPage === "classNumberPage") classNumberPageEn.classList.remove("d-none");
     if (currentPage === "formPage") formPageEn.classList.remove("d-none");
   }
 
@@ -118,13 +118,14 @@ function initializeLangPage() {
   }
 
   initializeCardsListener();
+  initializeNodeListeners();
 };
 
 initializeLangPage();
 
 //initialize the language
 console.log(currentLang);
-languageSelect.addEventListener("change", ()=>{
+languageSelect.addEventListener("change", () => {
   currentLang = languageSelect.value;
   console.log(currentLang);
   initializeLangPage();
@@ -145,17 +146,37 @@ languageSelect.addEventListener("change", ()=>{
  */
 function initializeNodeListeners() {
   progressBarNodes.forEach(node => {
-    // Add an event listener to each progress bar node like the card listener  
     node.addEventListener("click", () => {
-      // use a foreach to take all the progressBarNodes and remove the class active
       progressBarNodes.forEach(allNode => allNode.classList.remove("active"));
-      // Add the class active to the clicked node
       node.classList.add("active");
-      nextBtn.disabled = true;
-      currentPage = node.id;
-      console.log(currentPage);
 
-      initializeCardsListener();
+      getCurrentNextBtn().disabled = true;
+
+      // ENGLISH PAGES
+      if (currentLang === "en") {
+        if (node.id === "setUpPageNodeEn") currentPage = "setUpPage";
+        if (node.id === "durationPageNodeEn") currentPage = "durationPage";
+        if (node.id === "classNumberPageNodeEn") currentPage = "classNumberPage";
+        if (node.id === "formPageNodeEn") currentPage = "formPage";
+      }
+
+      // SPANISH PAGES
+      if (currentLang === "es") {
+        if (node.id === "setUpPageNodeEs") currentPage = "setUpPage";
+        if (node.id === "durationPageNodeEs") currentPage = "durationPage";
+        if (node.id === "classNumberPageNodeEs") currentPage = "classNumberPage";
+        if (node.id === "formPageNodeEs") currentPage = "formPage";
+      }
+
+      // ITALIAN PAGES
+      if (currentLang === "it") {
+        if (node.id === "setUpPageNodeIt") currentPage = "setUpPage";
+        if (node.id === "durationPageNodeIt") currentPage = "durationPage";
+        if (node.id === "classNumberPageNodeIt") currentPage = "classNumberPage";
+        if (node.id === "formPageNodeIt") currentPage = "formPage";
+      }
+
+      initializeLangPage();
     });
   });
 };
@@ -174,11 +195,11 @@ function progressBarProgress() {
   // Save the selected option for the current page
   sessionData[currentPage] = selectedOption;
   selectedOption = null;
-
+  console.log(sessionData);
   // Hide all English configuration pages
   setUpPageEn.classList.add("d-none");
-  durationEn.classList.add("d-none");
-  classNumberEn.classList.add("d-none");
+  durationPageEn.classList.add("d-none");
+  classNumberPageEn.classList.add("d-none");
   formPageEn.classList.add("d-none");
 
   // Move to the next step
@@ -186,20 +207,20 @@ function progressBarProgress() {
     currentPage = "durationPage";
     durationPageNodeEn.disabled = false;
     durationPageNodeEn.classList.add("active");
-    durationEn.classList.remove("d-none");
-  } 
+    durationPageEn.classList.remove("d-none");
+  }
   else if (currentPage === "durationPage") {
     currentPage = "classNumberPage";
     classNumberPageNodeEn.disabled = false;
     classNumberPageNodeEn.classList.add("active");
-    classNumberEn.classList.remove("d-none");
-  } 
+    classNumberPageEn.classList.remove("d-none");
+  }
   else if (currentPage === "classNumberPage") {
     currentPage = "formPage";
     formPageNodeEn.disabled = false;
     formPageNodeEn.classList.add("active");
     formPageEn.classList.remove("d-none");
-  } 
+  }
   else if (currentPage === "formPage") {
     alert("Configuration complete!");
   }
