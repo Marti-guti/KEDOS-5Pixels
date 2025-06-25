@@ -36,6 +36,7 @@ if (initiallyActive) {
 
 function initializeLangPage(){
   if (currentLang === "en"){
+    pageEn.classList.remove("d-none");
     pageEs.classList.add("d-none");
     pageIt.classList.add("d-none");
     setUpPageEn.classList.remove("d-none");
@@ -45,13 +46,17 @@ function initializeLangPage(){
   }
   if (currentLang === "es"){
     pageEn.classList.add("d-none");
+    pageEs.classList.remove("d-none");
     pageIt.classList.add("d-none");
   }
   if (currentLang === "it"){
-    pageEs.classList.add("d-none");
     pageEn.classList.add("d-none");
+    pageEs.classList.add("d-none");
+    pageIt.classList.remove("d-none");
   }
 }
+
+initializeLangPage();
 
 //initialize the language
 console.log(currentLang);
