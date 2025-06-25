@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KeCert Blockchain</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dropdown-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .config-box {
+            background: white;
+            color: black;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 250px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            width: auto;
+            background-size: cover;
+
+        }
+
+        .btn img {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .square {
+            background-color: #4c4c96;
+            height: 100px;
+        }
+
+        .blockchain-background {
+            margin: 0;
+            background: linear-gradient(to bottom, #4A519D 0%, #7564A3 100%);
+
+        }
+
+        .footer-background {
+            margin: 0;
+            background: linear-gradient(to bottom, #4A519D 0%, #7564A3 100%);
+        }
+
+        .loghino {
+            width: 20px;
+            height: 20px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .navbar {
+            background-color: red;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+
+        /* CSS HERO */
+        .hero {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: #4c4c96;
+            position: relative;
+        }
+
+        .sezione1 {
+            padding-left: 50px;
+        }
+
+        .dropdown-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .config-box {
+            background: white;
+            color: black;
+            padding: 1rem;
+            border-radius: 10px;
+            max-width: 250px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .square {
+            background-color: #4c4c96;
+            height: 100px;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 8rem;
+            line-height: 1.1;
+        }
+
+        .btn-colore {
+            background-color: #4c4c96;
+            color: white;
+            border: none;
+            transition: background 0.2s;
+        }
+
+        .btn-colore:hover,
+        .btn-colore:focus {
+            background-color: #23234d;
+            /* colore più scuro per l'hover */
+            color: white;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+
+        @media (min-width: 576px) {
+            h1 {
+                font-size: 4rem;
+
+            }
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            h1 {
+                font-size: 8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top ">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="./img/logo.webp" alt=""></a>
+
+            <!-- Hamburger per mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenuto della navbar -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sezione1">CHI SIAMO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sezione2">BLOCKCHAIN</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./img/italia-menu.webp" alt="italiano"
+                                style="width: 20px; height: 20px; margin-right: 5px;">
+                            Italiano
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><img src="./img/inglese-menu.webp" alt="">Inglese</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><img src="./img/spagna-menu.webp" alt="">Spagnolo</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+
+                <div class="sezione1 col-12 col-lg-6">
+                    <h1 class="mb-3 mt-5 fw-bold">
+                        Certificazioni
+                        <span class="second-line">BLOCKCHAIN</span>
+                    </h1>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero ullam eligendi sunt,
+                        pariatur nihil ipsam fugiat, iste corporis accusantium rem. Sint iure in impedit debitis amet ut
+                        asperiores praesentium esse laborum necessitatibus velit, tempora ipsam earum nostrum ratione
+                        eius!</p>
+
+                    <div class="card shadow mt-5 mb-5" style="width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Inizia la tua configurazione</h3>
+                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, illum
+                                optio sed id pariatur, ad quo rem ex minus, cupiditate magnam sit recusandae consequatur
+                                architecto sunt! Quis sint beatae cumque.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-colore btn-lg">CONFIGURA ORA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 text-center">
+                    <img class="img-fluid my-4" src="./img/illustrazione-certificato.png"
+                        alt="Immagine Illustrativa Certificato" width="70%">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi siamo -->
+    <section class="text-center section-padding blockchain-background" id="sezione1">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5" style="color: white;">CHI SIAMO</h2>
+            <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aliquam impedit
+                assumenda
+                expedita quidem facilis, quasi earum temporibus voluptas quos repellat! Accusantium accusamus, cum animi
+                officiis optio numquam beatae eveniet ad dignissimos eligendi quas quo in fuga enim quasi corrupti
+                commodi
+                provident doloribus natus deserunt voluptatibus aut? Nobis, voluptate aut ipsam nisi cum corrupti,
+                fugiat in,
+                labore sit dolorem tempore deleniti delectus ipsa cupiditate illo excepturi! Reprehenderit iusto ad sunt
+                aspernatur nostrum aperiam impedit deserunt tempora ex. Commodi officia quisquam ut quos tempore.
+                Repellat, odio
+                dolorum optio provident eius consectetur at aut, adipisci error, aliquam distinctio. Consectetur odio
+                excepturi
+                debitis!</p>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body ">
+                            <h3 class="card-title">SICURO</h3>
+                            <img src="img/shield-check.svg" class="img-card loghino " alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body">
+                            <h3 class="card-title">SEMPLICE</h3>
+                            <img src="img/check-circle.svg" class="img-card loghino" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body">
+                            <h3 class="card-title">GARANTITO</h3>
+                            <img src="img/hand-thumbs-up.svg" class="img-card loghino" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body">
+                            <h3 class="card-title">EFFICACE</h3>
+                            <img src="img/stars.svg" class="img-card loghino" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body">
+                            <h3 class="card-title">SOLIDO</h3>
+                            <img src="img/calendar-check.svg" class="img-card loghino" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card rounded-5">
+                        <div class="card-body">
+                            <h3 class="card-title">RAPIDO</h3>
+                            <img src="img/speedometer2.svg" class="img-card loghino" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blockchain -->
+    <section class=" section-padding ">
+        <div class="container" id="sezione2">
+            <h2 class="fw-bold text-center mb-5">LA BLOCKCHAIN</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="img/blockchain-foto.PNG" class="card-img-top rounded-circle" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <p>La <b>Blockchain</b> è un registro condiviso e immutabile in ordine cronologico. Le informazioni
+                        sono organizzate
+                        in <b>blocchi</b> di dimensioni fisse, dove ogni riga del registro corrisponde a un blocco. Ogni
+                        blocco include una
+                        data e ora crescenti (ore, minuti, secondi), garantendo una <b>sequenza temporale</b> precisa
+                        delle registrazioni
+                        all'interno della blockchain.</p>
+                    <button type="button" class="btn btn-outline-primary">Configura ora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-background">
+        <div class="container ">
+            <div class="row logo">
+                <div class="col-12 col-md-4 mb-3"><img src="img/logo.webp" alt=""></div>
+                <div class="col-12 col-md-4 mb-3">Configuratore</div>
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="d-flex justify-content-center gap-2">
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
