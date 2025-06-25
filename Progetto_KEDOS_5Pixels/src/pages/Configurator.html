@@ -11,26 +11,25 @@
 </head>
 
 <body>
-  <!-- LANGUAGE PAGE EN -->
-<div  id="en-page">
-    <!-- LANGUAGE MENU EN -->
-    <div class="en-dropdown dropdown-personal">
+  <div class="en-dropdown dropdown-personal">
       <select id="languageSelect">
         <option value="en">english</option>
         <option value="it">italiano</option>
         <option value="es">español</option>
       </select>
     </div>
+  <!-- LANGUAGE PAGE EN -->
+<div  id="en-page" class="d-none">
     <div class="container-personal">
-      <div id="progressEn">
-        <button id="setUpPage" class="active progressBarNode">Set-Up</button>
-        <button id="durationPage" class="progressBarNode" disabled>Certificate Duration</button>
-        <button id="classNumberPage" class="progressBarNode" disabled>third Page</button>
-        <button id="formPage" class="progressBarNode" disabled>fourth Page</button>
-      </div>
+
+        <button id="setUpPageNodeEn" class="active progressBarNode">Set-Up</button>
+        <button id="durationPageNodeEn" class="progressBarNode" disabled>Certificate Duration</button>
+        <button id="classNumberPageNodeEn" class="progressBarNode" disabled>third Page</button>
+        <button id="formPageNodeEn" class="progressBarNode" disabled>fourth Page</button>
+
   
       <!-- QUESTION SET-UP EN -->
-      <div id="setUp-Eng">
+      <div id="setUp-En" class="d-none">
         <h1 class="title-personal">Choose your Set-Up</h1>
         <!-- CARD CONTAINER EN -->
         <div id="cards" class="cards">
@@ -48,7 +47,7 @@
       </div>
   
       <!-- DURATION EN -->
-      <div id="duration-Eng">
+      <div id="duration-En" class="d-none">
         <h1 class="title-personal">Choose the duration</h1>
         <!-- CARD CONTAINER EN -->
         <div id="cards" class="cards">
@@ -66,7 +65,7 @@
       </div>
   
       <!-- NUMBER OF CLASSES EN -->
-      <div id="classes-Eng">
+      <div id="classes-En" class="d-none">
         <h1 class="title-personal">Choose the duration</h1>
         <!-- CARD CONTAINER EN -->
         <div id="cards" class="cards">
@@ -84,7 +83,7 @@
       </div>
   
       <!-- QUARTA PAGINA EN -->
-      <div id="form-Eng" class="d-none">
+      <div id="form-En" class="d-none">
         <h1 class="title-personal">Finalize your choice</h1>
         <div class="container-personal" style="display: flex; gap: 2rem;">
           <!-- FINAL CARD -->
@@ -113,21 +112,13 @@
   
   
   
-      <button id="nextBtnEn" disabled>Next</button>
+      <button id="nextBtnEn" class="" disabled>Next</button>
     </div>
 </div>
 
   <!-- LANGUAGE PAGE ES   -->
 
-  <div id="es-page">
-    <!-- MENU PER LINGUE ES -->
-    <div class="dropdown-personal">
-      <select id="languageSelect">
-        <option value="es">español</option>
-        <option value="en">english</option>
-        <option value="it">italiano</option>
-      </select>
-    </div>
+  <div id="es-page" class="d-none">
     <div class="container-personal">
       
         <button id="setUpPage" class="active progressBarNode">Set-Up</button>
@@ -136,12 +127,12 @@
         <button id="formPage" class="progressBarNode" disabled>fourth Page</button>
       
       <!-- QUESTION SET-UP ES -->
-      <div id="setUp-Es">
+      <div id="setUp-Es" class="d-none">
         <h1 class="title-personal">Scegli configuraziones</h1>
         <!-- CARD CONTAINER ES -->
         <div id="cards" class="cards">
           <div class="card" data-option="base">
-            <h2>Manual certificate registration.</h2>
+            <h2>set-up in spagnolo</h2>
             <p>Ideal for individual users or small teams. All certificates are registered manually through our platform,
               without API integration.</p>
           </div>
@@ -152,21 +143,13 @@
           </div>
         </div>
       </div>
-      <button id="nextBtnEs" disabled>Next</button>
+      <button id="nextBtnEs" disabled>Avantis</button>
     </div>
   </div>
 
   <!-- LANGUAGE PAGE IT   -->
 
   <div id="it-page">  
-    <!-- MENU PER LINGUE IT -->
-    <div class="dropdown-personal">
-      <select id="languageSelect">
-        <option value="it">italiano</option>
-        <option value="es">español</option>
-        <option value="en">english</option>
-      </select>
-    </div>
     <div class="container-personal">
       
         <button id="setUpPage" class="active progressBarNode">Set-Up</button>
@@ -175,13 +158,13 @@
         <button id="formPage" class="progressBarNode" disabled>fourth Page</button>
       
   
-      <!-- QUESTION SET-UP ES -->
-      <div id="setUp-Es">
-        <h1 class="title-personal">Scegli configuraziones</h1>
-        <!-- CARD CONTAINER ES -->
+      <!-- QUESTION SET-UP IT -->
+      <div id="setUp-It">
+        <h1 class="title-personal">Scegli configurazione</h1>
+        <!-- CARD CONTAINER IT -->
         <div id="cards" class="cards" id="cards">
           <div class="card" data-option="base">
-            <h2>Manual certificate registration.</h2>
+            <h2>setUp in italiano</h2>
             <p>Ideal for individual users or small teams. All certificates are registered manually through our platform,
               without API integration.</p>
           </div>
@@ -197,7 +180,7 @@
   
   
   
-      <button id="nextBtnIt" disabled>Next</button>
+      <button id="nextBtnIt" disabled>Avanti</button>
     </div>
 </div>
 

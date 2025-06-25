@@ -1,20 +1,28 @@
-// BUTTONS
-const nextBtn = document.getElementById("nextBtn");
-const durationPageBtn = document.getElementById("durationPage");
-const setUpPage = document.getElementById("setUpPage");
+// NEXT BUTTONS
+const nextBtnEn = document.getElementById("nextBtnEn");
+const nextBtnEs = document.getElementById("nextBtnEs");
+const nextBtnIt = document.getElementById("nextBtnIt");
+// PROGRESS NODES EN
+const setUpPageNodeEn = document.getElementById("setUpPageNodeEn");
+const durationPageNodeEn = document.getElementById("durationPageNodeEn");
+const classNumberPageNodeEn = document.getElementById("classNumberPageNodeEn");
+const formPageNodeEn = document.getElementById("formPageNodeEn");
 // ES LANGUAGE INTERFACE
 const pageEs = document.getElementById("es-page");
 // ES PAGES
 // EN LANGUAGE INTERFACE
 const pageEn = document.getElementById("en-page");
 // EN PAGES
-const setUpPageEn = document.getElementById("setUp-Eng");
-const durationEn = document.getElementById("duration-Eng");
-const classNumberEn = document.getElementById("classes-Eng");
-const formPageEn = document.getElementById("form-Eng");
+const setUpPageEn = document.getElementById("setUp-En");
+const durationEn = document.getElementById("duration-En");
+const classNumberEn = document.getElementById("classes-En");
+const formPageEn = document.getElementById("form-En");
+// ES PAGES
+const setUpPageEs = document.getElementById("setUp-Es");
 // IT LANGUAGE INTERFACE
 const pageIt = document.getElementById("it-page");
 // IT PAGES
+const setUpPageIt = document.getElementById("setUp-It");
 // VAR TO KNOW WHICH CARD IS CURRENTLY SELECTED
 let selectedOption = null;
 // VAR TO KNOW WHICH PAGE IS CURRENTLTY ACTIVE
@@ -27,34 +35,90 @@ let languageSelect = document.querySelector("#languageSelect");
 const progressBarNodes = document.querySelectorAll(".progressBarNode");
 // OBJ WHERE TO PUT ALL SELECTED VALUE OF EACH PAGE
 let sessionData = {};
+// FUNCTION TO GET THE CORRECT NEXT BUTTON
+function getCurrentNextBtn() {
+  if (currentLang === "en") return nextBtnEn;
+  if (currentLang === "es") return nextBtnEs;
+  if (currentLang === "it") return nextBtnIt;
+}
 
 // initialize the currentPage using the active class from the html
-const initiallyActive = document.querySelector(".progressBarNode.active");
-if (initiallyActive) {
-  currentPage = initiallyActive.id;
-}
+function initialize(){
+    currentPage = "setUpPage"
+  };
 
-function initializeLangPage(){
-  if (currentLang === "en"){
+initialize();
+
+/**
+ * @function initializeCardsListener
+ * @description This function is used to take all the .card element and add a event listener
+ * to them. This event listener, onClick will delete the class selected from all the cards and add 
+ * the class selected to the selected card. It also stores the selected card's option value and enables the "Next" button.
+ * 
+ * @returns {void}
+ * 
+ * @example
+ * // Call after rendering or updating cards in the DOM:
+ * initializeCardsListener();
+ * 
+ * // The selected card will be visually highlighted and the next button will become active.
+ */
+function initializeCardsListener() {
+  let cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      cards.forEach(card => card.classList.remove("selected"));
+      card.classList.add("selected");
+
+      // Save selected value
+      selectedOption = card.dataset.option;
+      if (currentLang === "en"){
+        nextBtnEn.disabled = false;
+      }
+      if (currentLang === "es"){
+        nextBtnEs.disabled = false;
+      }
+      if (currentLang === "it"){
+        nextBtnIt.disabled = false;
+      }
+    });
+  });
+};
+
+function initializeLangPage() {
+
+  pageEn.classList.add("d-none");
+  pageEs.classList.add("d-none");
+  pageIt.classList.add("d-none");
+
+  setUpPageEn.classList.add("d-none");
+  durationEn.classList.add("d-none");
+  classNumberEn.classList.add("d-none");
+  formPageEn.classList.add("d-none");
+  setUpPageEs.classList.add("d-none");
+  setUpPageIt.classList.add("d-none");
+
+  if (currentLang === "en") {
     pageEn.classList.remove("d-none");
-    pageEs.classList.add("d-none");
-    pageIt.classList.add("d-none");
-    setUpPageEn.classList.remove("d-none");
-    durationEn.classList.add("d-none");
-    classNumberEn.classList.add("d-none");
-    formPageEn.classList.add("d-none");
+
+    if (currentPage === "setUpPage") setUpPageEn.classList.remove("d-none");
+    if (currentPage === "durationPage") durationEn.classList.remove("d-none");
+    if (currentPage === "classNumberPage") classNumberEn.classList.remove("d-none");
+    if (currentPage === "formPage") formPageEn.classList.remove("d-none");
   }
-  if (currentLang === "es"){
-    pageEn.classList.add("d-none");
+
+  if (currentLang === "es") {
     pageEs.classList.remove("d-none");
-    pageIt.classList.add("d-none");
+    if (currentPage === "setUpPage") setUpPageEs.classList.remove("d-none");
   }
-  if (currentLang === "it"){
-    pageEn.classList.add("d-none");
-    pageEs.classList.add("d-none");
+
+  if (currentLang === "it") {
     pageIt.classList.remove("d-none");
+    if (currentPage === "setUpPage") setUpPageIt.classList.remove("d-none");
   }
-}
+
+  initializeCardsListener();
+};
 
 initializeLangPage();
 
@@ -64,6 +128,7 @@ languageSelect.addEventListener("change", ()=>{
   currentLang = languageSelect.value;
   console.log(currentLang);
   initializeLangPage();
+  initializeCardsListener();
 });
 
 
@@ -89,62 +154,13 @@ function initializeNodeListeners() {
       nextBtn.disabled = true;
       currentPage = node.id;
       console.log(currentPage);
-      initializeCards();
+
       initializeCardsListener();
     });
   });
 };
 
 initializeNodeListeners();
-
-
-function initializeCards() {
-
-  //first "page" of the configurator
-  if (currentPage === "setUpPage") {
-    if (currentLang === "en") {
-
-    }
-  };
-
-  // second "page" of the configurator
-  if (currentPage === "durationPage") {
-    
-  };
-};
-
-initializeCards();
-
-/**
- * @function initializeCardsListener
- * @description This function is used to take all the .card element and add a event listener
- * to them. This event listener, onClick will delete the class selected from all the cards and add 
- * the class selected to the selected card. It also stores the selected card's option value and enables the "Next" button.
- * 
- * @returns {void}
- * 
- * @example
- * // Call after rendering or updating cards in the DOM:
- * initializeCardsListener();
- * 
- * // The selected card will be visually highlighted and the next button will become active.
- */
-function initializeCardsListener() {
-  let cards = document.querySelectorAll(".card");
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      cards.forEach(card => card.classList.remove("selected"));
-      card.classList.add("selected");
-
-      // Save selected value
-      selectedOption = card.dataset.option;
-      nextBtn.disabled = false;
-
-    });
-  });
-};
-
-initializeCardsListener();
 
 /**
  * @function progressBarProgress
@@ -155,48 +171,47 @@ initializeCardsListener();
  * @returns {void}
  */
 function progressBarProgress() {
-  switch (currentPage) {
-    case "setUpPage":
-      if (!sessionData.setUpPage) return;
-      setUpPageEn.classList.add("d-none");
-      durationEn.classList.remove("d-none");
-      durationPageBtn.disabled = false;
-      durationPageBtn.classList.add("active");
-      setUpPage.classList.remove("active");
-      currentPage = "durationPage";
-      break;
+  // Save the selected option for the current page
+  sessionData[currentPage] = selectedOption;
+  selectedOption = null;
 
-    case "durationPage":
-      if (!sessionData.durationPage) return;
-      durationEn.classList.add("d-none");
-      classNumberEn.classList.remove("d-none");
-      document.getElementById("classNumberPage").disabled = false;
-      document.getElementById("classNumberPage").classList.add("active");
-      durationPageBtn.classList.remove("active");
-      currentPage = "classNumberPage";
-      break;
+  // Hide all English configuration pages
+  setUpPageEn.classList.add("d-none");
+  durationEn.classList.add("d-none");
+  classNumberEn.classList.add("d-none");
+  formPageEn.classList.add("d-none");
 
-    case "classNumberPage":
-      if (!sessionData.classNumberPage) return;
-      classNumberEn.classList.add("d-none");
-      formPageEn.classList.remove("d-none");
-      document.getElementById("formPage").disabled = false;
-      document.getElementById("formPage").classList.add("active");
-      document.getElementById("classNumberPage").classList.remove("active");
-      currentPage = "formPage";
-      break;
+  // Move to the next step
+  if (currentPage === "setUpPage") {
+    currentPage = "durationPage";
+    durationPageNodeEn.disabled = false;
+    durationPageNodeEn.classList.add("active");
+    durationEn.classList.remove("d-none");
+  } 
+  else if (currentPage === "durationPage") {
+    currentPage = "classNumberPage";
+    classNumberPageNodeEn.disabled = false;
+    classNumberPageNodeEn.classList.add("active");
+    classNumberEn.classList.remove("d-none");
+  } 
+  else if (currentPage === "classNumberPage") {
+    currentPage = "formPage";
+    formPageNodeEn.disabled = false;
+    formPageNodeEn.classList.add("active");
+    formPageEn.classList.remove("d-none");
+  } 
+  else if (currentPage === "formPage") {
+    alert("Configuration complete!");
   }
+
+  // Disable the current language's Next button
+  getCurrentNextBtn().disabled = true;
+
+  // Re-initialize card listeners for the new step
+  initializeCardsListener();
 }
 
+nextBtnEn.addEventListener("click", progressBarProgress);
+nextBtnEs.addEventListener("click", progressBarProgress);
+nextBtnIt.addEventListener("click", progressBarProgress);
 
-//pulsante per andare allo step successivo
-nextBtn.addEventListener("click", () => {
-  sessionData[currentPage] = selectedOption;
-  selectedOption = "";
-  progressBarProgress();
-  console.log(currentPage)
-  initializeCards();
-  initializeCardsListener();
-  initializeNodeListeners();
-  console.log(sessionData)
-});
