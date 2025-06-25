@@ -1,11 +1,285 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KeCert Blockchain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/style.css">
 </head>
+
 <body>
-    
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top ">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="../../public/img/logo.webp" alt=""></a>
+
+            <!-- Hamburger per mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenuto della navbar -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sezione1">CHI SIAMO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sezione2">BLOCKCHAIN</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="../../public/img/italia-menu.webp" alt="italiano"
+                                style="width: 20px; height: 20px; margin-right: 5px;">
+                            Italiano
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><img src="../../public/img/inglese-menu.webp"
+                                        alt="">Inglese</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><img src="../../public/img//spagna-menu.webp"
+                                        alt="">Spagnolo</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+
+                <div class="sezione1 col-12 col-lg-6">
+                    <h1 class="mb-3 mt-5 fw-bold">
+                        Certificazioni
+                        <span class="second-line">BLOCKCHAIN</span>
+                    </h1>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero ullam eligendi sunt,
+                        pariatur nihil ipsam fugiat, iste corporis accusantium rem. Sint iure in impedit debitis amet ut
+                        asperiores praesentium esse laborum necessitatibus velit, tempora ipsam earum nostrum ratione
+                        eius!</p>
+
+                    <div class="card shadow mt-5 mb-5" style="width: 100%;">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Inizia la tua configurazione</h3>
+                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, illum
+                                optio sed id pariatur, ad quo rem ex minus, cupiditate magnam sit recusandae consequatur
+                                architecto sunt! Quis sint beatae cumque.</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-colore btn-lg">CONFIGURA ORA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 text-center">
+                    <img class="img-fluid my-4" src="../../public/img/illustrazione-certificato.png"
+                        alt="Immagine Illustrativa Certificato" width="70%">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi siamo -->
+    <section class="text-center section-padding blockchain-background" id="sezione1">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5" style="color: white;">CHI SIAMO</h2>
+            <p style="color: white; line-height: 1.8;">
+                Kecert è una società <b>indipendente</b> con sede in Italia, fondata da professionisti
+                provenienti da ambiti diversi ma uniti da una visione comune: costruire un futuro digitale basato su
+                <b>trasparenza, sicurezza</b> e <b>autonomia</b>. L'azienda si caratterizza per un approccio
+                <b>rigoroso, etico</b> e
+                orientato all'<b>innovazione</b>, promuovendo una cultura della fiducia nei sistemi digitali. Kedos è
+                prima di
+                tutto una <b>comunità</b> di persone che credono nel potenziale della <b>decentralizzazione</b> e si
+                impegnano a
+                renderla <b>concreta</b> e <b>accessibile</b>.
+            </p>
+
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mt-5">
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SICURO</h3>
+                                    <img src="../../public/img/shield-check.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>La blockchain è un registro digitale pubblico e condiviso che <b>previene le
+                                            frodi</b> con algoritmi avanzati di crittografia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SEMPLICE</h3>
+                                    <img src="../../public/img/check-circle.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>La gestione dei certificati di KeCert® è <b>adatta per chiunque</b> faccia
+                                        formazione, dall'Università al freelance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">AFFIDABILE</h3>
+                                    <img src="../../public/img/hand-thumbs-up.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>Il servizio permette di <b>controllare</b> i certificati emessi e di
+                                        <b>verificare</b> la loro eventuale validità temporale.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">EFFICIENTE</h3>
+                                    <img src="../../public/img/stars.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>Il processo di verifica di un certificato è alleggerito perché <b>non richiede
+                                            intermediari</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SOLIDO</h3>
+                                    <img src="../../public/img/calendar-check.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>Canone contenuto e <b>conservazione dei documenti</b> per lungo periodo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">RAPIDO</h3>
+                                    <img src="../../public/img/speedometer2.svg" class="img-card loghino" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+
+                                    <p>Tempi di risposta e azione <b>ultraveloci</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blockchain -->
+    <section class=" section-padding ">
+        <div class="container" id="sezione2">
+            <h2 class="fw-bold text-center mb-5">LA BLOCKCHAIN</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="../../public/img/blockchain-foto.PNG" class="card-img-top rounded-circle" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <p>La <b>Blockchain</b> è un registro condiviso e immutabile in ordine cronologico. Le informazioni
+                        sono organizzate
+                        in <b>blocchi</b> di dimensioni fisse, dove ogni riga del registro corrisponde a un blocco. Ogni
+                        blocco include una
+                        data e ora crescenti (ore, minuti, secondi), garantendo una <b>sequenza temporale</b> precisa
+                        delle registrazioni
+                        all'interno della blockchain.</p>
+                    <button type="button" class="btn btn-outline-primary">Configura ora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-background">
+        <div class="container ">
+            <div class="row logo">
+                <div class="col-12 col-md-4 mb-3"><img src="../../public/img/logo.webp" alt=""></div>
+                <div class="col-12 col-md-4 mb-3">Configuratore</div>
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="d-flex justify-content-center gap-2">
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                        <div class="rounded-circle bg-white" style="width: 12px; height: 12px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
