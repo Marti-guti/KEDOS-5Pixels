@@ -62,16 +62,35 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* ============================
+   LANGUAGE DROPDOWN CIRCOLARE
+   ============================ */
 .dropdown-personal {
-  position: relative;
-  display: inline-block;
-  font-family: sans-serif;
+  position: absolute;
+  top: 2vh;
+  right: 1vw;
+  z-index: 999;
 }
 
 .dropdown-personal select {
-  padding: 4px 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  width: 160px;
+  height: 40px;
+  padding-left: 45px; 
+  border-radius: 8px;  
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 24px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+
+.dropdown-personal select option {
+  background-color: #fff;
+  color: #000;
 }

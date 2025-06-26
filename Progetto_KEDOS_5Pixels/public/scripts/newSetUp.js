@@ -42,9 +42,15 @@ function getCurrentNextBtn() {
   if (currentLang === "it") return nextBtnIt;
 }
 
+function initializeFlag(){
+  const flag = languageSelect.value;
+  languageSelect.style.backgroundImage = `url("../../public/img/${flag}.png")`;
+  }
+
 // initialize the currentPage using the active class from the html
 function initialize() {
-  currentPage = "setUpPage"
+  currentPage = "setUpPage";
+  initializeFlag();
 };
 
 initialize();
@@ -101,10 +107,18 @@ function initializeLangPage() {
   if (currentLang === "en") {
     pageEn.classList.remove("d-none");
 
-    if (currentPage === "setUpPage") setUpPageEn.classList.remove("d-none");
-    if (currentPage === "durationPage") durationPageEn.classList.remove("d-none");
-    if (currentPage === "classNumberPage") classNumberPageEn.classList.remove("d-none");
-    if (currentPage === "formPage") formPageEn.classList.remove("d-none");
+    if (currentPage === "setUpPage") {
+      setUpPageEn.classList.remove("d-none");
+    }
+    if (currentPage === "durationPage") {
+      durationPageEn.classList.remove("d-none")
+    };
+    if (currentPage === "classNumberPage") {
+      classNumberPageEn.classList.remove("d-none")
+    };
+    if (currentPage === "formPage") {
+      formPageEn.classList.remove("d-none")
+    };
   }
 
   if (currentLang === "es") {
@@ -128,6 +142,7 @@ console.log(currentLang);
 languageSelect.addEventListener("change", () => {
   currentLang = languageSelect.value;
   console.log(currentLang);
+  initializeFlag();
   initializeLangPage();
   initializeCardsListener();
 });
@@ -138,19 +153,21 @@ languageSelect.addEventListener("change", () => {
  * @function initializeNodeListeners
  * @description Adds click event listeners to all `.progressBarNode` elements. 
  * When a node is clicked, it updates the visual state by marking the clicked node 
- * as active, disables the "Next" button, sets the current page ID, 
- * and re-initializes the corresponding cards and their listeners.
+ * as active, disables the "Next" button and sets the current page ID.
  * 
  * @returns {void}
  * 
  */
 function initializeNodeListeners() {
+  let cards = document.querySelectorAll(".card");
   progressBarNodes.forEach(node => {
     node.addEventListener("click", () => {
+      cards.forEach(card => card.classList.remove("selected"));
       progressBarNodes.forEach(allNode => allNode.classList.remove("active"));
       node.classList.add("active");
 
       getCurrentNextBtn().disabled = true;
+
 
       // ENGLISH PAGES
       if (currentLang === "en") {
@@ -177,6 +194,7 @@ function initializeNodeListeners() {
       }
 
       initializeLangPage();
+      initializeCardsListener();
     });
   });
 };
@@ -186,43 +204,40 @@ initializeNodeListeners();
 /**
  * @function progressBarProgress
  * @description Advances the current configuration step from a page to another 
- * if the `sessionData` object contains valid data. 
- * It also enables the button associated with the second step.
  * 
  * @returns {void}
  */
 function progressBarProgress() {
-  // Save the selected option for the current page
   sessionData[currentPage] = selectedOption;
   selectedOption = null;
   console.log(sessionData);
-  // Hide all English configuration pages
-  setUpPageEn.classList.add("d-none");
-  durationPageEn.classList.add("d-none");
-  classNumberPageEn.classList.add("d-none");
-  formPageEn.classList.add("d-none");
+  if (currentLang === "en") {
+    setUpPageEn.classList.add("d-none");
+    durationPageEn.classList.add("d-none");
+    classNumberPageEn.classList.add("d-none");
+    formPageEn.classList.add("d-none");
 
-  // Move to the next step
-  if (currentPage === "setUpPage") {
-    currentPage = "durationPage";
-    durationPageNodeEn.disabled = false;
-    durationPageNodeEn.classList.add("active");
-    durationPageEn.classList.remove("d-none");
-  }
-  else if (currentPage === "durationPage") {
-    currentPage = "classNumberPage";
-    classNumberPageNodeEn.disabled = false;
-    classNumberPageNodeEn.classList.add("active");
-    classNumberPageEn.classList.remove("d-none");
-  }
-  else if (currentPage === "classNumberPage") {
-    currentPage = "formPage";
-    formPageNodeEn.disabled = false;
-    formPageNodeEn.classList.add("active");
-    formPageEn.classList.remove("d-none");
-  }
-  else if (currentPage === "formPage") {
-    alert("Configuration complete!");
+    if (currentPage === "setUpPage") {
+      currentPage = "durationPage";
+      durationPageNodeEn.disabled = false;
+      durationPageNodeEn.classList.add("active");
+      durationPageEn.classList.remove("d-none");
+    }
+    else if (currentPage === "durationPage") {
+      currentPage = "classNumberPage";
+      classNumberPageNodeEn.disabled = false;
+      classNumberPageNodeEn.classList.add("active");
+      classNumberPageEn.classList.remove("d-none");
+    }
+    else if (currentPage === "classNumberPage") {
+      currentPage = "formPage";
+      formPageNodeEn.disabled = false;
+      formPageNodeEn.classList.add("active");
+      formPageEn.classList.remove("d-none");
+    }
+    else if (currentPage === "formPage") {
+      alert("Configuration complete!");
+    }
   }
 
   // Disable the current language's Next button

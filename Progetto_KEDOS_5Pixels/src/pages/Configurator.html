@@ -11,23 +11,23 @@
 </head>
 
 <body>
-  <div class="en-dropdown dropdown-personal">
-      <select id="languageSelect">
-        <option value="en">english</option>
-        <option value="it">italiano</option>
-        <option value="es">español</option>
-      </select>
-    </div>
+  <div class="dropdown-personal">
+    <select id="languageSelect">
+      <option value="en">english</option>
+      <option value="it">italiano</option>
+      <option value="es">español</option>
+    </select>
+  </div>
   <!-- LANGUAGE PAGE EN -->
-<div  id="en-page" class="d-none">
+  <div id="en-page" class="d-none">
     <div class="container-personal">
 
-        <button id="setUpPageNodeEn" class="active progressBarNode">Set-Up</button>
-        <button id="durationPageNodeEn" class="progressBarNode" disabled>Certificate Duration</button>
-        <button id="classNumberPageNodeEn" class="progressBarNode" disabled>third Page</button>
-        <button id="formPageNodeEn" class="progressBarNode" disabled>fourth Page</button>
+      <button id="setUpPageNodeEn" class="active progressBarNode">Set-Up</button>
+      <button id="durationPageNodeEn" class="progressBarNode" disabled>Certificate Duration</button>
+      <button id="classNumberPageNodeEn" class="progressBarNode" disabled>third Page</button>
+      <button id="formPageNodeEn" class="progressBarNode" disabled>fourth Page</button>
 
-  
+
       <!-- QUESTION SET-UP EN -->
       <div id="setUp-En" class="d-none">
         <h1 class="title-personal">Choose your Set-Up</h1>
@@ -40,30 +40,31 @@
           </div>
           <div class="card" data-option="advanced">
             <h2>Automated certificate registration via API.</h2>
-            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
+            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
+              for
               seamless and scalable blockchain certificate issuance.</p>
           </div>
         </div>
       </div>
-  
+
       <!-- DURATION EN -->
       <div id="duration-En" class="d-none">
         <h1 class="title-personal">Choose the duration</h1>
         <!-- CARD CONTAINER EN -->
         <div id="cards" class="cards">
-          <div class="card" data-option="base">
-            <h2>Manual certificate registration.</h2>
-            <p>Ideal for individual users or small teams. All certificates are registered manually through our platform,
-              without API integration.</p>
+          <div class="card" data-option="with-expiry">
+            <h2>Certificates with expiry date.</h2>
+            <p>These certificates have a validity period and can be viewed on our platform for up to 10 years after
+              issuance.</p>
           </div>
-          <div class="card" data-option="advanced">
-            <h2>Automated certificate registration via API.</h2>
-            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
-              seamless and scalable blockchain certificate issuance.</p>
+          <div class="card" data-option="without-expiry">
+            <h2>Certificates without expiry date.</h2>
+            <p>These certificates are permanent and can be accessed and verified on our platform for up to 100 years.
+            </p>
           </div>
         </div>
       </div>
-  
+
       <!-- NUMBER OF CLASSES EN -->
       <div id="classes-En" class="d-none">
         <h1 class="title-personal">Choose the duration</h1>
@@ -76,12 +77,13 @@
           </div>
           <div class="card" data-option="advanced">
             <h2>Automated certificate registration via API.</h2>
-            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
+            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
+              for
               seamless and scalable blockchain certificate issuance.</p>
           </div>
         </div>
       </div>
-  
+
       <!-- QUARTA PAGINA EN -->
       <div id="form-En" class="d-none">
         <h1 class="title-personal">Finalize your choice</h1>
@@ -89,43 +91,44 @@
           <!-- FINAL CARD -->
           <div class="card" data-option="final">
             <h2>Final Blockchain Package</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin tempor felis in ex lacinia.
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin tempor felis in ex
+              lacinia.
             </p>
           </div>
-  
+
           <!-- FORM -->
           <form id="finalForm" class="form-personal">
             <label for="userName">Name</label>
             <input type="text" id="userName" name="userName" required>
-  
+
             <label for="userEmail">Email</label>
             <input type="email" id="userEmail" name="userEmail" required>
-  
+
             <label for="userDescription">Description</label>
             <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-  
+
             <button type="submit">Submit</button>
           </form>
         </div>
       </div>
-  
-  
-  
-  
+
+
+
+
       <button id="nextBtnEn" class="" disabled>Next</button>
     </div>
-</div>
+  </div>
 
   <!-- LANGUAGE PAGE ES   -->
 
   <div id="es-page" class="d-none">
     <div class="container-personal">
-      
-        <button id="setUpPageNodeEs" class="active progressBarNode">Set-Up</button>
-        <button id="durationPageNodeEs" class="progressBarNode" disabled>Certificate Duration</button>
-        <button id="classNumberPageNodeEs" class="progressBarNode" disabled>third Page</button>
-        <button id="formPageNodeEs" class="progressBarNode" disabled>fourth Page</button>
-      
+
+      <button id="setUpPageNodeEs" class="active progressBarNode">Set-Up</button>
+      <button id="durationPageNodeEs" class="progressBarNode" disabled>Certificate Duration</button>
+      <button id="classNumberPageNodeEs" class="progressBarNode" disabled>third Page</button>
+      <button id="formPageNodeEs" class="progressBarNode" disabled>fourth Page</button>
+
       <!-- QUESTION SET-UP ES -->
       <div id="setUp-Es" class="d-none">
         <h1 class="title-personal">Scegli configuraziones</h1>
@@ -138,7 +141,8 @@
           </div>
           <div class="card" data-option="advanced">
             <h2>Automated certificate registration via API.</h2>
-            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
+            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
+              for
               seamless and scalable blockchain certificate issuance.</p>
           </div>
         </div>
@@ -149,15 +153,15 @@
 
   <!-- LANGUAGE PAGE IT   -->
 
-  <div id="it-page">  
+  <div id="it-page">
     <div class="container-personal">
-      
-        <button id="setUpPageNodeIt" class="active progressBarNode">Set-Up</button>
-        <button id="durationPageNodeIt" class="progressBarNode" disabled>Certificate Duration</button>
-        <button id="classNumberPageNodeIt" class="progressBarNode" disabled>third Page</button>
-        <button id="formPageNodeIt" class="progressBarNode" disabled>fourth Page</button>
-      
-  
+
+      <button id="setUpPageNodeIt" class="active progressBarNode">Set-Up</button>
+      <button id="durationPageNodeIt" class="progressBarNode" disabled>Certificate Duration</button>
+      <button id="classNumberPageNodeIt" class="progressBarNode" disabled>third Page</button>
+      <button id="formPageNodeIt" class="progressBarNode" disabled>fourth Page</button>
+
+
       <!-- QUESTION SET-UP IT -->
       <div id="setUp-It">
         <h1 class="title-personal">Scegli configurazione</h1>
@@ -170,19 +174,20 @@
           </div>
           <div class="card" data-option="advanced">
             <h2>Automated certificate registration via API.</h2>
-            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for
+            <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
+              for
               seamless and scalable blockchain certificate issuance.</p>
           </div>
         </div>
       </div>
-  
-  
-  
-  
-  
+
+
+
+
+
       <button id="nextBtnIt" disabled>Avanti</button>
     </div>
-</div>
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
