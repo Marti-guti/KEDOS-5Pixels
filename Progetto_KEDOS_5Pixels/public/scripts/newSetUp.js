@@ -55,7 +55,6 @@ function initialize() {
 
 initialize();
 
-
 function initializeCardsListener() {
   let cards = document.querySelectorAll(".card");
 
