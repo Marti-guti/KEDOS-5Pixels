@@ -240,3 +240,17 @@ h1 {
     font-size: 8rem;
   }
 }
+
+.foot img {
+            height: 70px;
+            width: auto;
+            background-size: cover;
+
+        }
+        
+
+        .social-icons img{
+            height: 30px;
+            width: auto;
+            background-size: cover;
+        }
