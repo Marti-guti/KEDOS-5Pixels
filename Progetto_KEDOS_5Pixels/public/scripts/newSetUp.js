@@ -42,10 +42,10 @@ function getCurrentNextBtn() {
   if (currentLang === "it") return nextBtnIt;
 }
 
-function initializeFlag(){
+function initializeFlag() {
   const flag = languageSelect.value;
   languageSelect.style.backgroundImage = `url("../../public/img/${flag}.png")`;
-  }
+}
 
 // initialize the currentPage using the active class from the html
 function initialize() {
@@ -55,41 +55,55 @@ function initialize() {
 
 initialize();
 
-/**
- * @function initializeCardsListener
- * @description This function is used to take all the .card element and add a event listener
- * to them. This event listener, onClick will delete the class selected from all the cards and add 
- * the class selected to the selected card. It also stores the selected card's option value and enables the "Next" button.
- * 
- * @returns {void}
- * 
- * @example
- * // Call after rendering or updating cards in the DOM:
- * initializeCardsListener();
- * 
- * // The selected card will be visually highlighted and the next button will become active.
- */
+
 function initializeCardsListener() {
   let cards = document.querySelectorAll(".card");
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      cards.forEach(card => card.classList.remove("selected"));
-      card.classList.add("selected");
 
-      // Save selected value
-      selectedOption = card.dataset.option;
-      if (currentLang === "en") {
-        nextBtnEn.disabled = false;
-      }
-      if (currentLang === "es") {
-        nextBtnEs.disabled = false;
-      }
-      if (currentLang === "it") {
-        nextBtnIt.disabled = false;
-      }
-    });
+  cards.forEach(card => {
+    let cardOption = card.dataset.option;
+
+    // Caso speciale: siamo nella pagina con bottoni interni
+    if (currentPage === "classNumberPage") {
+      // NON assegnare il click alla card
+      let btnStudents = card.querySelectorAll(".btn-student");
+
+      btnStudents.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Salva i valori selezionati
+          sessionData["classNumberPage"] = cardOption;
+          sessionData["studentNumber"] = btn.dataset.suboption;
+
+          // Rimuovi selezioni precedenti
+          cards.forEach(card => card.classList.remove("selected"));
+          document.querySelectorAll(".btn-student").forEach(btn => btn.classList.remove("selected"));
+
+          // Aggiungi selezione
+          card.classList.add("selected");
+          btn.classList.add("selected");
+
+          // Abilita il pulsante Next
+          getCurrentNextBtn().disabled = false;
+        });
+      });
+
+    } else {
+      // Pagine normali: click diretto sulla card
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+
+        // Salva e abilita
+        selectedOption = cardOption;
+        sessionData[currentPage] = selectedOption;
+        getCurrentNextBtn().disabled = false;
+      });
+    }
   });
-};
+}
+
+
 
 function initializeLangPage() {
 
@@ -114,7 +128,7 @@ function initializeLangPage() {
       durationPageEn.classList.remove("d-none")
     };
     if (currentPage === "classNumberPage") {
-      classNumberPageEn.classList.remove("d-none")
+      classNumberPageEn.classList.remove("d-none");
     };
     if (currentPage === "formPage") {
       formPageEn.classList.remove("d-none")
@@ -195,6 +209,7 @@ function initializeNodeListeners() {
 
       initializeLangPage();
       initializeCardsListener();
+
     });
   });
 };
