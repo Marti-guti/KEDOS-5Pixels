@@ -41,10 +41,16 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.card.no-hover:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+}
+
 .card.selected {
   border-color: #ffa500;
   background-color: rgba(255, 255, 255, 0.15);
 }
+
 
 button {
   padding: 12px 30px;
