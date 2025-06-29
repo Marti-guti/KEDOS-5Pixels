@@ -7,6 +7,12 @@
     <title>KeCert Blockchain</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
@@ -58,39 +64,69 @@
         <div class="container-fluid">
             <div class="row d-flex align-items-center">
 
-                <div class="sezione1 col-12 col-lg-6">
-                    <h1 class="mb-3 mt-5 fw-bold">
+                <!-- title -->
+                <div class="col-12 col-md-12 col-lg-6 ps-lg-5">
+
+                    <h1 class="mb-3 mt-5 interlinea">
                         Certificazioni
-                        <span class="second-line">BLOCKCHAIN</span>
+                        <span class="second-line fw-bold">BLOCKCHAIN</span>
                     </h1>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero ullam eligendi sunt,
-                        pariatur nihil ipsam fugiat, iste corporis accusantium rem. Sint iure in impedit debitis amet ut
-                        asperiores praesentium esse laborum necessitatibus velit, tempora ipsam earum nostrum ratione
-                        eius!</p>
+                    <!-- descrizione -->
+                    <h1 class="description fw-regular mt-4">Pubblica diplomi e certificazioni con <strong>
+                            KeCert.</strong> Con
+                        le nostre <strong>blockchain</strong> gli istituti di formazione possono assegnare agli studenti
+                        i loro certificati,
+                        una volta completato il corso, mantenendone il controllo in ogni fase di sviluppo.
+                    </h1>
 
-                    <div class="card shadow mt-5 mb-5" style="width: 100%;">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">Inizia la tua configurazione</h3>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, illum
-                                optio sed id pariatur, ad quo rem ex minus, cupiditate magnam sit recusandae consequatur
-                                architecto sunt! Quis sint beatae cumque.</p>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-colore btn-lg">CONFIGURA ORA</a>
-                            </div>
+                    <!-- img - 'quando sei in lg sparisci' -->
+                    <div class="col-12 col-lg-6 align-items-center justify-content-center d-flex d-lg-none">
+                        <img class="img-fluid fixed" src="./img/illustrazione-certificato.png"
+                            alt="Immagine Illustrativa Certificato" width="80%">
+                    </div>
+
+                    <!-- card -->
+                    <div class="card shadow mt-5 card-body" style="width: 95%; margin: auto;">
+
+                        <div class="elenco description text-center fw-medium mt-3">
+                            <ul>
+                                <li class="justify-content-between align-items-center">
+                                    Certificati personalizzati
+                                    <i class="bi bi-file-medical-fill" style="color: #4c4c96;"></i>
+                                </li>
+
+                                <li class="justify-content-between align-items-center">
+                                    Pacchetti dedicati
+                                    <i class="bi bi-box2-heart-fill" style="color: #4c4c96;"></i>
+                                </li>
+                                <li class="justify-content-between align-items-center">
+                                    Privacy e controllo utenti
+                                    <i class="bi bi-person-lock" style="color: #4c4c96;"></i>
+                                </li>
+                                <li class="justify-content-between align-items-center">
+                                    A lungo termine
+                                    <i class="bi bi-clock-history" style="color: #4c4c96;"></i>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <a href="#" class="button btn btn-lg btn-colore btn-lg">CONFIGURA ORA</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-6 text-center">
-                    <img class="img-fluid my-4" src="./img/illustrazione-certificato.png"
-                        alt="Immagine Illustrativa Certificato" width="70%">
+                <!-- l'altra img -->
+                <div class="col-12 col-lg-6 align-items-center justify-content-center d-flex d-none d-lg-block">
+                    <img class="img-fluid fixed" src="./img/illustrazione-certificato.png"
+                        alt="Immagine Illustrativa Certificato" width="80%">
                 </div>
 
             </div>
         </div>
     </section>
-
+    
     <!-- Chi siamo -->
     <section class="text-center section-padding blockchain-background" id="sezione1">
         <div class="container">
@@ -259,31 +295,38 @@
             <div class="row logo row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
                 <div class="col foot" style="display: flex; justify-content: center; align-items: center;"><img
                         src="img/logo.webp" alt="logo kecert footer"></div>
-                <div class="col">
-                    <div class="d-flex justify-content-center  gap-5 social-icons">
-                        <div class="rounded-circle"><a href=""><img src="./img/linkedin.svg" alt="linkedin social"></a>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <div class="d-flex justify-content-center gap-5 social-icons">
+                        <div class="rounded-circle"><a href="https://www.linkedin.com/company/kedos-srl" target="_blank"
+                                rel="noopener noreferrer"><img src="./img/linkedin.svg" alt="linkedin social"></a>
                         </div>
-                        <div class="rounded-circle"><a href=""><img src="./img/instagram.svg"
-                                    alt="instagram social"></a></div>
-                        <div class="rounded-circle"><a href=""><img src="./img/facebook.svg" alt="facebook social"></a>
+                        <div class="rounded-circle"><a
+                                href="https://www.instagram.com/kedos.srl/?igsh=dnlqdjQ5b2Jhc3Ru#" target="_blank"
+                                rel="noopener noreferrer"><img src="./img/instagram.svg" alt="instagram social"></a>
                         </div>
-                        <div class="rounded-circle"><a href=""><img src="./img/youtube.svg" alt="youtube social"></a>
+                        <div class="rounded-circle"><a href="https://www.facebook.com/people/Kedos-Srl/100078119546036/"
+                                target="_blank" rel="noopener noreferrer"><img src="./img/facebook.svg"
+                                    alt="facebook social"></a>
+                        </div>
+                        <div class="rounded-circle"><a href="https://www.youtube.com/@kedossrl8775" target="_blank"
+                                rel="noopener noreferrer"><img src="./img/youtube.svg" alt="youtube social"></a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col">
+                <div class="col d-flex align-items-center justify-content-center">
                     <ul class="list-unstyled">
-                        <li>Configuratore</li>
+                        <li><a class="nav-link" href="#sezioneconfig">CONFIGURATORE</a></li>
                         <li><a class="nav-link" href="#sezione1">CHI SIAMO</a></li>
                         <li><a class="nav-link" href="#sezione2">LA BLOCKCHAIN</a></li>
-                        <li>Kedos</li>
-                        <li>Contatti</li>
+                        <li><a class="nav-link" href="https://www.kedos-srl.it/" target="_blank"
+                                rel="noopener noreferrer">KEDOS</a></li>
+                        <li><a class="nav-link" href="#sezionecontatti">CONTATTI</a></li>
 
                     </ul>
                 </div>
-                <div class="col">
+                <div class="col d-flex  justify-content-center" id="sezionecontatti">
                     <ul>
                         <li>Email: <a
                                 class="link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
