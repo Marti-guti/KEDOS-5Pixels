@@ -6,51 +6,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .container-personal {
+
   text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  
+  align-items: center;   
+  justify-content: center;
 }
 
 .title-personal {
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
-
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 25px;
-  width: 250px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: #ffa500;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.card.no-hover:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
-}
-
-.card.selected {
-  border-color: #ffa500;
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
 
 button {
   padding: 12px 30px;
@@ -61,6 +36,10 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ffb733;
 }
 
 button:disabled {
@@ -89,10 +68,14 @@ button:disabled {
    LANGUAGE DROPDOWN CIRCOLARE
    ============================ */
 .dropdown-personal {
-  position: absolute;
+  /* position: absolute;
   top: 2vh;
   right: 1vw;
-  z-index: 999;
+  z-index: 999; */
+  grid-column: 12 / span 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
 }
 
 .dropdown-personal select {
@@ -116,4 +99,207 @@ button:disabled {
 .dropdown-personal select option {
   background-color: #fff;
   color: #000;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 1rem;
+  position: relative;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+
+/* .breadcrumbs {
+  grid-column: 4 / span 6; 
+  grid-row: 2;
+  justify-self: center;
+  text-align: center;
+} */
+.breadcrumbs {
+  grid-column: 4 / span 6; 
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 3rem;
+  position: relative;
+}
+
+/* Linea orizzontale di fondo */
+.breadcrumbs::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+  height: 4px;
+  background-color: #e0e0e0;
+  z-index: 0;
+}
+
+/* Nodo circolare */
+.progressBarNode {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  color: #2a2a2a;
+  border: 3px solid #2a2a2a;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  line-height: 1.2;
+  padding: 6px;
+}
+
+/* Nodo attivo (passo attuale) */
+.progressBarNode.active {
+  background-color: #5a60ea;
+  color: #fff;
+  border-color: #5a60ea;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px #5a60ea;
+}
+
+/* Nodo completato (potresti assegnarlo via JS) */
+.progressBarNode.completed {
+  background-color: #2a2a2a;
+  color: white;
+  border-color: #2a2a2a;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px #5a60ea;
+}
+
+/* Nodo disabilitato */
+.progressBarNode:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+
+/* Card Container */
+
+#en-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+#es-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+#it-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+.cards { 
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 3%;
+}
+
+
+.card:hover {
+  border-color: #ffa500;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card.no-hover:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+}
+
+.card.selected {
+  border-color: #ffa500;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.card {
+  background-color: white;
+  border: 4px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+  transition: 0.3s;
+  min-width: 250px;
+}
+
+/* Title */
+.card h2 {
+  text-align: center;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
+/* List Styling */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card li {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.check-icon {
+  display: inline-block;
+  background-color: #5a60ea;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Badge (simile al sigillo) */
+
+.badge {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a2a;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px #5a60ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

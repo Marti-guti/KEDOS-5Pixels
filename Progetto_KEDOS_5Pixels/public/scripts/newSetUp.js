@@ -61,13 +61,13 @@ function initialize() {
 initialize();
 
 function initializeCardsListener() {
-  // select just the cards of the current page with 3 var
   let sectionId = "#" + currentPage.replace("Page", "") + "-" + currentLang.charAt(0).toUpperCase() + currentLang.slice(1);
   let visibleSection = document.querySelector(sectionId);
   let cards = visibleSection.querySelectorAll(".card");
 
   cards.forEach(card => {
     const cardOption = card.dataset.option;
+
     if (currentPage === "classNumberPage") {
       cards.forEach(card => card.style.cursor = "default");
       const btnStudents = card.querySelectorAll(".btn-student");
@@ -75,8 +75,13 @@ function initializeCardsListener() {
       btnStudents.forEach(btn => {
         btn.addEventListener("click", (event) => {
           event.stopPropagation();
-          cards.forEach(card => card.classList.remove("selected"));
+
           cards.forEach(card => {
+            card.classList.remove("selected");
+
+            let badge = card.querySelector(".badge");
+            if (badge) badge.style.background = "#2a2a2a";
+
             card.querySelectorAll(".btn-student").forEach(btn => btn.classList.remove("selected"));
           });
 
@@ -85,6 +90,8 @@ function initializeCardsListener() {
 
           card.classList.add("selected");
 
+          let currentBadge = card.querySelector(".badge");
+          if (currentBadge) currentBadge.style.background = "#5a60ea";
 
           getCurrentNextBtn().disabled = false;
         });
@@ -92,26 +99,34 @@ function initializeCardsListener() {
 
     }
     else if (currentPage === "formPage") {
-      cards.forEach(card => card.classList.remove("selected"));
-      cards.forEach(card => card.style.cursor = "default");
-      cards.forEach(card => card.classList.add("no-hover"));
-      
+      cards.forEach(card => {
+        card.classList.remove("selected");
+        card.style.cursor = "default";
+        card.classList.add("no-hover");
+      });
     }
+
     else {
       card.addEventListener("click", () => {
-        // Deseleziona tutto
-        cards.forEach(c => c.classList.remove("selected"));
+        cards.forEach(c => {
+          c.classList.remove("selected");
+          let badge = c.querySelector(".badge");
+          if (badge) badge.style.background = "#2a2a2a";
+        });
 
-        // Seleziona corrente
         card.classList.add("selected");
+        let currentBadge = card.querySelector(".badge");
+        if (currentBadge) currentBadge.style.background = "#5a60ea";
 
         selectedOption = cardOption;
         sessionData[currentPage] = selectedOption;
+
         getCurrentNextBtn().disabled = false;
       });
     }
   });
 }
+
 
 /**
  * @function renderSummary
