@@ -313,3 +313,13 @@ ul {
 ul li i {
   padding-left: 1rem;
 }
+
+.titolo{
+
+  font-size: 50px;
+  @media (min-width: 768px) {
+    font-size: 100px;
+  }
+
+
+}
