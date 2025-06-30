@@ -71,7 +71,7 @@ function initializeCardsListener() {
     if (currentPage === "classNumberPage") {
       cards.forEach(card => card.style.cursor = "default");
       const btnStudents = card.querySelectorAll(".btn-student");
-
+      card.querySelector(".badge").style.background = "#2a2a2a";
       btnStudents.forEach(btn => {
         btn.addEventListener("click", (event) => {
           event.stopPropagation();
@@ -107,6 +107,7 @@ function initializeCardsListener() {
     }
 
     else {
+      card.querySelector(".badge").style.background = "#2a2a2a";
       card.addEventListener("click", () => {
         cards.forEach(c => {
           c.classList.remove("selected");
@@ -345,7 +346,7 @@ function initializeLangPage() {
 
 initializeLangPage();
 
-//initialize the language
+//change the language
 console.log(currentLang);
 languageSelect.addEventListener("change", () => {
   currentLang = languageSelect.value;
@@ -400,14 +401,21 @@ function progressBarProgress() {
   if (currentPage === "setUpPage") {
     currentPage = "durationPage";
     durationPageNode.disabled = false;
+    progressBarNodes.forEach(node => node.classList.remove("active"));
+    setUpPageNode.classList.add("completed");
     durationPageNode.classList.add("active");
   } else if (currentPage === "durationPage") {
     currentPage = "classNumberPage";
     classNumberPageNode.disabled = false;
+    progressBarNodes.forEach(node => node.classList.remove("active"));
+    durationPageNode.classList.add("completed");
     classNumberPageNode.classList.add("active");
   } else if (currentPage === "classNumberPage") {
     currentPage = "formPage";
     formPageNode.disabled = false;
+    progressBarNodes.forEach(node => node.classList.remove("active"));
+    classNumberPageNode.classList.add("completed");
+    formPageNode.classList.add("completed");
     formPageNode.classList.add("active");
   } else if (currentPage === "formPage") {
     alert("Configuration complete!");
