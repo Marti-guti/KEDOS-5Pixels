@@ -114,14 +114,7 @@ body {
   grid-row-gap: 0px;
 }
 
-
 /* .breadcrumbs {
-  grid-column: 4 / span 6; 
-  grid-row: 2;
-  justify-self: center;
-  text-align: center;
-} */
-.breadcrumbs {
   grid-column: 4 / span 6;
   grid-row: 2;
   display: flex;
@@ -130,7 +123,7 @@ body {
   gap: 0.5rem;
 }
 
-/* Nodo step */
+
 .progressBarNode {
   width: 60px;
   height: 60px;
@@ -144,13 +137,13 @@ body {
   color: white;
 }
 
-/* Colori per stato */
+
 .progressBarNode.completed {
-  background-color: #87cefa; /* azzurrino */
+  background-color: #87cefa;
 }
 
 .progressBarNode.active {
-  background-color: #3399ff; /* blu acceso */
+  background-color: #3399ff; 
 }
 
 .progressBarNode.disabled {
@@ -158,18 +151,103 @@ body {
   color: #aaa;
 }
 
-/* Linee tra i cerchi */
+
 .progress-line {
   height: 4px;
   width: 40px;
   background-color: #ccc;
 }
 
-/* Linea completata */
 .progress-line.completed {
+  background-color: #87cefa;
+} */
+
+.breadcrumbs {
+  grid-column: 4 / span 6;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Nodo step */
+.progressBarNode {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #444;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.progressBarNode:hover:not(:disabled) {
+  background-color: #5a60ea;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(90, 96, 234, 0.6);
+}
+
+/* Stato attivo */
+.progressBarNode.active {
+  background-color: #3399ff;
+  animation: pulse 1.2s infinite;
+}
+
+/* Stato completato */
+.progressBarNode.completed {
+  background-color: #87cefa;
+  box-shadow: inset 0 0 0 2px white;
+}
+
+/* Stato disabilitato */
+.progressBarNode.disabled {
+  background-color: #666;
+  color: #aaa;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Linee tra gli step (finta progress bar) */
+.breadcrumbs .progressBarNode:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  height: 6px;
+  width: 50px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* Linea completata */
+.progressBarNode.completed::after {
   background-color: #87cefa;
 }
 
+/* Animazione pulsazione per lo step attivo */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(51, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
+  }
+}
 
 /* Card Container */
 
@@ -197,8 +275,9 @@ body {
 .cards { 
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
   padding: 3%;
+  margin-bottom: 10%;
 }
 
 
@@ -226,11 +305,12 @@ body {
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  max-width: 250px;
+  max-width: 350px;
   cursor: pointer;
   transition: 0.3s;
   min-width: 250px;
   min-height: 500px;
+  padding-bottom: 15%;
 }
 
 /* Title */
@@ -285,4 +365,80 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Tablet (≤ 991px) */
+@media (hover: none), (max-width: 991px) {
+  .cards {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card {
+    max-width: 100%;
+    min-width: 280px;
+    min-height: auto;
+  }
+
+  .breadcrumbs {
+    grid-column: 2 / span 10;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .dropdown-personal {
+    grid-column: 10 / span 3;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (hover: none), (max-width: 767px) {
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 1rem;
+  }
+
+  .dropdown-personal {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: center;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #en-page,
+  #es-page,
+  #it-page {
+    grid-area: auto;
+    padding: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: auto;
+  }
+
+  .btn-student {
+    max-width: 100%;
+  }
+
+  .container-personal {
+    padding: 0 1rem;
+  }
 }
