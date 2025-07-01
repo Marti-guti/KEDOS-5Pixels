@@ -1,7 +1,7 @@
 // NEXT BUTTONS
-const nextBtnEn = document.getElementById("nextBtnEn");
-const nextBtnEs = document.getElementById("nextBtnEs");
-const nextBtnIt = document.getElementById("nextBtnIt");
+ const nextBtnEn = document.getElementById("nextBtnEn");
+ const nextBtnEs = document.getElementById("nextBtnEs");
+ const nextBtnIt = document.getElementById("nextBtnIt");
 // PROGRESS NODES EN
 const setUpPageNode = document.getElementById("setUpPageNode");
 const durationPageNode = document.getElementById("durationPageNode");
@@ -30,16 +30,50 @@ const classNumberPageIt = document.getElementById("classNumber-It");
 const formPageIt = document.getElementById("form-It");
 // VAR TO KNOW WHICH CARD IS CURRENTLY SELECTED
 let selectedOption = null;
-// VAR TO KNOW WHICH PAGE IS CURRENTLTY ACTIVE
-let currentPage = null;
 //VAR TO KNOW WHICH LANG IS CURRENTLY USED
-let currentLang = "en";
+let currentLang = localStorage.getItem("lang") || "en"; 
+// VAR TO KNOW WHICH PAGE IS CURRENTLTY ACTIVE
+let currentPage = "setUpPage";
 //VAR TO TAKE THE LANG MENU
 let languageSelect = document.querySelector("#languageSelect");
 // CONST TO GET ALL PROGRESS BAR BUTTONS
 const progressBarNodes = document.querySelectorAll(".progressBarNode");
 // OBJ WHERE TO PUT ALL SELECTED VALUE OF EACH PAGE
 let sessionData = {};
+//NEW APPROACH
+const pages = {
+  en: document.getElementById('en-page'),
+  es: document.getElementById('es-page'),
+  it: document.getElementById('it-page')
+};
+const sections = {
+  en: {
+    setUp: document.getElementById('setUp-En'),
+    duration: document.getElementById('duration-En'),
+    classNumber: document.getElementById('classNumber-En'),
+    form: document.getElementById('form-En'),
+    nextBtn: document.getElementById('nextBtnEn'),
+    summary: document.getElementById('summaryListEn')
+  },
+  es: {
+    setUp: document.getElementById('setUp-Es'),
+    duration: document.getElementById('duration-Es'),
+    classNumber: document.getElementById('classNumber-Es'),
+    form: document.getElementById('form-Es'),
+    nextBtn: document.getElementById('nextBtnEs'),
+    summary: document.getElementById('summaryListEs')
+  },
+  it: {
+    setUp: document.getElementById('setUp-It'),
+    duration: document.getElementById('duration-It'),
+    classNumber: document.getElementById('classNumber-It'),
+    form: document.getElementById('form-It'),
+    nextBtn: document.getElementById('nextBtnIt'),
+    summary: document.getElementById('summaryListIt')
+  }
+};
+
+
 // FUNCTION TO GET THE CORRECT NEXT BUTTON
 function getCurrentNextBtn() {
   if (currentLang === "en") return nextBtnEn;
@@ -47,18 +81,51 @@ function getCurrentNextBtn() {
   if (currentLang === "it") return nextBtnIt;
 }
 
-function initializeFlag() {
-  const flag = languageSelect.value;
-  languageSelect.style.backgroundImage = `url("../../public/img/${flag}.png")`;
+function hideAll() {
+  Object.values(pages).forEach(p => p.classList.add('d-none'));
+  Object.values(sections[currentLang]).forEach(el => el?.classList?.add('d-none'));
 }
 
-// initialize the currentPage using the active class from the html
-function initialize() {
-  currentPage = "setUpPage";
-  initializeFlag();
-};
+function showFlag() {
+  languageSelect.value = currentLang;
+  languageSelect.style.backgroundImage = url("../../public/img/${currentLang}.png");
+  getCurrentNextBtn()
+}
 
-initialize();
+
+function initializeFlag() {
+  const flag = currentLang;
+  languageSelect.value = flag;
+  languageSelect.style.backgroundImage = url("../../public/img/${flag}.png");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Inizializza la bandiera
+  initializeFlag();
+
+  // Mostra la lingua corrente e la pagina corrente
+  initializeLangPage();
+
+  // Event listener per i nodi della barra di progresso
+  initializeNodeListeners();
+
+  // Listener delle card della pagina corrente
+  initializeCardsListener();
+
+  // Genera il riepilogo
+  renderSummary();
+
+  getCurrentNextBtn().classList.remove("d-none");
+});
+
+
+// initialize the currentPage using the active class from the html
+// function initialize() {
+//   currentPage = "setUpPage";
+//   initializeFlag();
+// };
+
+// initialize();
 
 function initializeCardsListener() {
   let sectionId = "#" + currentPage.replace("Page", "") + "-" + currentLang.charAt(0).toUpperCase() + currentLang.slice(1);
@@ -269,24 +336,26 @@ function renderSummary() {
 
 function initializeLangPage() {
 
-  pageEn.classList.add("d-none");
-  pageEs.classList.add("d-none");
-  pageIt.classList.add("d-none");
+  // pageEn.classList.add("d-none");
+  // pageEs.classList.add("d-none");
+  // pageIt.classList.add("d-none");
 
-  setUpPageEn.classList.add("d-none");
-  durationPageEn.classList.add("d-none");
-  classNumberPageEn.classList.add("d-none");
-  formPageEn.classList.add("d-none");
+  // setUpPageEn.classList.add("d-none");
+  // durationPageEn.classList.add("d-none");
+  // classNumberPageEn.classList.add("d-none");
+  // formPageEn.classList.add("d-none");
   
-  setUpPageEs.classList.add("d-none");
-  durationPageEs.classList.add("d-none");
-  classNumberPageEs.classList.add("d-none");
-  formPageEs.classList.add("d-none");
+  // setUpPageEs.classList.add("d-none");
+  // durationPageEs.classList.add("d-none");
+  // classNumberPageEs.classList.add("d-none");
+  // formPageEs.classList.add("d-none");
   
-  setUpPageIt.classList.add("d-none");
-  durationPageIt.classList.add("d-none");
-  classNumberPageIt.classList.add("d-none");
-  formPageIt.classList.add("d-none");
+  // setUpPageIt.classList.add("d-none");
+  // durationPageIt.classList.add("d-none");
+  // classNumberPageIt.classList.add("d-none");
+  // formPageIt.classList.add("d-none");
+
+  hideAll();
 
   if (currentLang === "en") {
     pageEn.classList.remove("d-none");
@@ -344,21 +413,28 @@ function initializeLangPage() {
   initializeNodeListeners();
 };
 
-initializeLangPage();
+// initializeLangPage();
 
 //change the language
 console.log(currentLang);
+// languageSelect.addEventListener("change", () => {
+//   currentLang = languageSelect.value;
+//   console.log(currentLang);
+//   initializeFlag();
+//   initializeLangPage();
+//   initializeCardsListener();
+// });
+
 languageSelect.addEventListener("change", () => {
   currentLang = languageSelect.value;
-  console.log(currentLang);
-  initializeFlag();
+  localStorage.setItem("lang", currentLang);
+  showFlag();
   initializeLangPage();
-  initializeCardsListener();
 });
 
 /**
  * @function initializeNodeListeners
- * @description Adds click event listeners to all `.progressBarNode` elements.
+ * @description Adds click event listeners to all .progressBarNode elements.
  * Updates the current page and re-renders based on selected language and step.
  */
 function initializeNodeListeners() {
@@ -386,7 +462,7 @@ function initializeNodeListeners() {
   });
 }
 
-initializeNodeListeners();
+// initializeNodeListeners();
 
 function progressBarProgress() {
   sessionData[currentPage] = selectedOption;
@@ -434,4 +510,3 @@ function progressBarProgress() {
 nextBtnEn.addEventListener("click", progressBarProgress);
 nextBtnEs.addEventListener("click", progressBarProgress);
 nextBtnIt.addEventListener("click", progressBarProgress);
-
