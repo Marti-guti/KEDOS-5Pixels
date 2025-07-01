@@ -6,47 +6,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
-.container {
+.container-personal {
+
   text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  
+  align-items: center;   
+  justify-content: center;
 }
 
-.title {
+.title-personal {
   font-size: 1.8rem;
   margin-bottom: 30px;
 }
 
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 25px;
-  width: 250px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.card:hover {
-  border-color: #ffa500;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.card.selected {
-  border-color: #ffa500;
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-button {
+.button {
   padding: 12px 30px;
   font-size: 1rem;
   background-color: #ffa500;
@@ -57,7 +38,407 @@ button {
   transition: background-color 0.3s;
 }
 
-button:disabled {
+.button:hover {
+  background-color: #ffb733;
+}
+
+.button:disabled {
   background-color: gray;
   cursor: not-allowed;
+}
+
+.btn-student {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  background-color: #ffa500;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 180px;
+  transition: background-color 0.3s;
+}
+
+.btn-student:hover {
+  background-color: #ffb733;
+}
+
+
+/* ============================
+   LANGUAGE DROPDOWN CIRCOLARE
+   ============================ */
+.dropdown-personal {
+  /* position: absolute;
+  top: 2vh;
+  right: 1vw;
+  z-index: 999; */
+  grid-column: 12 / span 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+}
+
+.dropdown-personal select {
+  width: 160px;
+  height: 40px;
+  padding-left: 45px; 
+  border-radius: 8px;  
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 24px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+
+.dropdown-personal select option {
+  background-color: #fff;
+  color: #000;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 1rem;
+  position: relative;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+/* .breadcrumbs {
+  grid-column: 4 / span 6;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+.progressBarNode {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+
+.progressBarNode.completed {
+  background-color: #87cefa;
+}
+
+.progressBarNode.active {
+  background-color: #3399ff; 
+}
+
+.progressBarNode.disabled {
+  background-color: #666;
+  color: #aaa;
+}
+
+
+.progress-line {
+  height: 4px;
+  width: 40px;
+  background-color: #ccc;
+}
+
+.progress-line.completed {
+  background-color: #87cefa;
+} */
+
+.breadcrumbs {
+  grid-column: 4 / span 6;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Nodo step */
+.progressBarNode {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #444;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.progressBarNode:hover:not(:disabled) {
+  background-color: #5a60ea;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(90, 96, 234, 0.6);
+}
+
+/* Stato attivo */
+.progressBarNode.active {
+  background-color: #3399ff;
+  animation: pulse 1.2s infinite;
+}
+
+/* Stato completato */
+.progressBarNode.completed {
+  background-color: #87cefa;
+  box-shadow: inset 0 0 0 2px white;
+}
+
+/* Stato disabilitato */
+.progressBarNode.disabled {
+  background-color: #666;
+  color: #aaa;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Linee tra gli step (finta progress bar) */
+.breadcrumbs .progressBarNode:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  height: 6px;
+  width: 50px;
+  background-color: #ccc;
+  z-index: 1;
+}
+
+/* Linea completata */
+.progressBarNode.completed::after {
+  background-color: #87cefa;
+}
+
+/* Animazione pulsazione per lo step attivo */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(51, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
+  }
+}
+
+/* Card Container */
+
+#en-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+#es-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+#it-page {
+  width: 100%;            
+  max-width: 980px;       
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10; 
+}
+
+.cards { 
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3%;
+  margin-bottom: 10%;
+}
+
+
+.card:hover {
+  border-color: #5a60ea;
+  background-color: rgba(255, 255, 255);
+}
+
+.card.no-hover:hover {
+  background-color: rgba(255, 255, 255);
+  border: 2px solid transparent;
+}
+
+.card.selected {
+  border-color: #5a60ea;
+  background-color: rgba(255, 255, 255);
+}
+
+.card {
+  background-color: white;
+  border: 4px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 350px;
+  cursor: pointer;
+  transition: 0.3s;
+  min-width: 250px;
+  min-height: 500px;
+  padding-bottom: 15%;
+}
+
+/* Title */
+.card h2 {
+  text-align: center;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
+/* List Styling */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card li {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.check-icon {
+  display: inline-block;
+  background-color: #5a60ea;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Badge (simile al sigillo) */
+
+.badge {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a2a;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px #5a60ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tablet (≤ 991px) */
+@media (hover: none), (max-width: 991px) {
+  .cards {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card {
+    max-width: 100%;
+    min-width: 280px;
+    min-height: auto;
+  }
+
+  .breadcrumbs {
+    grid-column: 2 / span 10;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .dropdown-personal {
+    grid-column: 10 / span 3;
+  }
+}
+
+/* Mobile (≤ 767px) */
+@media (hover: none), (max-width: 767px) {
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 1rem;
+  }
+
+  .dropdown-personal {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: center;
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumbs {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #en-page,
+  #es-page,
+  #it-page {
+    grid-area: auto;
+    padding: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: auto;
+  }
+
+  .btn-student {
+    max-width: 100%;
+  }
+
+  .container-personal {
+    padding: 0 1rem;
+  }
 }
