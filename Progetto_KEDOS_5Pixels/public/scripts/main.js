@@ -4,7 +4,7 @@ buttons.forEach(btn => {
 btn.addEventListener("click", () => {
     let value = btn.id;
     localStorage.setItem("lang", value);
-    window.location.href = "../../src/pages/Configurator.html";
+    window.location.href = "../../src/pages/NewConfigurator.html";
 })
 });
 
