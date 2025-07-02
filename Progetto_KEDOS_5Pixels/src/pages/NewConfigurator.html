@@ -81,25 +81,25 @@
         <div id="classNumber-En" class="d-none">
           <h1 class="title-personal">Choose your package</h1>
           <!-- CARD CONTAINER EN -->
-          <div  class="cards">
+          <div  class="cards row-cols-1 row-cols-md-3 g-4">
             <!-- Card 1: Single class -->
-            <div class="card" data-option="single">
+            <div class="card  h-100 d-flex flex-column p-3" data-option="single">
               <h2>Single class – up to 1000 students</h2>
               <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
                 students in one go.</p>
-              <div class="d-flex flex-column align-items-center gap-2 mt-3">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
+              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student w-50" data-suboption="1000">1000 student</button>
               </div>
               <div class="badge">
                 <span>✓</span>
               </div>
             </div>
             <!-- Card 2: 10-class package -->
-            <div class="card" data-option="package10">
+            <div class="card  h-100 d-flex flex-column p-3" data-option="package10">
               <h2>10-Class Package</h2>
               <p>Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30
                 students.</p>
-              <div class="d-flex flex-column align-items-center gap-2 mt-3">
+              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5"">
                 <button type="button" class="button btn-student" data-suboption="1">1 student</button>
                 <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
               </div>
@@ -108,11 +108,11 @@
               </div>
             </div>
             <!-- Card 3: 50-class package -->
-            <div class="card" data-option="package50">
+            <div class="card  h-100 d-flex flex-column p-3" data-option="package50">
               <h2>50-Class Package</h2>
               <p>Perfect for larger institutions. Choose whether each class contains one student or up to 30 students per
                 emission.</p>
-              <div class="d-flex flex-column align-items-center gap-2 mt-3">
+              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5"">
                 <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
                 <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
               </div>
@@ -128,8 +128,15 @@
           <div class="cards">
               <!-- FINAL CARD -->
               <div class="card">
-                <h2>Summary</h2>
-                <ul id="summaryListEn"></ul>
+                <h2 class="fw-bold">Summary</h2>
+                <ul id="summaryListEn" class="list-group">
+                  <!-- 
+                  <li>Your set-up choice: Manual certificate registration</li>
+                  <li>Your duration choice: permanent (without expiry)</li>
+                  <li>Your class package: 50-class package</li>
+                  <li>Number of students per class: 1 student</li>
+                  -->
+                </ul>
               <div class="badge">
                 <span>✓</span>
               </div>
