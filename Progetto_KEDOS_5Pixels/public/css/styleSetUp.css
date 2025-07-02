@@ -442,3 +442,8 @@ body {
     padding: 0 1rem;
   }
 }
+
+#summaryListEn li {
+  white-space: normal;
+  /* word-break: break-word; */
+}

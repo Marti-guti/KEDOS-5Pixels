@@ -135,7 +135,7 @@ function initializeCardsListener() {
  */
 function renderSummary() {
   // EN VERSION
-  if (currentLang === "en" && currentPage === "formPage") {
+ if (currentLang === "en" && currentPage === "formPage") {
 
   const list = document.getElementById("summaryListEn");
   list.innerHTML = ""; 
@@ -150,15 +150,19 @@ function renderSummary() {
     let label = setUpPage === "base"
       ? "Manual certificate registration"
       : "Automated certificate registration via API";
-    list.innerHTML += "<li>Your set-up choice: " + label + "</li>";
+    list.innerHTML += `<li class="list-group">
+      <strong>Set-up:&nbsp;</strong> ${label}
+    </li>`;
   }
 
   // Duration
   if (durationPage) {
     let label = durationPage === "with-expiry"
       ? "10 years (with expiry)"
-      : "permanent (without expiry)";
-    list.innerHTML += "<li>Your duration choice: " + label + "</li>";
+      : "Permanent (without expiry)";
+    list.innerHTML += `<li class="list-group">
+      <strong>Duration:&nbsp;</strong> ${label}
+    </li>`;
   }
 
   // Class number
@@ -167,59 +171,19 @@ function renderSummary() {
     if (classNumberPage === "single") label = "Single class";
     else if (classNumberPage === "package10") label = "10-class package";
     else if (classNumberPage === "package50") label = "50-class package";
-    list.innerHTML += "<li>Your class package: " + label + "</li>";
+    list.innerHTML += `<li class="list-group">
+      <strong>Class package:&nbsp;</strong> ${label}
+    </li>`;
   }
 
   // Students per class
   if (studentNumber) {
     let s = studentNumber === "1" ? "student" : "students";
-    list.innerHTML += "<li>Number of students per class: " + studentNumber + " " + s + "</li>";
+    list.innerHTML += `<li class="list-group">
+      <strong>Students per class:&nbsp;</strong> ${studentNumber} ${s}
+    </li>`;
   }
-  }
-
-  // ES VERSION
-
-  if (currentLang === "es" && currentPage === "formPage") {
-
-  const list = document.getElementById("summaryListEs");
-  list.innerHTML = ""; 
-
-  const setUpPage = sessionData["setUpPage"];
-  const durationPage = sessionData["durationPage"];
-  const classNumberPage = sessionData["classNumberPage"];
-  const studentNumber = sessionData["studentNumber"];
-
-  // Set-Up 
-  if (setUpPage) {
-    let label = setUpPage === "base"
-      ? "Manual certificate registration"
-      : "Automated certificate registration via API";
-    list.innerHTML += "<li>Your set-up choice: " + label + "</li>";
-  }
-
-  // Duration
-  if (durationPage) {
-    let label = durationPage === "with-expiry"
-      ? "10 years (with expiry)"
-      : "permanent (without expiry)";
-    list.innerHTML += "<li>Your duration choice: " + label + "</li>";
-  }
-
-  // Class number
-  if (classNumberPage) {
-    let label = "";
-    if (classNumberPage === "single") label = "Single class";
-    else if (classNumberPage === "package10") label = "10-class package";
-    else if (classNumberPage === "package50") label = "50-class package";
-    list.innerHTML += "<li>Your class package: " + label + "</li>";
-  }
-
-  // Students per class
-  if (studentNumber) {
-    let s = studentNumber === "1" ? "student" : "students";
-    list.innerHTML += "<li>Number of students per class: " + studentNumber + " " + s + "</li>";
-  }
-  }
+};
 
   // IT VERSION
 
