@@ -48,9 +48,17 @@ footer {
   background: linear-gradient(to bottom, #4a519d 0%, #7564a3 100%);
 }
 
-.loghino {
-  width: 20px;
-  height: 20px;
+.card-body img {
+  width: 50px;
+  height: 50px;
+
+  @media (min-width: 768px) {
+
+      width: 80px;
+  height: 80px;
+
+  }
+
 }
 
 .logo img {
@@ -312,4 +320,18 @@ ul {
 
 ul li i {
   padding-left: 1rem;
+}
+
+.titolo{
+
+  font-size: 50px;
+  @media (min-width: 768px) {
+    font-size: 100px;
+  }
+
+
+}
+.chi-siamo p{
+  margin-top: 1rem;
+  font-size: 14px;
 }
