@@ -5,6 +5,8 @@ const progressBarNodes = document.querySelectorAll('.progressBarNode');
 
 let currentPage = "setUp";
 
+let currentSession = {};
+
 const langPages = {
   en: document.getElementById("en-page"),
   es: document.getElementById("es-page"),
@@ -31,11 +33,13 @@ const pages = {
   }
 };
 
-const nextBtnS = {
-    nextBtnEn: document.getElementById(""),
-    nextBtnEs: document.getElementById(""),
-    nextBtnIt: document.getElementById("")
-};
+// const nextBtnS = {
+//     nextBtnEn: document.getElementById(""),
+//     nextBtnEs: document.getElementById(""),
+//     nextBtnIt: document.getElementById("")
+// };
+
+const nextBtn = document.getElementById("nextBtn");
 
 function removeOtherLangPages(){
   for (let language in langPages){
@@ -63,7 +67,40 @@ function removeOtherPages(){
   }
 }
 
+function next(){
+  if (currentPage === "setUp"){
+    currentPage = "duration"
+  }
+  else if (currentPage === "duration"){
+    currentPage = "classNumber"
+  }
+  else if (currentPage === "classNumber"){
+    currentPage = "form"
+  }
+  nextBtn.disabled = true;
+}
+
+function initializeCards() {
+  const cards = pages[currentLang][currentPage].querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      cards.forEach((c) => c.classList.remove("selected"));
+      card.classList.add("selected");
+      nextBtn.disabled = false;
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   removeOtherLangPages(); 
   removeOtherPages();
+  initializeCards();
 });
+
+nextBtn.addEventListener("click", ()=>{
+  next();
+  removeOtherPages();
+  initializeCards();
+  console.log(currentPage);
+})
+
