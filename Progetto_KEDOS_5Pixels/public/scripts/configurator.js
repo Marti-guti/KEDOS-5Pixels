@@ -1,6 +1,3 @@
-// newSetUp.js - Refactored and simplified
-
-// ELEMENT SELECTORS
 const languageSelect = document.getElementById('languageSelect');
 const progressBarNodes = document.querySelectorAll('.progressBarNode');
 const pages = {
@@ -37,7 +34,7 @@ const sections = {
 
 // STATE VARIABLES
 let currentLang = localStorage.getItem('lang') || 'en';
-let currentPage = 'setUp'; // possible values: setUp, duration, classNumber, form
+let currentPage = 'setUp'; 
 const sessionData = {};
 
 // UTILITY FUNCTIONS
