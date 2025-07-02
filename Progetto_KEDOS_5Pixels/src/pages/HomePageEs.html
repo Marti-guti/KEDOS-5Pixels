@@ -1,11 +1,367 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KeCert Blockchain</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
 </head>
+
 <body>
-    
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top ">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="../../public/img/logo.webp" alt=""></a>
+
+            <!-- Hamburger per mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenuto della navbar -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#" style="color: white;">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#sezione1" style="color: white;">SOBRE NOSOTROS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="#sezione2" style="color: white;">BLOCKCHAIN</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color: white;">
+                            <img src="../../public/img/it.png" alt="italiano"
+                                style="width: 20px; height: 20px; margin-right: 5px;" class="fw-bold">
+                            Italiano
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="./HomePageEng.html"><img src="../../public/img/en.png"
+                                        alt="">Inglés</a>
+                            </li>
+                            <li><a class="dropdown-item" href="./HomePageEs.html"><img src="../../public/img/es.png"
+                                        alt="">Español</a>
+                            </li>
+                            <li><a class="dropdown-item" href="./HomePageIta.html"><img src="../../public/img/it.png"
+                                        alt="">Italiano</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+
+                <!-- title -->
+                <div class="col-12 col-md-12 col-lg-6 ps-lg-5 py-5">
+
+                    <h2 class=" h1 interlinea mb-5 titolo">
+                        Certificaciones
+                        <span class=" h1 second-line fw-bold titolo">BLOCKCHAIN</span>
+                    </h2>
+
+                    <!-- descrizione -->
+                    <h1 class="description fw-regular mt-4" style="font-size: 22px;">Publica diplomas y certificados
+                        con <strong>
+                            KeCert.</strong> Con
+                        nuestra <strong>blockchain</strong>, los institutos de formación pueden asignar certificados a
+                        los estudiantes
+                        una vez completado el curso, manteniendo el control en cada etapa del desarrollo.
+                    </h1>
+
+                    <!-- img - 'quando sei in lg sparisci' -->
+                    <div class="col-12 col-lg-6 align-items-center justify-content-center d-flex d-lg-none">
+                        <img class="img-fluid fixed" src="../../public/img/illustrazione-certificato.png"
+                            alt="Immagine Illustrativa Certificato" width="80%">
+                    </div>
+
+                    <!-- card -->
+                    <div class="card shadow mt-5 card-body" style="width: 95%; margin: auto;">
+
+                        <div class="elenco description text-center fw-medium mt-3">
+                            <ul>
+                                <li class="justify-content-between align-items-center">
+                                    Certificados personalizados
+                                    <i class="bi bi-file-medical-fill" style="color: #4c4c96;"></i>
+                                </li>
+
+                                <li class="justify-content-between align-items-center">
+                                    Paquetes dedicados
+                                    <i class="bi bi-box2-heart-fill" style="color: #4c4c96;"></i>
+                                </li>
+                                <li class="justify-content-between align-items-center">
+                                    Privacidad y control del usuario
+                                    <i class="bi bi-person-lock" style="color: #4c4c96;"></i>
+                                </li>
+                                <li class="justify-content-between align-items-center">
+                                    Largo plazo
+                                    <i class="bi bi-clock-history" style="color: #4c4c96;"></i>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <a href="#" class="button btn btn-lg btn-colore btn-lg goToConfigurator">CONFIGURA AHORA</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- l'altra img -->
+                <div class="col-12 col-lg-6 align-items-center justify-content-center d-flex d-none d-lg-block">
+                    <img class="img-fluid fixed" src="../../public/img/illustrazione-certificato.png"
+                        alt="Immagine Illustrativa Certificato" width="80%">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Chi siamo -->
+    <section class="text-center section-padding blockchain-background" id="sezione1">
+        <div class="container mb-3">
+            <h2 class="fw-bold text-center mb-5" style="color: white; font-size: 50px;">SOBRE NOSOTROS</h2>
+            <p style="color: white; line-height: 1.8; font-size: 20px;">
+                Kecert es una empresa <b>independiente</b> con sede en Italia, fundada por profesionales
+                de diferentes campos pero unidos por una visión común: construir un futuro digital basado en
+                <b>transparencia, seguridad</b> y <b>autonomía</b>. La empresa se caracteriza por un
+                enfoque <b>riguroso, ético</b> e <b>innovador</b>, promoviendo una cultura de confianza en los sistemas
+                digitales.
+                Kedos es ante todo una <b>comunidad</b> de personas que creen en el potencial de
+                la <b>descentralización</b> y se esfuerzan por hacerla <b>concreta</b> y <b>accesible</b>.
+            </p>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mt-5 chi-siamo">
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SEGURO</h3>
+                                    <img src="../../public/img/shield-check.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Seguridad Máxima</h4>
+                                    <p>La blockchain es un libro de contabilidad digital público y compartido que
+                                        <b>previene el fraude</b> con algoritmos criptográficos avanzados.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SENCILLO</h3>
+                                    <img src="../../public/img/check-circle.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Para Todos</h4>
+                                    <p>La gestión de certificados KeCert® es <b>adecuada para cualquiera</b> que
+                                        proporcione formación, desde universidades hasta freelancers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">GARANTIZADO</h3>
+                                    <img src="../../public/img/hand-thumbs-up.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Fiabilidad Garantizada</h4>
+                                    <p>El servicio permite <b>verificar</b> los certificados emitidos y <b>comprobar</b>
+                                        su posible período de validez.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">EFICIENTE</h3>
+                                    <img src="../../public/img/stars.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Efectivo</h4>
+                                    <p>El proceso de verificación del certificado es ágil porque <b>no requiere
+                                            intermediarios</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">SÓLIDO</h3>
+                                    <img src="../../public/img/calendar-check.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Estructura Robusta</h4>
+                                    <p>Tarifas accesibles y <b>preservación de documentos a largo plazo</b>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="flip-card rounded-5">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card rounded-5">
+                                <div class="card-body">
+                                    <h3 class="card-title">RÁPIDO</h3>
+                                    <img src="../../public/img/speedometer2.svg" class="img-card" alt="...">
+                                </div>
+                            </div>
+                            <div class="flip-card-back rounded-5">
+                                <div>
+                                    <h4>Velocidad Inmediata</h4>
+                                    <p>Tiempos de respuesta y acción ultrarrápidos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blockchain -->
+    <section class=" section-padding ">
+        <div class="container" id="sezione2">
+            <h2 class="fw-bold text-center" style="font-size: 50px;">LA BLOCKCHAIN</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="../../public/img/blockchain.svg" class="card-img-top rounded-circle" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <p>La <b>Blockchain</b> es un libro contable compartido e inmutable organizado cronológicamente. La
+                        información
+                        se almacena en <b>bloques</b> de tamaño fijo, donde cada fila del libro corresponde a un bloque.
+                        Cada
+                        bloque incluye una fecha y hora crecientes (horas, minutos, segundos), asegurando un <b>registro
+                            temporal</b> preciso de los datos
+                        dentro de la blockchain.</p>
+                    <button type="button" class="btn btn-outline-success mt-4">Configura ahora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-background">
+        <div class="container-fluid">
+            <div class="row logo row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+                <div class="col foot" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="../../public/img/logo.webp" alt="logo del pie de página de KeCert">
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <div class="d-flex justify-content-center gap-5 social-icons">
+                        <div class="rounded-circle">
+                            <a href="https://www.linkedin.com/company/kedos-srl" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="../../public/img/linkedin.svg" alt="linkedin social">
+                            </a>
+                        </div>
+                        <div class="rounded-circle">
+                            <a href="https://www.instagram.com/kedos.srl/?igsh=dnlqdjQ5b2Jhc3Ru#" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="../../public/img/instagram.svg" alt="instagram social">
+                            </a>
+                        </div>
+                        <div class="rounded-circle">
+                            <a href="https://www.facebook.com/people/Kedos-Srl/100078119546036/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="../../public/img/facebook.svg" alt="facebook social">
+                            </a>
+                        </div>
+                        <div class="rounded-circle">
+                            <a href="https://www.youtube.com/@kedossrl8775" target="_blank" rel="noopener noreferrer">
+                                <img src="../../public/img/youtube.svg" alt="youtube social">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col d-flex align-items-center justify-content-center">
+                    <ul class="list-unstyled fw-bold">
+                        <li><a class="nav-link" href="#sezioneconfig">CONFIGURADOR</a></li>
+                        <li><a class="nav-link" href="#sezione1">QUIÉNES SOMOS</a></li>
+                        <li><a class="nav-link" href="#sezione2">LA BLOCKCHAIN</a></li>
+                        <li><a class="nav-link" href="https://www.kedos-srl.it/" target="_blank"
+                                rel="noopener noreferrer">KEDOS</a></li>
+                        <li><a class="nav-link" href="#sezionecontatti">CONTACTOS</a></li>
+                    </ul>
+                </div>
+
+                <div class="col d-flex justify-content-center" id="sezionecontatti">
+                    <ul>
+                        <li><strong>Email:</strong>
+                            <a class="link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                href="mailto:kecert@kedos-srl.it">kecert@kedos-srl.it</a>
+                        </li>
+                        <li><strong>Teléfono:</strong>
+                            <a class="link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                href="tel:011/19466570">011/19466570</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-12 text-center">
+                    © 2025 KeCert. Todos los derechos reservados. Kedos s.r.l. Código Fiscal, Número de IVA, Inscripción
+                    en el Registro Mercantil de Parma n. 02629980349
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
