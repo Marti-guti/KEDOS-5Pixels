@@ -1,11 +1,20 @@
 let gettingLangFromHome = new URLSearchParams(window.location.search);
-let currentLang = gettingLangFromHome.get("lang") || "en";
+let currentLang = gettingLangFromHome.get("lang") || "en"; 
 console.log(currentLang);
+
 const progressBarNodes = document.querySelectorAll('.progressBarNode');
+const nodes = {
+  setUp: document.getElementById("setUpPageNode"),
+  duration: document.getElementById("durationPageNode"),
+  classNumber: document.getElementById("classNumberPageNode"),
+  form: document.getElementById("formPageNode")
+}
 
 let currentPage = "setUp";
 
 let currentSession = {};
+
+const languageSelect = document.getElementById('languageSelect');
 
 const langPages = {
   en: document.getElementById("en-page"),
@@ -33,12 +42,6 @@ const pages = {
   }
 };
 
-// const nextBtnS = {
-//     nextBtnEn: document.getElementById(""),
-//     nextBtnEs: document.getElementById(""),
-//     nextBtnIt: document.getElementById("")
-// };
-
 const nextBtn = document.getElementById("nextBtn");
 
 function removeOtherLangPages(){
@@ -53,6 +56,14 @@ function removeOtherLangPages(){
 };
 
 function removeOtherPages(){
+  // FUNZIONE DA RIVDERE SOPRATTUTTO LA PRIMA PARTE
+  Object.values(pages).forEach(langObj => {
+    Object.values(langObj).forEach(pageEl => {
+      pageEl.querySelectorAll(".card.selected")
+            .forEach(c => c.classList.remove("selected"));
+    });
+  });
+
   for (let language in pages){
     if (language === currentLang){
       for (let page in pages[language]){
@@ -69,14 +80,34 @@ function removeOtherPages(){
 
 function next(){
   if (currentPage === "setUp"){
-    currentPage = "duration"
+    currentPage = "duration";
+    nodes.setUp.classList.add("completed");
+    nodes.duration.disabled = false;
+    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    // nodes[currentPage].classList.add("completed");
+    nodes[currentPage].classList.add("active")
   }
   else if (currentPage === "duration"){
-    currentPage = "classNumber"
+    currentPage = "classNumber";
+    nodes.duration.classList.add("completed");
+    nodes.classNumber.disabled = false;
+    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    nodes[currentPage].classList.add("active")
   }
   else if (currentPage === "classNumber"){
-    currentPage = "form"
+    currentPage = "form";
+    nodes.classNumber.classList.add("completed");
+    nodes.form.disabled = false;
+    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    nodes[currentPage].classList.add("active")
   }
+  else if (currentPage === "form"){
+    nodes.form.classList.add("completed");
+    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    nodes[currentPage].classList.add("active")
+    
+  };
+  
   nextBtn.disabled = true;
 }
 
@@ -96,6 +127,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
   removeOtherPages();
   initializeCards();
 });
+
+languageSelect.addEventListener('change', () => {
+  currentLang = languageSelect.value;
+  removeOtherLangPages();
+  removeOtherPages();
+  initializeCards();
+});
+
+progressBarNodes.forEach(node => node.addEventListener('click', btn => {
+  const previousPage = currentPage;
+  const page = btn.target.id.replace('PageNode','');
+  currentPage = page;
+  nodes[previousPage].classList.add("completed");
+  removeOtherPages();
+  initializeCards();
+  progressBarNodes.forEach((node)=>node.classList.remove("active"));
+  nodes[currentPage].classList.add("active");
+}));
 
 nextBtn.addEventListener("click", ()=>{
   next();
