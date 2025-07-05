@@ -118,53 +118,6 @@ body {
   justify-items: center;
 }
 
-/* .breadcrumbs {
-  grid-column: 4 / span 6;
-  grid-row: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-
-.progressBarNode {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  font-size: 0.8rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-
-.progressBarNode.completed {
-  background-color: #87cefa;
-}
-
-.progressBarNode.active {
-  background-color: #3399ff; 
-}
-
-.progressBarNode.disabled {
-  background-color: #666;
-  color: #aaa;
-}
-
-
-.progress-line {
-  height: 4px;
-  width: 40px;
-  background-color: #ccc;
-}
-
-.progress-line.completed {
-  background-color: #87cefa;
-} */
 
 .breadcrumbs {
   grid-column: 4 / span 6;
@@ -280,6 +233,7 @@ body {
   margin-bottom: 10%;
 }
 
+/* CARD */
 
 .card:hover {
   border-color: #5a60ea;
@@ -334,6 +288,63 @@ body {
   align-items: center;
   color: #333;
 }
+
+/* CARD FOR CLASS PAGE */
+
+.class-card:hover {
+  border-color: #5a60ea;
+  background-color: rgba(255, 255, 255);
+}
+
+.class-card.no-hover:hover {
+  background-color: rgba(255, 255, 255);
+  border: 2px solid transparent;
+}
+
+.class-card.selected {
+  border-color: #5a60ea;
+  background-color: rgba(255, 255, 255);
+}
+
+.class-card {
+  background-color: white;
+  border: 4px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 350px;
+  transition: 0.3s;
+  min-width: 250px;
+  min-height: 500px;
+  padding-bottom: 15%;
+  color: #000;
+}
+
+
+.class-card h2 {
+  text-align: center;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
+
+.class-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.class-card li {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
 
 .check-icon {
   display: inline-block;

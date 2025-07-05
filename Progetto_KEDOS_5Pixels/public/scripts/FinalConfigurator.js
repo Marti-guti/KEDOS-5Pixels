@@ -1,5 +1,5 @@
 let gettingLangFromHome = new URLSearchParams(window.location.search);
-let currentLang = gettingLangFromHome.get("lang") || "en"; 
+let currentLang = gettingLangFromHome.get("lang") || "en";
 console.log(currentLang);
 
 const progressBarNodes = document.querySelectorAll('.progressBarNode');
@@ -44,31 +44,31 @@ const pages = {
 
 const nextBtn = document.getElementById("nextBtn");
 
-function removeOtherLangPages(){
-  for (let language in langPages){
-      if (language === currentLang){
-          langPages[language].classList.remove("d-none");
-      }
-      else {
-          langPages[language].classList.add("d-none");
-      }
+function removeOtherLangPages() {
+  for (let language in langPages) {
+    if (language === currentLang) {
+      langPages[language].classList.remove("d-none");
+    }
+    else {
+      langPages[language].classList.add("d-none");
+    }
   }
 };
 
-function removeOtherPages(){
+function removeOtherPages() {
   // FUNZIONE DA RIVDERE SOPRATTUTTO LA PRIMA PARTE
   Object.values(pages).forEach(langObj => {
     Object.values(langObj).forEach(pageEl => {
       pageEl.querySelectorAll(".card.selected")
-            .forEach(c => c.classList.remove("selected"));
+        .forEach(c => c.classList.remove("selected"));
     });
   });
 
-  for (let language in pages){
-    if (language === currentLang){
-      for (let page in pages[language]){
+  for (let language in pages) {
+    if (language === currentLang) {
+      for (let page in pages[language]) {
         const element = pages[language][page];
-        if (page === currentPage){
+        if (page === currentPage) {
           element.classList.remove("d-none");
         } else {
           element.classList.add("d-none");
@@ -78,52 +78,79 @@ function removeOtherPages(){
   }
 }
 
-function next(){
-  if (currentPage === "setUp"){
+function next() {
+  if (currentPage === "setUp") {
     currentPage = "duration";
     nodes.setUp.classList.add("completed");
     nodes.duration.disabled = false;
-    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
     // nodes[currentPage].classList.add("completed");
     nodes[currentPage].classList.add("active")
   }
-  else if (currentPage === "duration"){
+  else if (currentPage === "duration") {
     currentPage = "classNumber";
     nodes.duration.classList.add("completed");
     nodes.classNumber.disabled = false;
-    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
   }
-  else if (currentPage === "classNumber"){
+  else if (currentPage === "classNumber") {
     currentPage = "form";
     nodes.classNumber.classList.add("completed");
     nodes.form.disabled = false;
-    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
   }
-  else if (currentPage === "form"){
+  else if (currentPage === "form") {
     nodes.form.classList.add("completed");
-    progressBarNodes.forEach((node)=>node.classList.remove("active"));
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
-    
+
   };
-  
+
   nextBtn.disabled = true;
 }
 
-function initializeCards() {
-  const cards = pages[currentLang][currentPage].querySelectorAll(".card");
-  cards.forEach((card) => {
-    card.addEventListener("click", () => {
-      cards.forEach((c) => c.classList.remove("selected"));
-      card.classList.add("selected");
-      nextBtn.disabled = false;
+function initializeBtnStudent() {
+  const btnStudent = document.querySelectorAll(".btn-student");
+  btnStudent.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.target.parentElement.classList.add("selected");
     });
   });
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  removeOtherLangPages(); 
+function initializeCards() {
+  const currentSection = pages[currentLang][currentPage];
+  const cards = currentSection.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      cards.forEach((card) => card.classList.remove("selected"));
+      card.classList.add("selected");
+      nextBtn.disabled = false;
+    });
+  });
+  
+  const classCards = currentSection.querySelectorAll(".class-card");
+  classCards.forEach((classCard) => {
+    const buttons = classCard.querySelectorAll(".btn-student");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        classCards.forEach((card) => card.classList.remove("selected"));
+        classCard.classList.add("selected");
+        const subOption = btn.getAttribute("data-suboption");
+        currentSession["subOption"] = subOption;
+        nextBtn.disabled = false;
+      });
+    });
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  removeOtherLangPages();
   removeOtherPages();
   initializeCards();
 });
@@ -135,18 +162,19 @@ languageSelect.addEventListener('change', () => {
   initializeCards();
 });
 
+
 progressBarNodes.forEach(node => node.addEventListener('click', btn => {
   const previousPage = currentPage;
-  const page = btn.target.id.replace('PageNode','');
+  const page = btn.target.id.replace('PageNode', '');
   currentPage = page;
   nodes[previousPage].classList.add("completed");
   removeOtherPages();
   initializeCards();
-  progressBarNodes.forEach((node)=>node.classList.remove("active"));
+  progressBarNodes.forEach((node) => node.classList.remove("active"));
   nodes[currentPage].classList.add("active");
 }));
 
-nextBtn.addEventListener("click", ()=>{
+nextBtn.addEventListener("click", () => {
   next();
   removeOtherPages();
   initializeCards();
