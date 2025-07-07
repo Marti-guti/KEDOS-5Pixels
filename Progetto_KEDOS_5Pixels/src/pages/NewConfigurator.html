@@ -34,7 +34,7 @@
           <h1 class="title-personal">Choose your Set-Up</h1>
           <!-- CARD CONTAINER EN -->
           <div class="cards">
-            <div class="card" data-option="base">
+            <div class="card p-5 shadow rounded-4 bg-light" data-option="base">
               <h2>Manual certificate registration.</h2>
               <p>Ideal for individual users or small teams. All certificates are registered manually through our
                 platform,
@@ -43,7 +43,7 @@
                 <span>✓</span>
               </div>
             </div>
-            <div class="card" data-option="advanced">
+            <div class="card p-5 shadow rounded-4 bg-light" data-option="advanced">
               <h2>Automated certificate registration via API.</h2>
               <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
                 for
@@ -59,7 +59,7 @@
           <h1 class="title-personal">Choose the duration</h1>
           <!-- CARD CONTAINER EN -->
           <div class="cards">
-            <div class="card" data-option="with-expiry">
+            <div class="card p-5 shadow rounded-4 bg-light" data-option="with-expiry">
               <h2>Certificates with expiry date.</h2>
               <p>These certificates have a validity period and can be viewed on our platform for up to 10 years after
                 issuance.</p>
@@ -67,7 +67,7 @@
                 <span>✓</span>
               </div>
             </div>
-            <div class="card" data-option="without-expiry">
+            <div class="card p-5 shadow rounded-4 bg-light" data-option="without-expiry">
               <h2>Certificates without expiry date.</h2>
               <p>These certificates are permanent and can be accessed and verified on our platform for up to 100 years.
               </p>
@@ -84,7 +84,7 @@
           <!-- CARD CONTAINER EN -->
           <div class="cards row-cols-1 row-cols-md-3 g-4">
             <!-- Card 1: Single class -->
-            <div class="card  h-100 d-flex flex-column p-3" data-option="single">
+            <div class="card rounded-4 bg-light  h-100 d-flex flex-column p-3" data-option="single">
               <h2>Single class – up to 1000 students</h2>
               <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
                 students in one go.</p>
@@ -96,7 +96,7 @@
               </div>
             </div>
             <!-- Card 2: 10-class package -->
-            <div class="card  h-100 d-flex flex-column p-3" data-option="package10">
+            <div class="card rounded-4 bg-light h-100 d-flex flex-column p-3" data-option="package10">
               <h2>10-Class Package</h2>
               <p>Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30
                 students.</p>
@@ -109,7 +109,7 @@
               </div>
             </div>
             <!-- Card 3: 50-class package -->
-            <div class="card  h-100 d-flex flex-column p-3" data-option="package50">
+            <div class="card rounded-4 bg-light h-100 d-flex flex-column p-3" data-option="package50">
               <h2>50-Class Package</h2>
               <p>Perfect for larger institutions. Choose whether each class contains one student or up to 30 students
                 per
@@ -129,7 +129,7 @@
           <h1 class="title-personal">Finalize your choice</h1>
           <div class="cards">
             <!-- FINAL CARD -->
-            <div class="card">
+            <div class="card p-5 shadow rounded-4 border-0 bg-light">
               <h2 class="fw-bold">Summary</h2>
               <ul id="summaryListEn" class="list-group">
                 <!-- 
@@ -144,47 +144,30 @@
               </div>
             </div>
             <!-- FORM -->
-<div class="card p-5 shadow rounded-4 border-0 bg-light">
-  <form id="finalForm" class="form-personal">
-    <h2 class="mb-4 fw-bold text-center text-primary">Contact Information</h2>
+            <div class="card p-5 shadow rounded-4 border-0 bg-light">
+              <form id="finalForm" class="form-personal">
+                <h2 class="mb-4 fw-bold text-center text-primary">Contact Information</h2>
 
-    <div class="row">
-      <div class="col-md-6 mb-4">
-        <label for="userName" class="form-label fw-semibold">Name</label>
-        <input
-          type="text"
-          id="userName"
-          name="userName"
-          class="form-control form-control-lg shadow-sm border-1"
-          placeholder="Your name..."
-          required
-        >
-      </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <label for="userName" class="form-label fw-semibold">Name</label>
+                    <input type="text" id="userName" name="userName"
+                      class="form-control form-control-lg shadow-sm border-1" placeholder="Your name..." required>
+                  </div>
 
-      <div class="col-md-6 mb-4">
-        <label for="userEmail" class="form-label fw-semibold">Email</label>
-        <input
-          type="email"
-          id="userEmail"
-          name="userEmail"
-          class="form-control form-control-lg shadow-sm border-1"
-          placeholder="name@example.com"
-          required
-        >
-      </div>
-    </div>
+                  <div class="col-md-6 mb-4">
+                    <label for="userEmail" class="form-label fw-semibold">Email</label>
+                    <input type="email" id="userEmail" name="userEmail"
+                      class="form-control form-control-lg shadow-sm border-1" placeholder="name@example.com" required>
+                  </div>
+                </div>
 
-    <div class="mb-4">
-      <label for="userDescription" class="form-label fw-semibold">Description</label>
-      <textarea
-        id="userDescription"
-        name="userDescription"
-        rows="4"
-        class="form-control form-control-lg shadow-sm border-1"
-        placeholder="Tell us something..."
-        required
-      ></textarea>
-    </div>
+                <div class="mb-4">
+                  <label for="userDescription" class="form-label fw-semibold">Description</label>
+                  <textarea id="userDescription" name="userDescription" rows="4"
+                    class="form-control form-control-lg shadow-sm border-1" placeholder="Tell us something..."
+                    required></textarea>
+                </div>
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary btn-lg px-5">Submit</button>
