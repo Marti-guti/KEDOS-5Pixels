@@ -126,9 +126,7 @@ function initializeCardsListener() {
       });
     }
   });
-}
-
-
+};
 /**
  * @function renderSummary
  * @description Generates a dynamic list in the form summary card from sessionData values (only for EN).

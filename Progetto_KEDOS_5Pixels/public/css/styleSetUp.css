@@ -30,8 +30,8 @@ body {
 .button {
   padding: 12px 30px;
   font-size: 1rem;
-  background-color: #ffa500;
-  color: #000;
+  background-color:  #6b6bff;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -39,7 +39,8 @@ body {
 }
 
 .button:hover {
-  background-color: #ffb733;
+  background-color: #d4bdff;
+  color: rgb(0, 0, 0);
 }
 
 .button:disabled {
@@ -50,8 +51,8 @@ body {
 .btn-student {
   padding: 10px 20px;
   font-size: 0.95rem;
-  background-color: #ffa500;
-  color: #000;
+  background-color: #6b6bff;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   width: 100%;
@@ -59,8 +60,9 @@ body {
   transition: background-color 0.3s;
 }
 
+
 .btn-student:hover {
-  background-color: #ffb733;
+  background-color:  #d4bdff;
 }
 
 
@@ -453,8 +455,58 @@ body {
   color: #6c757d;       /* colore Bootstrap per placeholder */
   opacity: 1;
 }
+ .card[data-option] {
+    position: relative;
+    background: linear-gradient(135deg, #fbf8ff);
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    color: #2d2d2d;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 3rem;
+    overflow: visible;
+    box-sizing: border-box;
+    z-index: 1;
+  }
 
+  .card[data-option]::before,
+  .card[data-option]::after {
+    content: "";
+    position: absolute;
+    border: 2px solid #6b6bff70;
+    border-radius: 1rem;
+    pointer-events: none;
+    z-index: 0;
+  }
 
+  .card[data-option]::before {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .card[data-option]::after {
+    top: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .card[data-option] h2 {
+    z-index: 1;
+    position: relative;
+  }
+
+  .card[data-option] p {
+    text-align: center;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card[data-option] .badge {
+    z-index: 1;
+  }
 
 
 
