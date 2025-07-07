@@ -3,6 +3,8 @@ let gettingLangFromHome = new URLSearchParams(window.location.search);
 let currentLang = gettingLangFromHome.get("lang") || "en";
 console.log(currentLang);
 
+let languageSelect = document.getElementById('languageSelect');
+
 let currentPage = "setUp";
 
 let currentSession = {};
@@ -20,8 +22,6 @@ const nodes = {
   classNumber: document.getElementById("classNumberPageNode"),
   form: document.getElementById("formPageNode")
 }
-
-const languageSelect = document.getElementById('languageSelect');
 
 const nextBtn = document.getElementById("nextBtn");
 
@@ -53,6 +53,11 @@ const pages = {
 };
 
 //FUNCTIONS
+
+function showFlag() {
+  languageSelect.value = currentLang;
+  languageSelect.style.backgroundImage = 'url("../../public/img/' + currentLang + '.png")';
+}
 
 function removeOtherLangPages() {
   for (let language in langPages) {
@@ -120,15 +125,6 @@ function next() {
   nextBtn.disabled = true;
 }
 
-function initializeBtnStudent() {
-  const btnStudent = document.querySelectorAll(".btn-student");
-  btnStudent.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      event.target.parentElement.classList.add("selected");
-    });
-  });
-}
-
 function initializeCards() {
   const currentSection = pages[currentLang][currentPage];
   const cards = currentSection.querySelectorAll(".card");
@@ -144,6 +140,7 @@ function initializeCards() {
   
   const classCards = currentSection.querySelectorAll(".class-card");
   classCards.forEach((classCard) => {
+    classCards.forEach((card) => card.classList.remove("selected"));
     const cardOption = classCard.dataset.option;
     const buttons = classCard.querySelectorAll(".btn-student");
     buttons.forEach((btn) => {
@@ -183,18 +180,23 @@ function renderSummary() {
     finalPrice += 6000;
   }
 
+  if (classNumber === "single") {
+    if (duration === "with-expiry") finalPrice += 100;
+    if (duration === "without-expiry") finalPrice += 250;
+  }
+
   if (classNumber === "package10") {
-    if (subOption === "1" && duration === "with-expiry") finalPrice = 300;
-    if (subOption === "1" && duration === "without-expiry") finalPrice = 750;
-    if (subOption === "30" && duration === "with-expiry") finalPrice = 500;
-    if (subOption === "30" && duration === "without-expiry") finalPrice = 1250;
+    if (subOption === "1" && duration === "with-expiry") finalPrice += 300;
+    if (subOption === "1" && duration === "without-expiry") finalPrice += 750;
+    if (subOption === "30" && duration === "with-expiry") finalPrice += 500;
+    if (subOption === "30" && duration === "without-expiry") finalPrice += 1250;
   }
 
   if (classNumber === "package50") {
-    if (subOption === "1" && duration === "with-expiry") finalPrice = 800;
-    if (subOption === "1" && duration === "without-expiry") finalPrice = 2000;
-    if (subOption === "30" && duration === "with-expiry") finalPrice = 1000;
-    if (subOption === "30" && duration === "without-expiry") finalPrice = 2500;
+    if (subOption === "1" && duration === "with-expiry") finalPrice += 800;
+    if (subOption === "1" && duration === "without-expiry") finalPrice += 2000;
+    if (subOption === "30" && duration === "with-expiry") finalPrice += 1000;
+    if (subOption === "30" && duration === "without-expiry") finalPrice += 2500;
   }
 
   summaryItems.push("Final price: " + finalPrice + " €");
@@ -215,15 +217,16 @@ document.addEventListener("DOMContentLoaded", () => {
   removeOtherLangPages();
   removeOtherPages();
   initializeCards();
+  showFlag();
 });
 
 languageSelect.addEventListener('change', () => {
   currentLang = languageSelect.value;
   removeOtherLangPages();
+  showFlag();
   removeOtherPages();
   initializeCards();
 });
-
 
 progressBarNodes.forEach(node => node.addEventListener('click', btn => {
   const previousPage = currentPage;
