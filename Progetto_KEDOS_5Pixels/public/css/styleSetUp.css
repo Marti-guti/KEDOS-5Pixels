@@ -447,3 +447,9 @@ body {
   white-space: normal;
   /* word-break: break-word; */
 }
+
+::placeholder {
+  font-size: 0.875rem; /* o 14px */
+  color: #6c757d;       /* colore Bootstrap per placeholder */
+  opacity: 1;
+}
