@@ -133,6 +133,13 @@ function initializeCards() {
     card.addEventListener("click", () => {
       cards.forEach((card) => card.classList.remove("selected"));
       card.classList.add("selected");
+      const allBadges = currentSection.querySelectorAll(".badge");
+      allBadges.forEach((badge) => {
+        badge.style.background = "#2a2a2a";
+      });
+
+      let currentBadge = card.querySelector(".badge");
+      currentBadge.style.background = "#5a60ea";
       currentSession[currentPage] = cardOption;
       nextBtn.disabled = false;
     });
@@ -148,6 +155,13 @@ function initializeCards() {
         event.stopPropagation();
         classCards.forEach((card) => card.classList.remove("selected"));
         classCard.classList.add("selected");
+        const allBadges = currentSection.querySelectorAll(".badge");
+        allBadges.forEach((badge) => {
+        badge.style.background = "#2a2a2a";
+      });
+
+      let currentBadge = classCard.querySelector(".badge");
+      currentBadge.style.background = "#5a60ea";
         const subOption = btn.getAttribute("data-suboption");
         currentSession["classNumber"] = cardOption;
         currentSession["subOption"] = subOption;
