@@ -25,6 +25,7 @@ body {
 .title-personal {
   font-size: 1.8rem;
   margin-bottom: 30px;
+  justify-content: center;
 }
 
 .button {
@@ -104,6 +105,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   min-height: 100vh;
+  min-width: 100vw;
   padding: 2rem;
   gap: 1rem;
   position: relative;
@@ -120,18 +122,21 @@ body {
   justify-items: center;
 }
 
-
+/* ============================
+   BARRA DI AVANZAMENTO (PROGRESS BAR)
+   ============================ */
 .breadcrumbs {
-  grid-column: 4 / span 6;
-  grid-row: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap;
   position: relative;
+  grid-column: 5 / 9;
+  grid-row: 2 / 3;
+  /* margin: 0 auto; */
 }
 
+/* Nodo base */
 .progressBarNode {
   width: 80px;
   height: 80px;
@@ -142,37 +147,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 5px;
   color: white;
   background-color: #444;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  transition: all 0.4s ease;
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
 
+/* Hover */
 .progressBarNode:hover:not(:disabled) {
   background-color: #5a60ea;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(90, 96, 234, 0.6);
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(90, 96, 234, 0.7);
 }
 
+/* Stato attivo */
 .progressBarNode.active {
   background-color: #3399ff;
-  animation: pulse 1.2s infinite;
+  animation: pulse 1.5s infinite;
+  transform: scale(1.1);
 }
 
-
+/* Stato completato */
 .progressBarNode.completed {
   background-color: #87cefa;
-  box-shadow: inset 0 0 0 2px white;
+  box-shadow: inset 0 0 0 3px white, 0 5px 15px rgba(135, 206, 250, 0.4);
 }
 
-.progressBarNode:disabled {
-  background-color: gray;
+/* Stato disabilitato */
+.progressBarNode.disabled {
+  background-color: #666;
+  color: #aaa;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-
+/* Linee tra nodi (orizzontali - desktop) */
 .breadcrumbs .progressBarNode:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -180,22 +194,24 @@ body {
   left: 100%;
   transform: translateY(-50%);
   height: 6px;
-  width: 50px;
-  background-color: #ccc;
+  width: 60px;
+  background-color: #555;
   z-index: 1;
+  transition: background-color 0.4s;
 }
 
-
+/* Linea completata */
 .progressBarNode.completed::after {
   background-color: #87cefa;
 }
 
+/* Animazione pulsazione (nodo attivo) */
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.6);
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(51, 153, 255, 0);
+    box-shadow: 0 0 0 15px rgba(51, 153, 255, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
@@ -206,9 +222,10 @@ body {
 
 #en-page {
   width: 100%;            
-  max-width: 980px;       
+  /* max-width: 980px;        */
   margin-bottom: 30px;
-  grid-area: 4 / 4 / 12 / 10; 
+  grid-column: 2 / 12;
+  grid-row: 4 / 12; 
 }
 
 #es-page {
@@ -320,7 +337,6 @@ body {
   min-width: 250px;
   min-height: 500px;
   padding-bottom: 15%;
-  color: #000;
 }
 
 
@@ -390,26 +406,93 @@ body {
     min-width: 280px;
     min-height: auto;
   }
-
+/* 
   .breadcrumbs {
     grid-column: 2 / span 10;
     flex-wrap: wrap;
     gap: 0.8rem;
-  }
-
-  .dropdown-personal {
-    grid-column: 10 / span 3;
-  }
+  } */
 }
 
 /* Mobile (≤ 767px) */
-@media (hover: none), (max-width: 767px) {
-  .parent {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+@media (hover: none), (max-width: 768px) {
+.parent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 100px);
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 2rem;
+  gap: 1rem;
+  position: relative;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+/* .dropdown-personal select {
+  
+  width: 100px;
+  height: 35px;
+  padding-left: 45px; 
+  border-radius: 8px;  
+  border: none;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 24px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+
+.dropdown-personal select option {
+  background-color: #fff;
+  color: #000;
+}  */
+
+  #en-page,
+  #es-page,
+  #it-page {
+    grid-column: 2 / 12;
+    grid-row: 2 / 12;
     padding: 1rem;
   }
 
+.dropdown-personal {
+  overflow: visible;
+  width: 100px;
+  grid-column: 8 / span 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+}
+/* 
+#languageSelect {
+  padding: 0%;
+} */
+
+  .dropdown-personal select {
+  z-index: 1000; 
+  position: relative; 
+  width: 100px;
+  height: 40px;
+  padding-left: 45px; 
+  border-radius: 8px;  
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 24px 24px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+}
+/* 
   .dropdown-personal {
     grid-column: 1 / -1;
     grid-row: auto;
@@ -425,13 +508,6 @@ body {
     text-align: center;
   }
 
-  #en-page,
-  #es-page,
-  #it-page {
-    grid-area: auto;
-    padding: 1rem;
-  }
-
   .cards {
     flex-direction: column;
     align-items: center;
@@ -443,7 +519,7 @@ body {
     max-width: 100%;
     min-width: 100%;
     min-height: auto;
-  }
+  } */ 
 
   .btn-student {
     max-width: 100%;
@@ -451,6 +527,43 @@ body {
 
   .container-personal {
     padding: 0 1rem;
+  }
+  .breadcrumbs {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* opzionale se vuoi evitare tagli */
+    grid-column: 2 / 12;
+    grid-row: 1 / 2;
+    max-height: 500px;
+    padding-top: 20%;
+    overflow: visible;
+  }
+
+  .progressBarNode {
+    width: 45px;
+    height: 45px;
+    font-size: 0.65rem;
+    padding: 3px;
+  }
+
+  .breadcrumbs .progressBarNode:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 4px;
+    background-color: #555;
+    z-index: 1;
+    transition: background-color 0.4s;
+  }
+
+  .progressBarNode.completed::after {
+    background-color: #87cefa;
   }
 }
 
@@ -514,6 +627,61 @@ body {
   }
 
   .card[data-option] .badge {
+    z-index: 1;
+  }
+
+  /* CLASS-CARD */
+
+  .class-card[data-option] {
+    position: relative;
+    background: linear-gradient(135deg, #fbf8ff);
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    color: #2d2d2d;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 3rem;
+    overflow: visible;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
+  .class-card[data-option]::before,
+  .class-card[data-option]::after {
+    content: "";
+    position: absolute;
+    border: 2px solid #6b6bff70;
+    border-radius: 1rem;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .class-card[data-option]::before {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .class-card[data-option]::after {
+    top: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+
+  .class-card[data-option] h2 {
+    z-index: 1;
+    position: relative;
+  }
+
+  .class-card[data-option] p {
+    text-align: center;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .class-card[data-option] .badge {
     z-index: 1;
   }
 

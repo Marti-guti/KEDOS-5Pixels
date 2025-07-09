@@ -75,6 +75,8 @@ function removeOtherPages() {
     Object.values(langObj).forEach(page => {
       page.querySelectorAll(".card.selected")
         .forEach(c => c.classList.remove("selected"));
+      page.querySelectorAll(".badge")
+        .forEach(badge => badge.style.background = "#2a2a2a");  
     });
   });
 
