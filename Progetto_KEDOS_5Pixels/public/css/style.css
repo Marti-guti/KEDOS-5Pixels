@@ -1,0 +1,337 @@
+.dropdown-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.config-box {
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 250px;
+}
+
+.section-padding {
+  padding: 60px 0;
+}
+
+.navbar-brand img {
+  height: 70px;
+  width: auto;
+  background-size: cover;
+}
+
+.btn img {
+  width: 20px;
+  height: 20px;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 40px 0;
+}
+
+.square {
+  background-color: #4c4c96;
+  height: 100px;
+}
+
+.blockchain-background {
+  margin: 0;
+  background: linear-gradient(to bottom, #4a519d 0%, #7564a3 100%);
+}
+
+.footer-background {
+  margin: 0;
+  background: linear-gradient(to bottom, #4a519d 0%, #7564a3 100%);
+}
+
+.card-body img {
+  width: 50px;
+  height: 50px;
+
+  @media (min-width: 768px) {
+
+      width: 80px;
+  height: 80px;
+
+  }
+
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  margin: 0;
+  background: linear-gradient(to bottom, #4a519d 0%, #7564a3 100%);
+}
+
+body {
+  padding-top: 70px;
+}
+
+/* CSS HERO */
+.hero {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #4c4c96;
+  position: relative;
+  text-align: center;
+}
+
+.sezione1 {
+  padding-left: 50px;
+}
+
+.dropdown-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.config-box {
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 250px;
+}
+
+.section-padding {
+  padding: 60px 0;
+}
+
+footer {
+  background: black;
+  color: white;
+  padding: 40px 0;
+}
+
+
+.square {
+  background-color: #4c4c96;
+  height: 100px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 8rem;
+  line-height: 1.1;
+}
+
+.btn-colore {
+  background-color: #4c4c96;
+  color: white;
+  border: none;
+  transition: background 0.2s;
+}
+
+.btn-colore:hover,
+.btn-colore:focus {
+  background-color: #23234d;
+  /* colore più scuro per l'hover */
+  color: white;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-style: bold;
+}
+
+.flip-card {
+  perspective: 1000px;
+  height: 180px;
+  transition: transform 0.3s ease;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover {
+  transform: scale(1.15);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  z-index: 2;
+  transform: rotateY(0deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.img-card {
+  width: 80px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 2rem;
+}
+
+.card-body {
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .flip-card {
+    height: 200px;
+  }
+
+  .img-card {
+    max-width: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .flip-card {
+    height: 220px;
+  }
+
+  .img-card {
+    max-width: 60px;
+  }
+}
+
+/* da 576px in su */
+@media (min-width: 576px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+/* da 768px in su */
+@media (min-width: 768px) {
+
+  h1 {
+    font-size: 7rem;
+    text-align: left;
+  }
+
+  .description{
+    font-size: 2rem;
+  }
+
+}
+
+/* da 1200px in su */
+@media (min-width: 1200px) { 
+
+  h1 {
+  font-size: 10rem;
+  text-align: left;
+  }
+
+}
+
+
+.foot img {
+            height: 70px;
+            width: auto;
+            background-size: cover;
+            
+
+        }
+        
+
+        .social-icons img{
+            height: 30px;
+            width: auto;
+            background-size: cover;
+        }
+
+
+.card{
+  border-radius: 30px;
+}
+
+.second-line{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.interlinea {
+  line-height: 80%;
+}
+
+.description {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #4c4c96;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+.elenco {
+  font-size: 1.2rem;
+}
+
+.button {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li i {
+  padding-left: 1rem;
+}
+
+.titolo{
+
+  font-size: 50px;
+  @media (min-width: 768px) {
+    font-size: 100px;
+  }
+
+
+}
+.chi-siamo p{
+  margin-top: 1rem;
+  font-size: 14px;
+}
