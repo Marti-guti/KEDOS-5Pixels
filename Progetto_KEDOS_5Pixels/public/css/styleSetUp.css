@@ -67,13 +67,31 @@ body {
 }
 
 
-/* LANGUAGE DROPDOWN CIRCOLARE */
+/* LANGUAGE DROPDOWN */
+
+#flag {
+  grid-column: 1 / span 1;
+  grid-row: 1;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -5px;
+  border-radius: 50%;
+}
 
 .dropdown-personal {
-  grid-column: 12 / span 2;
+  grid-column: 12 ;
   grid-row: 1;
-  justify-self: end;
+  justify-self: start;
   align-self: start;
+  width: auto;
+}
+
+#languageSelect {
+  text-align: center;
+  padding: 0;
 }
 
 .dropdown-personal select {
@@ -222,7 +240,6 @@ body {
 
 #en-page {
   width: 100%;            
-  /* max-width: 980px;        */
   margin-bottom: 30px;
   grid-column: 2 / 12;
   grid-row: 4 / 12; 
@@ -230,16 +247,16 @@ body {
 
 #es-page {
   width: 100%;            
-  max-width: 980px;       
   margin-bottom: 30px;
-  grid-area: 4 / 4 / 12 / 10; 
+  grid-column: 2 / 12;
+  grid-row: 4 / 12; 
 }
 
 #it-page {
   width: 100%;            
-  max-width: 980px;       
   margin-bottom: 30px;
-  grid-area: 4 / 4 / 12 / 10; 
+  grid-column: 2 / 12;
+  grid-row: 4 / 12; 
 }
 
 .cards { 
@@ -467,14 +484,26 @@ body {
   margin-right: 10px;
   margin-top: 7px;
   overflow: visible;
-  width: 100px;
-  grid-column: 11 / span 2;
+  grid-column: 12 / span 1;
   grid-row: 1;
   justify-self: end;
   align-self: start;
 }
 
+#flag {
+  grid-column: 2 / span 1;
+  grid-row: 1;
+  width: 80%;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 11px;
+  margin-left: 0%;
+}
+
   .dropdown-personal select {
+
   z-index: 1000; 
   position: relative; 
   width: 100px;
@@ -538,7 +567,7 @@ body {
     grid-column: 2 / 12;
     grid-row: 1 / 2;
     max-height: 500px;
-    padding-top: 50px;
+    padding-top: 70px;
     overflow: visible;
   }
 

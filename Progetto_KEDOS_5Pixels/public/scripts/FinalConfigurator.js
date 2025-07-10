@@ -5,6 +5,8 @@ console.log(currentLang);
 
 let languageSelect = document.getElementById('languageSelect');
 
+let flagDiv = document.getElementById("flag");
+
 let currentPage = "setUp";
 
 let currentSession = {};
@@ -56,7 +58,7 @@ const pages = {
 
 function showFlag() {
   languageSelect.value = currentLang;
-  languageSelect.style.backgroundImage = 'url("../../public/img/' + currentLang + '.png")';
+  flagDiv.style.backgroundImage = 'url("../../public/img/' + currentLang + '.png")';
 }
 
 function removeOtherLangPages() {
