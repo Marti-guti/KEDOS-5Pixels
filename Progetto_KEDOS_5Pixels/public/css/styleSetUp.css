@@ -409,27 +409,7 @@ body {
   align-items: center;
 }
 
-/* Tablet (≤ 991px) */
- /* @media (hover: none), (max-width: 991px) {
-  .cards {
-    flex-wrap: wrap;
-    gap: 30px;
-  }
-
-  .card {
-    max-width: 100%;
-    min-width: 280px;
-    min-height: auto;
-  } */
-/* 
-  .breadcrumbs {
-    grid-column: 2 / span 10;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  } */
-/* }  */
-
-/* Mobile (≤ 767px) */
+/* Mobile (≤ 768px) */
 @media (hover: none), (max-width: 768px) {
 .parent {
   display: grid;
@@ -444,30 +424,6 @@ body {
   grid-row-gap: 0px;
   padding: 0%;
   }
-
-/* .dropdown-personal select {
-  
-  width: 100px;
-  height: 35px;
-  padding-left: 45px; 
-  border-radius: 8px;  
-  border: none;
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 24px 24px;
-  background-color: #fff;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  font-size: 14px;
-}
-
-.dropdown-personal select option {
-  background-color: #fff;
-  color: #000;
-}  */
 
   #en-page,
   #es-page,
@@ -520,34 +476,6 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   font-size: 14px;
 }
-/* 
-  .dropdown-personal {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    justify-self: center;
-    margin-bottom: 1rem;
-  }
-
-  .breadcrumbs {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .cards {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 100%;
-    min-height: auto;
-  } */ 
 
   .btn-student {
     max-width: 100%;
@@ -562,7 +490,7 @@ body {
     align-items: center;
     gap: 8px;
     flex-wrap: nowrap;
-    overflow-x: auto; /* opzionale se vuoi evitare tagli */
+    overflow-x: auto; 
     grid-column: 2 / 12;
     grid-row: 1 / 2;
     max-height: 500px;
@@ -606,15 +534,15 @@ body {
   }
 
 }
-
+#summaryListEs,
+#summaryListIt,
 #summaryListEn li {
   white-space: normal;
-  /* word-break: break-word; */
 }
 
 ::placeholder {
-  font-size: 0.875rem; /* o 14px */
-  color: #6c757d;       /* colore Bootstrap per placeholder */
+  font-size: 0.875rem; 
+  color: #6c757d;       
   opacity: 1;
 }
  .card[data-option] {
@@ -739,7 +667,7 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  animation: pulse-scale 2s infinite;
+  animation: pulse-arrows 2s infinite;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -768,18 +696,15 @@ body {
 }
 
 /* Animazione personalizzata */
-@keyframes pulse-scale {
+@keyframes pulse-arrows {
   0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(107, 107, 255, 0.6);
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.7);
   }
-  50% {
-    transform: scale(1.05); /* più morbido */
-    box-shadow: 0 0 0 10px rgba(107, 107, 255, 0);
+  70% {
+    box-shadow: 0 0 0 15px rgba(51, 153, 255, 0);
   }
   100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(107, 107, 255, 0);
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
   }
 }
 

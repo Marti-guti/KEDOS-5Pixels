@@ -176,14 +176,10 @@ function initializeCards() {
 }
 
 function renderSummary() {
-  const summaryList = document.getElementById("summaryList" + currentLang.charAt(0).toUpperCase() + currentLang.slice(1));
-  summaryList.innerHTML = "";
-  const summaryItems = [
-    "Set-Up: " + currentSession.setUp,
-    "Duration: " + currentSession.duration,
-    "Package: " + currentSession.classNumber,
-    "Students per emission: " + currentSession.subOption
-  ];
+  if (currentPage === "form") {
+  const summaryListEn = document.getElementById("summaryListEn");
+  const summaryListEs = document.getElementById("summaryListEs");
+  const summaryListIt = document.getElementById("summaryListIt");
 
   let finalPrice = 0;
   const setUp = currentSession.setUp;
@@ -191,42 +187,91 @@ function renderSummary() {
   const classNumber = currentSession.classNumber;
   const subOption = currentSession.subOption;
 
-  if (setUp === "base") {
+  if (setUp === "base bases base") {
     finalPrice += 1000;
   }
   else {
     finalPrice += 6000;
   }
 
-  if (classNumber === "single") {
-    if (duration === "with-expiry") finalPrice += 100;
-    if (duration === "without-expiry") finalPrice += 250;
+  if (classNumber === "single singolas singola") {
+    if (duration === "with-expiry con-scadenzas con-scadenza") finalPrice += 100;
+    if (duration === "without-expiry senza-scadenzas senza-scadenza") finalPrice += 250;
   }
 
-  if (classNumber === "package10") {
-    if (subOption === "1" && duration === "with-expiry") finalPrice += 300;
-    if (subOption === "1" && duration === "without-expiry") finalPrice += 750;
-    if (subOption === "30" && duration === "with-expiry") finalPrice += 500;
-    if (subOption === "30" && duration === "without-expiry") finalPrice += 1250;
+  if (classNumber === "package-10 pacchettos-10 pacchetto-10") {
+    if (subOption === "1" && duration === "with-expiry con-scadenzas con-scadenza") finalPrice += 300;
+    if (subOption === "1" && duration === "without-expiry senza-scadenzas senza-scadenza") finalPrice += 750;
+    if (subOption === "30" && duration === "with-expiry con-scadenzas con-scadenza") finalPrice += 500;
+    if (subOption === "30" && duration === "without-expiry senza-scadenzas senza-scadenza") finalPrice += 1250;
   }
 
-  if (classNumber === "package50") {
-    if (subOption === "1" && duration === "with-expiry") finalPrice += 800;
-    if (subOption === "1" && duration === "without-expiry") finalPrice += 2000;
-    if (subOption === "30" && duration === "with-expiry") finalPrice += 1000;
-    if (subOption === "30" && duration === "without-expiry") finalPrice += 2500;
+  if (classNumber === "package-50 pacchettos-50 pacchetto-50") {
+    if (subOption === "1" && duration === "with-expiry con-scadenzas con-scadenza") finalPrice += 800;
+    if (subOption === "1" && duration === "without-expiry senza-scadenzas senza-scadenza") finalPrice += 2000;
+    if (subOption === "30" && duration === "with-expiry con-scadenzas con-scadenza") finalPrice += 1000;
+    if (subOption === "30" && duration === "without-expiry senza-scadenzas senza-scadenza") finalPrice += 2500;
   }
 
-  summaryItems.push("Final price: " + finalPrice + " €");
-  currentPrize = finalPrice;
+    let langIndex = 0;
+    if (currentLang === "es") langIndex = 1;
+    else if (currentLang === "it") langIndex = 2;
 
-  // Stampa tutto in lista
-  summaryItems.forEach((text)=>{
-    const li = document.createElement("li");
-    li.textContent = text;
-    summaryList.appendChild(li);
-  });
+    const getTranslated = (value) => {
+      return value.split(" ")[langIndex] || value;
+    };
+
+    const summaryItemsEn = [
+      "Set-Up: " + getTranslated(setUp),
+      "Duration: " + getTranslated(duration),
+      "Package: " + getTranslated(classNumber),
+      "Students per emission: " + subOption,
+      "Final price: " + finalPrice + " €"
+    ];
+    const summaryItemsEs = [
+      "Set-Up: " + getTranslated(setUp),
+      "Duratas: " + getTranslated(duration),
+      "Package: " + getTranslated(classNumber),
+      "Students per emission: " + subOption,
+      "Final price: " + finalPrice + " €"
+    ];
+    const summaryItemsIt = [
+      "Set-Up: " + getTranslated(setUp),
+      "Durata: " + getTranslated(duration),
+      "Pacchetto: " + getTranslated(classNumber),
+      "Studenti per emissione: " + subOption,
+      "Prezzo finale: " + finalPrice + " €"
+    ];
+
+    if (currentLang === "en") {
+      summaryListEn.innerHTML = "";
+      summaryItemsEn.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        summaryListEn.appendChild(li);
+      });
+    }
+
+    if (currentLang === "es") {
+      summaryListEs.innerHTML = "";
+      summaryItemsEs.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        summaryListEs.appendChild(li);
+      });
+    }
+
+    if (currentLang === "it") {
+      summaryListIt.innerHTML = "";
+      summaryItemsIt.forEach((text) => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        summaryListIt.appendChild(li);
+      });
+    }
+  }
 }
+
 
 
 //EVENTS
@@ -246,6 +291,7 @@ languageSelect.addEventListener('change', () => {
   removeOtherPages();
   initializeCards();
   mobileView();
+  renderSummary();
 });
 
 progressBarNodes.forEach(node => node.addEventListener('click', btn => {
