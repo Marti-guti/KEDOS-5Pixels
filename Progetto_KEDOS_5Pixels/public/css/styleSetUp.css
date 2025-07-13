@@ -79,6 +79,8 @@ body {
   background-position: center;
   margin-top: -5px;
   border-radius: 50%;
+  justify-self: start;
+  align-self: start;
 }
 
 .dropdown-personal {
@@ -113,7 +115,6 @@ body {
   background-color: #fff;
   color: #000;
 }
-
 
 .parent {
   display: grid;
@@ -263,6 +264,7 @@ body {
   padding: 3%;
   margin-bottom: 10%;
   flex-wrap: nowrap;
+  position: relative;
 }
 
 /* CARD */
@@ -409,6 +411,60 @@ body {
   align-items: center;
 }
 
+
+.carousel-arrow {
+  display: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6b6bff, #9d8dff);
+  border: none;
+  border-radius: 50%;
+  width: 100%;
+  min-width: 45px;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  animation: pulse-arrows 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  grid-row: 6;
+  padding: 0%;
+}
+
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, #9d8dff, #d4bdff);
+  box-shadow: 0 0 20px rgba(213, 189, 255, 0.6);
+  transform: scale(1.1);
+}
+
+/* Posizionamento specifico */
+.carousel-arrow.prev {
+  grid-column: 1;
+ 
+}
+
+.carousel-arrow.next {
+  grid-column: 12;
+
+}
+
+/* Animazione personalizzata */
+@keyframes pulse-arrows {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(51, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
+  }
+}
+
 /* Mobile (≤ 768px) */
 @media (hover: none), (max-width: 768px) {
 .parent {
@@ -425,6 +481,11 @@ body {
   padding: 0%;
   }
 
+.carousel-arrow {
+  display: block;
+  grid-row: 4;
+  }
+
   #en-page,
   #es-page,
   #it-page {
@@ -434,15 +495,11 @@ body {
   }
 
 .dropdown-personal {
-
-
-  margin-top: 15px;
   overflow: visible;
   grid-column: 10 / span 2;
   grid-row: 1;
-  justify-self: end;
-  align-self: start;
-
+  justify-self: start;
+  align-self: center;
 }
 
 #flag {
@@ -453,28 +510,25 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  margin-top: 11px;
-  margin-left: 0%;
+  justify-self: end;
+  align-self: center;
+  margin-bottom: 20px;
 }
 
   .dropdown-personal select {
-
+  width: 80px;
+  margin-bottom: 25px;  
   z-index: 1000; 
   position: relative; 
-  width: 100px;
-  height: 40px;
-  padding-left: 45px; 
+  height: 30px;
   border-radius: 8px;  
-  background-repeat: no-repeat;
-  background-position: 10px center;
-  background-size: 24px 24px;
   background-color: #fff;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  font-size: 14px;
+  font-size: 16px;
 }
 
   .btn-student {
@@ -523,14 +577,14 @@ body {
   }
 
   .cards {
-    flex-wrap: wrap;
-    gap: 30px;
+    grid-column: 2 / 11 ;
+    padding: 0%;
+    margin: 0%;
+    max-height: 350px;
   }
 
   .card {
-    max-width: 100%;
-    min-width: 280px;
-    min-height: auto;
+    height: 350px;
   }
 
 }
@@ -653,64 +707,26 @@ body {
     z-index: 1;
   }
 
-.carousel-arrow {
-  display: none;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffffff;
-  background: linear-gradient(135deg, #6b6bff, #9d8dff);
-  border: none;
-  border-radius: 50%;
-  width: 100%;
-  min-width: 45px;
-  aspect-ratio: 1 / 1;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  animation: pulse-arrows 2s infinite;
+
+.carousel-dots {
+  position: absolute;
+  bottom: -250px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-origin: center center;
-  grid-row: 6;
-  padding: 0%;
+  gap: 8px;
 }
 
-.carousel-arrow:hover {
-  background: linear-gradient(135deg, #9d8dff, #d4bdff);
-  box-shadow: 0 0 20px rgba(213, 189, 255, 0.6);
-  transform: scale(1.1);
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-/* Posizionamento specifico */
-.carousel-arrow.prev {
-  grid-column: 1;
-  justify-self: start;
-  align-self: center;
-}
-
-.carousel-arrow.next {
-  grid-column: 12;
-  justify-self: end;
-  align-self: center;
-}
-
-/* Animazione personalizzata */
-@keyframes pulse-arrows {
-  0% {
-    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(51, 153, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(51, 153, 255, 0);
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-arrow {
-    display: block;
-    grid-row: 4;
-  }
-}
+.carousel-dot.active {
+  background-color: #246585;
+}  
