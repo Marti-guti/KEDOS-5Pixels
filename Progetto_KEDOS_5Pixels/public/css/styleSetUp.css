@@ -120,13 +120,14 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  min-height: 100vh;
+  height: 100vh;
   min-width: 100vw;
   padding: 2rem;
   gap: 1rem;
   position: relative;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+
 }
 
 .next-btn-container{
@@ -292,13 +293,14 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   position: relative;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 350px;
+  /* max-width: 350px; */
   cursor: pointer;
   transition: 0.3s;
-  min-width: 250px;
-  min-height: 500px;
-  padding-bottom: 15%;
+  /* min-width: 250px; */
+  width: 10vw;
+  min-width: 300px;
+  height: 40vh;
+  min-height: 450px;
 }
 
 
@@ -348,12 +350,13 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   position: relative;
   box-sizing: border-box;
-  width: 100%;
-  max-width: 350px;
+  /* max-width: 350px; */
   transition: 0.3s;
-  min-width: 250px;
-  min-height: 500px;
-  padding-bottom: 15%;
+  /* min-width: 250px; */
+  width: 10vw;
+  min-width: 300px;
+  height: 40vh;
+  min-height: 450px;
 }
 
 
@@ -449,7 +452,7 @@ body {
 
 .carousel-arrow.next {
   grid-column: 12;
-
+  justify-self: end;
 }
 
 /* Animazione personalizzata */
@@ -471,13 +474,13 @@ body {
   display: grid;
   grid-template-columns: repeat(12, 8.3%);
   grid-template-rows: repeat(12, 100px);
-  min-height: 100vh;
+  height: 100vh;
   min-width: 100vw;
-  padding: 2rem;
-  gap: 1rem;
+  /* padding: 2rem; */
+  /* gap: 1rem; */
   position: relative;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  /* grid-column-gap: 0px;
+  grid-row-gap: 0px; */
   padding: 0%;
   }
 
@@ -580,11 +583,11 @@ body {
     grid-column: 2 / 11 ;
     padding: 0%;
     margin: 0%;
-    max-height: 350px;
+    min-height: 450px;
   }
 
-  .card {
-    height: 350px;
+  .class-card,.card {
+    height: 50vh;
   }
 
 }
@@ -710,7 +713,7 @@ body {
 
 .carousel-dots {
   position: absolute;
-  bottom: -250px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
