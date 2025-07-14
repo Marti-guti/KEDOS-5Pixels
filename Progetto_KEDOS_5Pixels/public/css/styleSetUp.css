@@ -629,7 +629,7 @@ body {
   color: #6c757d;       
   opacity: 1;
 }
- /* .card[data-option] {
+ .card[data-option] {
     position: relative;
     background: linear-gradient(135deg, #fbf8ff);
     border-radius: 1.5rem;
@@ -641,7 +641,7 @@ body {
     box-sizing: border-box;
     z-index: 1;
   }
-
+/*
   .card[data-option]::before,
   .card[data-option]::after {
     content: "";
@@ -697,7 +697,7 @@ body {
     z-index: 1;
   }
 
-  .class-card[data-option]::before,
+  /* .class-card[data-option]::before,
   .class-card[data-option]::after {
     content: "";
     position: absolute;
@@ -705,8 +705,8 @@ body {
     border-radius: 1rem;
     pointer-events: none;
     z-index: 0;
-  }
-
+  } */
+/* 
   .class-card[data-option]::before {
     top: 1rem;
     left: 1rem;
@@ -719,7 +719,7 @@ body {
     left: 1.5rem;
     right: 1.5rem;
     bottom: 1.5rem;
-  }
+  } */
 
   .class-card[data-option] h2 {
     z-index: 1;

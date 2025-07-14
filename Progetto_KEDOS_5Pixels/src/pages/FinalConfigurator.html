@@ -84,99 +84,82 @@
         </div>
 
         <!-- NUMBER OF CLASSES EN -->
-        <div id="classNumber-En" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
-          <!-- CARD CONTAINER EN -->
-          <div class="cards">
-            <!-- Card 1: Single class -->
-            <div class="class-card" data-option="single singolas singola">
-              <h2>Single class – up to 1000 students</h2>
-              <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
-                students in one go.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 2: 10-class package -->
-            <div class="class-card" data-option="package-10 pacchettos-10 pacchetto-10">
-              <h2>10-Class Package</h2>
-              <p>Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30
-                students.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 3: 50-class package -->
-            <div class="class-card" data-option="package-50 pacchettos-50 pacchetto-50">
-              <h2>50-Class Package</h2>
-              <p>Perfect for larger institutions. Choose whether each class contains one student or up to 30 students
-                per
-                emission.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- CONFIGURATOR FORM PAGE EN -->
-<div id="form-En" class="d-none">
-  <h1 class="title-personal text-center">Finalize your choice</h1>
-
-  <div class="cards container">
-    <!-- SUMMARY CARD -->
-    <div class="card mt-5 shadow rounded-4 border-0 bg-light p-4 position-relative" style="max-width: 800px; margin: auto;">
-      <h2 class="fw-bold mb-3">Summary</h2>
-      <ul id="summaryListEn" class="list-group"></ul>
+   <div id="classNumber-En" class="d-none">
+  <h1 class="title-personal">Choose your package</h1>
+  <div class="cards d-flex flex-column flex-md-row gap-4">
+    
+    <!-- CARD 1 -->
+    <div class="class-card rounded-4 bg-light h-100 d-flex flex-column mt-5 p-4 text-center flex-fill" data-option="single singolas singola">
+      <h2>Single class – up to 1000 students</h2>
+      <p class="flex-grow-1">Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000 students in one go.</p>
+      <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-4">
+        <button type="button" class="button btn btn-student" data-suboption="1000">1000 students</button>
+      </div>
+      <div class="badge">
+        <span>🗸</span>
+      </div>
     </div>
 
-    <!-- FORM CARD -->
-    <div class="card mt-5 shadow rounded-4 border-0 bg-light p-5 position-relative" style="max-width: 800px; margin: auto;">
-      <form id="finalForm" class="form-personal">
-        <h2 class="fw-bold text-center mb-4" style="color: #6b6bff;">Contact Information</h2>
-
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <label for="userName" class="form-label fw-semibold">Name</label>
-            <input type="text" id="userName" name="userName"
-              class="form-control form-control-lg shadow-sm border-1"
-              placeholder="Your name..." required>
-          </div>
-
-          <div class="col-md-6 mb-4">
-            <label for="userEmail" class="form-label fw-semibold">Email</label>
-            <input type="email" id="userEmail" name="userEmail"
-              class="form-control form-control-lg shadow-sm border-1"
-              placeholder="name@example.com" required>
-          </div>
-        </div>
-
-        <div class="mb-4">
-          <label for="userDescription" class="form-label fw-semibold">Description</label>
-          <textarea id="userDescription" name="userDescription" rows="4"
-            class="form-control form-control-lg shadow-sm border-1"
-            placeholder="Tell us something..." required></textarea>
-        </div>
-
-        <div class="text-center">
-          <button type="submit" class="btn btn-lg px-5"
-            style="background-color: #6b6bff; color: white;">Submit</button>
-        </div>
-      </form>
+    <!-- CARD 2 -->
+    <div class="class-card rounded-4 bg-light h-100 d-flex flex-column mt-5 p-4 text-center flex-fill" data-option="package-10 pacchettos-10 pacchetto-10">
+      <h2>10-Class Package</h2>
+      <p class="flex-grow-1">Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30 students.</p>
+      <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-4">
+        <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
+        <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+      </div>
+      <div class="badge">
+        <span>🗸</span>
+      </div>
     </div>
+
+    <!-- CARD 3 -->
+    <div class="class-card rounded-4 bg-light h-100 d-flex flex-column mt-5 p-4 text-center flex-fill" data-option="package-50 pacchettos-50 pacchetto-50">
+      <h2>50-Class Package</h2>
+      <p class="flex-grow-1">Perfect for larger institutions. Choose whether each class contains one student or up to 30 students per emission.</p>
+      <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-4">
+        <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
+        <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+      </div>
+      <div class="badge">
+        <span>🗸</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
+        <!-- CONFIGURATOR FORM PAGE EN -->
+        <div id="form-En" class="d-none">
+          <h1 class="title-personal">Finalize your choice</h1>
+          <div class="cards">
+            <!-- FINAL CARD -->
+            <!-- da cambiare in form card -->
+            <div class="card">
+              <h2>Summary</h2>
+              <ul id="summaryListEn"></ul>
+              <div class="badge">
+                <span>🗸</span>
+              </div>
+            </div>
+            <!-- FORM -->
+            <!-- da cambiare in form card -->
+            <div class="card">
+              <form id="finalForm" class="form-personal">
+                <label for="userName">Name</label>
+                <input type="text" id="userName" name="userName" required>
+                <label for="userEmail">Email</label>
+                <input type="email" id="userEmail" name="userEmail" required>
+                <label for="userDescription">Description</label>
+                <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
+                <button class="button" type="submit">Submit</button>
+              </form>
+              <div class="badge">
+                <span>🗸</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
