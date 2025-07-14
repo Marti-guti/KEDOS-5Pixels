@@ -130,36 +130,53 @@
           </div>
         </div>
         <!-- CONFIGURATOR FORM PAGE EN -->
-        <div id="form-En" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
-          <div class="cards">
-            <!-- FINAL CARD -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <h2>Summary</h2>
-              <ul id="summaryListEn"></ul>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- FORM -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
-                <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
-              </form>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
+<div id="form-En" class="d-none">
+  <h1 class="title-personal text-center">Finalize your choice</h1>
+
+  <div class="cards container">
+    <!-- SUMMARY CARD -->
+    <div class="card mt-5 shadow rounded-4 border-0 bg-light p-4 position-relative" style="max-width: 800px; margin: auto;">
+      <h2 class="fw-bold mb-3">Summary</h2>
+      <ul id="summaryListEn" class="list-group"></ul>
+    </div>
+
+    <!-- FORM CARD -->
+    <div class="card mt-5 shadow rounded-4 border-0 bg-light p-5 position-relative" style="max-width: 800px; margin: auto;">
+      <form id="finalForm" class="form-personal">
+        <h2 class="fw-bold text-center mb-4" style="color: #6b6bff;">Contact Information</h2>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <label for="userName" class="form-label fw-semibold">Name</label>
+            <input type="text" id="userName" name="userName"
+              class="form-control form-control-lg shadow-sm border-1"
+              placeholder="Your name..." required>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <label for="userEmail" class="form-label fw-semibold">Email</label>
+            <input type="email" id="userEmail" name="userEmail"
+              class="form-control form-control-lg shadow-sm border-1"
+              placeholder="name@example.com" required>
           </div>
         </div>
+
+        <div class="mb-4">
+          <label for="userDescription" class="form-label fw-semibold">Description</label>
+          <textarea id="userDescription" name="userDescription" rows="4"
+            class="form-control form-control-lg shadow-sm border-1"
+            placeholder="Tell us something..." required></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-lg px-5"
+            style="background-color: #6b6bff; color: white;">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
       </div>
     </div>
