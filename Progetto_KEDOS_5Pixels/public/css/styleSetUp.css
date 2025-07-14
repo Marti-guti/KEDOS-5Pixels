@@ -687,7 +687,6 @@ body {
   .class-card[data-option] {
     position: relative;
     background: linear-gradient(135deg, #fbf8ff);
-    border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     color: #2d2d2d;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -697,7 +696,7 @@ body {
     z-index: 1;
   }
 
-  .class-card[data-option]::before,
+  /* .class-card[data-option]::before,
   .class-card[data-option]::after {
     content: "";
     position: absolute;
@@ -719,7 +718,7 @@ body {
     left: 1.5rem;
     right: 1.5rem;
     bottom: 1.5rem;
-  }
+  } */
 
   .class-card[data-option] h2 {
     z-index: 1;
