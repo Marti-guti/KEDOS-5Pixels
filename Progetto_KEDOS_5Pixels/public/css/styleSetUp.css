@@ -459,6 +459,14 @@ body {
   }
 }
 
+@media (hover: none), (max-width: 1080px) {
+  .carousel-arrow {
+  display: block;
+  grid-row: 8;
+  margin: 1rem;
+  }
+}
+
 /* Mobile (≤ 768px) */
 @media (hover: none), (max-width: 768px) {
 .parent {
@@ -489,7 +497,7 @@ body {
 }
 
 .class-card p, .card p {
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .next-btn-container{
@@ -607,15 +615,35 @@ body {
     height: 45vh;
     min-height: 45vh;
     width: 60vw;
-    min-width: 60vw;
+    max-height: 500PX;
+    max-width: 250px;
+    min-width: 230px;
   }
 
   .class-card,.card {
     height: 45vh;
     min-height: 45vh;
     width: 60vw;
-    min-width: 60vw;
+    min-width: 230px;
+    max-width: 250px;
   }
+
+  .badge {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a2a;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  box-shadow: 0 0 0 5px white, 0 0 0 10px #5a60ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 }
 #summaryListEs,
@@ -629,7 +657,7 @@ body {
   color: #6c757d;       
   opacity: 1;
 }
- /* .card[data-option] {
+ .card[data-option] {
     position: relative;
     background: linear-gradient(135deg, #fbf8ff);
     border-radius: 1.5rem;
@@ -664,7 +692,7 @@ body {
     left: 1.5rem;
     right: 1.5rem;
     bottom: 1.5rem;
-  } */
+  }
 
   .card[data-option] h2 {
     z-index: 1;
