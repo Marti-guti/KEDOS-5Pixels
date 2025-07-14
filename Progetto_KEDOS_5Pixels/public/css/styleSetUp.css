@@ -358,8 +358,9 @@ body {
   /* min-width: 250px; */
   width: 10vw;
   min-width: 300px;
-  height: 40vh;
-  max-height: 450px;
+  /* height: 40vh;
+  max-height: 450px; */
+  height: 500px;
 }
 
 
@@ -398,8 +399,6 @@ body {
   font-weight: bold;
 }
 
-
-
 .badge {
   position: absolute;
   bottom: -25px;
@@ -416,7 +415,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 
 .carousel-arrow {
   display: none;

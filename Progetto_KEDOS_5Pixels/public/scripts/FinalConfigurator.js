@@ -39,18 +39,21 @@ const pages = {
     duration: document.getElementById("duration-En"),
     classNumber: document.getElementById("classNumber-En"),
     form: document.getElementById("form-En"),
+    formAlt: document.getElementById("form-alt-En")
   },
   es: {
     setUp: document.getElementById("setUp-Es"),
     duration: document.getElementById("duration-Es"),
     classNumber: document.getElementById("classNumber-Es"),
     form: document.getElementById("form-Es"),
+    formAlt: document.getElementById("form-alt-Es")
   },
   it: {
     setUp: document.getElementById("setUp-It"),
     duration: document.getElementById("duration-It"),
     classNumber: document.getElementById("classNumber-It"),
     form: document.getElementById("form-It"),
+    formAlt: document.getElementById("form-alt-It")
   }
 };
 
@@ -59,6 +62,15 @@ const pages = {
 function showFlag() {
   languageSelect.value = currentLang;
   flagDiv.style.backgroundImage = 'url("../../public/img/' + currentLang + '.png")';
+}
+
+function updateNextButtonText() {
+  const texts = {
+    en: "Next",
+    es: "Siguiente",
+    it: "Avanti"
+  };
+  nextBtn.textContent = texts[currentLang] || texts.en;
 }
 
 function removeOtherLangPages() {
@@ -76,7 +88,7 @@ function removeOtherPages() {
   Object.values(pages).forEach(langObj => {
     Object.values(langObj).forEach(page => {
       page.querySelectorAll(".card.selected")
-        .forEach(c => c.classList.remove("selected"));
+        .forEach(card => card.classList.remove("selected"));
       page.querySelectorAll(".badge")
         .forEach(badge => badge.style.background = "#2a2a2a");  
     });
@@ -279,7 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
   removeOtherPages();
   initializeCards();
   showFlag();
-  mobileView();
+  const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
+  mobileView(currentContainer);
+  updateNextButtonText();
 });
 
 languageSelect.addEventListener('change', () => {
@@ -288,8 +302,10 @@ languageSelect.addEventListener('change', () => {
   showFlag();
   removeOtherPages();
   initializeCards();
-  mobileView();
+ const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
+  mobileView(currentContainer);
   renderSummary();
+  updateNextButtonText();
 });
 
 progressBarNodes.forEach(node => node.addEventListener('click', btn => {
@@ -299,7 +315,8 @@ progressBarNodes.forEach(node => node.addEventListener('click', btn => {
   nodes[previousPage].classList.add("completed");
   removeOtherPages();
   initializeCards();
-  mobileView();
+  const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
+  mobileView(currentContainer);
   progressBarNodes.forEach((node) => node.classList.remove("active"));
   nodes[currentPage].classList.add("active");
 }));
@@ -308,93 +325,85 @@ nextBtn.addEventListener("click", () => {
   next();
   removeOtherPages();
   initializeCards();
-  mobileView();
+  const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
+  mobileView(currentContainer);
   console.log(currentPage);
 })
 
-function mobileView() {
+function mobileView(container) {
+  if (!container) return;
+  
   const MOBILE_WIDTH = 1400;
-  const cardContainers = document.querySelectorAll(".cards");
+  const cards = Array.from(container.querySelectorAll(".card, .class-card, .form-card"));
+  const prevBtn = container.querySelector(".prev");
+  const nextBtn = container.querySelector(".next");
 
-  cardContainers.forEach((container) => {
-    const cards = Array.from(container.querySelectorAll(".card, .class-card, .form-card"));
-    const prevBtn = container.querySelector(".prev");
-    const nextBtn = container.querySelector(".next");
+  let currentIndex = 0;
 
-    let currentIndex = 0;
+  let dotsWrapper = container.querySelector(".carousel-dots");
+  if (!dotsWrapper) {
+    dotsWrapper = document.createElement("div");
+    dotsWrapper.className = "carousel-dots d-none";
+    container.appendChild(dotsWrapper);
+  }
+  dotsWrapper.innerHTML = "";
 
-    let dotsWrapper = container.querySelector(".carousel-dots");
-    if (!dotsWrapper) {
-      dotsWrapper = document.createElement("div");
-      dotsWrapper.className = "carousel-dots d-none";
-      container.appendChild(dotsWrapper);
-    }
-    dotsWrapper.innerHTML = "";
+  cards.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.className = "carousel-dot";
+    if (i === currentIndex) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateCardsView();
+    });
+    dotsWrapper.appendChild(dot);
+  });
 
-    cards.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.className = "carousel-dot";
-      if (i === currentIndex) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateCardsView();
+  const updateCardsView = () => {
+    const isMobile = window.innerWidth < MOBILE_WIDTH;
+
+    if (isMobile) {
+      cards.forEach((card, i) => {
+        card.classList.toggle("d-none", i !== currentIndex);
       });
-      dotsWrapper.appendChild(dot);
-    });
 
-    const updateCardsView = () => {
-      const isMobile = window.innerWidth < MOBILE_WIDTH;
+      prevBtn.classList.toggle("d-none", cards.length <= 1);
+      nextBtn.classList.toggle("d-none", cards.length <= 1);
+      dotsWrapper.classList.remove("d-none");
 
-      if (isMobile) {
-        cards.forEach((card, i) => {
-          card.classList.toggle("d-none", i !== currentIndex);
-        });
+      const dots = dotsWrapper.querySelectorAll(".carousel-dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    } else {
+      cards.forEach((card) => card.classList.remove("d-none"));
+      prevBtn.classList.add("d-none");
+      nextBtn.classList.add("d-none");
+      dotsWrapper.classList.add("d-none");
+    }
+  };
 
-        prevBtn.classList.toggle("d-none", cards.length <= 1);
-        nextBtn.classList.toggle("d-none", cards.length <= 1);
-        dotsWrapper.classList.remove("d-none");
-
-        const dots = dotsWrapper.querySelectorAll(".carousel-dot");
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("active", i === currentIndex);
-        });
-
-      } else {
-        cards.forEach((card) => card.classList.remove("d-none"));
-        prevBtn.classList.add("d-none");
-        nextBtn.classList.add("d-none");
-        dotsWrapper.classList.add("d-none");
-      }
-    };
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-      updateCardsView();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % cards.length;
-      updateCardsView();
-    });
-
-    window.addEventListener("resize", updateCardsView);
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
     updateCardsView();
   });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCardsView();
+  });
+
+  window.addEventListener("resize", updateCardsView);
+  updateCardsView();
 }
 
-function skip(){
-  let skipBtn = document.getElementById("skip");
-    skipBtn.addEventListener("click", ()=>{
-      nodes[currentPage].classList.add("completed");
-      currentPage = "form";
-      nodes.form.disabled = false;
-      progressBarNodes.forEach((node) => node.classList.remove("active"));
-      nodes[currentPage].classList.add("active");
-      removeOtherPages();
-      initializeCards();
-      mobileView();
-      renderSummary();
-    })
-}
-
-skip();
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("skip")) {
+    const previousPage = currentPage;      
+    currentPage = "formAlt";
+    nodes[previousPage].classList.add("completed");
+    removeOtherPages();
+    initializeCards();
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
+  }
+});
