@@ -2,460 +2,714 @@
 <html lang="it">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuratore Certificati</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../public/css/styleSetUp.css" />
+  <link rel="stylesheet" href="../../public/css/styleSetUp.css">
 </head>
 
 <body>
-  <div class="parent">
-    <div class="dropdown-personal">
-      <select id="languageSelect">
-        <option value="en">english</option>
-        <option value="it">italiano</option>
-        <option value="es">español</option>
-      </select>
-    </div>
-    <div id="flag">
-      <!-- <img src="" alt="bandiere"> -->
-    </div>
-    <div class="breadcrumbs">
-      <button id="setUpPageNode" class="active progressBarNode">Set-Up</button>
-      <button id="durationPageNode" class="progressBarNode" disabled>Certificate Duration</button>
-      <button id="classNumberPageNode" class="progressBarNode" disabled>third Page</button>
-      <button id="formPageNode" class="progressBarNode" disabled>fourth Page</button>
-    </div>
-    <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
-    <button class="carousel-arrow next" aria-label="Next card">›</button>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="flag-container" id="flagContainer">🇮🇹</div>
+      <div class="language-selector">
+        <select id="languageSelect">
+          <option value="it">Italiano</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+    </header>
 
-    <!-- LANGUAGE PAGE EN -->
-    <div id="en-page" class="d-none">
-      <div class="container-personal">
-        <!-- QUESTION SET-UP EN -->
-        <div id="setUp-En" class="d-none">
-          <h1 class="title-personal">Choose your Set-Up</h1>
-          <!-- CARD CONTAINER EN -->
-          <div class="cards">
-            <div class="card" data-option="base bases base" data-suboption="1000">
-              <h2>Manual certificate registration.</h2>
-              <p>Ideal for individual users or small teams. All certificates are registered manually through our
-                platform,
-                without API integration.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="advanced avanzatos avanzato" data-suboption="6000">
-              <h2>Automated certificate registration via API.</h2>
-              <p>Designed for organizations with their own IT systems. Integrate with our service through the KeCert API
-                for
-                seamless and scalable blockchain certificate issuance.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- DURATION EN -->
-        <div id="duration-En" class="d-none">
-          <h1 class="title-personal">Choose the duration</h1>
-          <!-- CARD CONTAINER EN -->
-          <div class="cards">
-            <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
-              <h2>Certificates with expiry date.</h2>
-              <p>These certificates have a validity period and can be viewed on our platform for up to 10 years after
-                issuance.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="without-expiry senza-scadenzas senza-scadenza">
-              <h2>Certificates without expiry date.</h2>
-              <p>These certificates are permanent and can be accessed and verified on our platform for up to 100 years.
-              </p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- NUMBER OF CLASSES EN -->
-        <div id="classNumber-En" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
-          <!-- CARD CONTAINER EN -->
-          <div class="cards d-flex flex-column flex-md-row gap-4">
-            <!-- CARD 1 -->
-            <div class="class-card rounded-4 bg-light h-100 d-flex flex-column p-4 text-center flex-fill"
-              data-option="single singolas singola">
-              <h2>Single class – up to 1000 students</h2>
-              <p class="flex-grow-1">Perfect for individual events or school classes. Issue certificates manually or via
-                API for up to 1000 students in one go.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-4">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-
-            <!-- CARD 2 -->
-            <div class="class-card rounded-4 bg-light h-100 d-flex flex-column p-4 text-center flex-fill"
-              data-option="package-10 pacchettos-10 pacchetto-10">
-              <h2>10-Class Package</h2>
-              <p class="flex-grow-1">Issue certificates in 10 separate emissions. Choose whether each class contains one
-                student or up to 30 students.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-4">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-
-            <!-- CARD 3 -->
-            <div class="class-card rounded-4 bg-light h-100 d-flex flex-column p-4 text-center flex-fill"
-              data-option="package-50 pacchettos-50 pacchetto-50">
-              <h2>50-Class Package</h2>
-              <p class="flex-grow-1">Perfect for larger institutions. Choose whether each class contains one student or
-                up to 30 students per emission.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-4">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- CONFIGURATOR FORM PAGE EN -->
-        <div id="form-En" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
-          <div class="cards">
-            <!-- FINAL CARD -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <h2>Summary</h2>
-              <ul id="summaryListEn"></ul>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- FORM -->
-            <!-- da cambiare in form card -->
-        <div class="card p-5 shadow rounded-4 border-0 bg-light">
-              <form id="finalForm" class="form-personal">
-                <h2 class="mb-4 fw-bold text-center" style="color: #6b6bff;">Contact Information</h2>
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <label for="userName" class="form-label fw-semibold">Name</label>
-                    <input type="text" id="userName" name="userName"
-                      class="form-control form-control-lg shadow-sm border-1" placeholder="Your name..." required>
-                  </div>
-
-                  <div class="col-md-6 mb-4">
-                    <label for="userEmail" class="form-label fw-semibold">Email</label>
-                    <input type="email" id="userEmail" name="userEmail"
-                      class="form-control form-control-lg shadow-sm border-1" placeholder="name@example.com" required>
-                  </div>
-                </div>
-
-                <div class="mb-4">
-                  <label for="userDescription" class="form-label fw-semibold">Description</label>
-                  <textarea id="userDescription" name="userDescription" rows="4"
-                    class="form-control form-control-lg shadow-sm border-1" placeholder="Tell us something..."
-                    required></textarea>
-                </div>
-              </form>
-              <div class="badge">
-                <span>✓</span>
-              </div>
-            </div>
-          
-          
-          
-          </div>
-        </div>
-
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <button class="progress-step active" style="color: aliceblue;" id="step1" data-step="1">Set-Up</button>
+        <button class="progress-step" style="color: aliceblue;"id="step2" data-step="2" disabled>Durata</button>
+        <button class="progress-step" style="color: aliceblue;"id="step3" data-step="3" disabled>Pacchetto</button>
+        <button class="progress-step" style="color: aliceblue;"id="step4" data-step="4" disabled>Finalizza</button>
       </div>
     </div>
-    <!-- LANGUAGE PAGE ES -->
-    <div id="es-page" class="d-none">
-      <div class="container-personal">
-        <!-- QUESTION SET-UP ES -->
-        <div id="setUp-Es" class="d-none">
-          <h1 class="title-personal">Choose your Set-Up</h1>
-          <!-- CARD CONTAINER ES -->
-          <div class="cards">
-            <div class="card" data-option="base bases base" data-suboption="1000">
-              <h2>Registro manual de certificados</h2>
-              <p>Ideal para usuarios individuales o pequeños equipos. Todos los certificados se registran manualmente a
-                través de nuestra plataforma, sin integración de API.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="advanced avanzatos avanzato" data-suboption="6000">
-              <h2>Registro automatizado de certificados vía API</h2>
-              <p>Diseñado para organizaciones con sistemas informáticos propios. Integra nuestro servicio a través de la
-                API KeCert para emitir certificados blockchain de forma ágil y escalable.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- DURATION Es -->
-        <div id="duration-Es" class="d-none">
-          <h1 class="title-personal">Choose the duration</h1>
-          <!-- CARD CONTAINER Es -->
-          <div class="cards">
-            <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
-              <h2>Certificados con fecha de caducidad</h2>
-              <p>Estos certificados tienen un periodo de validez y pueden verse en nuestra plataforma hasta 10 años
-                después de su emisión.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="without-expiry senza-scadenzas senza-scadenza">
-              <h2>Certificados sin fecha de caducidad</h2>
-              <p>Estos certificados son permanentes y pueden accederse y verificarse en nuestra plataforma hasta 100
-                años!</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- NUMBER OF CLASSES Es -->
-        <div id="classNumber-Es" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
-          <!-- CARD CONTAINER Es -->
-          <div class="cards">
-            <!-- Card 1: Single class -->
-            <div class="class-card" data-option="single singolas singola">
-              <h2>Clase única hasta 1000 estudiantes</h2>
-              <p>Perfecto para eventos individuales o clases escolares. Emite certificados manualmente o vía API para
-                hasta 1000 estudiantes de una sola vez.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 2: 10-class package -->
-            <div class="class-card" data-option="package10">
-              <h2>Paquete de 10 clases</h2>
-              <p>Emite certificados en 10 emisiones separadas. Elige si cada clase contiene un estudiante o hasta 30
-                estudiantes.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 3: 50-class package -->
-            <div class="class-card" data-option="package50">
-              <h2>Paquete de 50 clases</h2>
-              <p>Perfecto para instituciones de mayor tamaño. Elige si cada clase contiene un estudiante o hasta 30
-                estudiantes por emisión.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 ">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page 1: Setup -->
+      <div class="page active" id="page1">
+        <h1 class="page-title" data-key="setup_title">Scegli il tuo Set-Up</h1>
+        <div class="cards-container">
+          <div class="card" data-option="base" data-suboption="1000">
+            <h2 data-key="manual_title">Registrazione manuale dei certificati</h2>
+            <p data-key="manual_desc">Ideale per utenti individuali o piccoli team. Tutti i certificati vengono
+              registrati manualmente tramite la nostra piattaforma, senza integrazione API.</p>
+            <div class="card-badge">✓</div>
+          </div>
+          <div class="card" data-option="advanced" data-suboption="6000">
+            <h2 data-key="api_title">Registrazione automatizzata tramite API</h2>
+            <p data-key="api_desc">Pensato per organizzazioni con sistemi IT proprietari. Integra il nostro servizio
+              tramite l'API KeCert per l'emissione di certificati blockchain in modo fluido e scalabile.</p>
+            <div class="card-badge">✓</div>
           </div>
         </div>
-        <!-- CONFIGURATOR FORM PAGE Es -->
-        <div id="form-Es" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
-          <div class="cards">
-            <!-- FINAL CARD -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <h2>Summary</h2>
-              <ul id="summaryListEs"></ul>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- FORM -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
-                <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
-              </form>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-    <!-- LANGUAGE PAGE it -->
-    <div id="it-page" class="d-none">
-      <div class="container-personal">
-        <!-- QUESTION SET-UP it -->
-        <div id="setUp-It" class="d-none">
-          <h1 class="title-personal">Choose your Set-Up</h1>
-          <!-- CARD CONTAINER it -->
-          <div class="cards">
-            <div class="card" data-option="base bases base" data-suboption="1000">
-              <h2>Registrazione manuale dei certificati</h2>
-              <p>Ideale per utenti individuali o piccoli team. Tutti i certificati vengono registrati manualmente
-                tramite la nostra piattaforma, senza integrazione API.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="advanced avanzatos avanzato" data-suboption="6000">
-              <h2>Registrazione automatizzata dei certificati tramite API</h2>
-              <p>Pensato per organizzazioni con sistemi IT proprietari. Integra il nostro servizio tramite l’API KeCert
-                per l’emissione di certificati blockchain in modo fluido e scalabile.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- DURATION It -->
-        <div id="duration-It" class="d-none">
-          <h1 class="title-personal">Choose the duration</h1>
-          <!-- CARD CONTAINER It -->
-          <div class="cards">
-            <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
-              <h2>Certificati con data di scadenza</h2>
-              <p>Questi certificati hanno un periodo di validità e possono essere visualizzati sulla nostra piattaforma
-                fino a 10 anni dopo il rilascio.</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <div class="card" data-option="without-expiry senza-scadenzas senza-scadenza">
-              <h2>Certificati senza data di scadenza</h2>
-              <p>Questi certificati sono permanenti e possono essere consultati e verificati sulla nostra piattaforma
-                fino a 100 anni!</p>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- NUMBER OF CLASSES It -->
-        <div id="classNumber-It" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
-          <!-- CARD CONTAINER It -->
-          <div class="cards">
-            <!-- Card 1: Single class -->
-            <div class="class-card" data-option="single singolas singola">
-              <h2>Classe singola fino a 1000 studenti</h2>
-              <p>Perfetto per eventi individuali o classi scolastiche. Emetti certificati manualmente o tramite API per
-                un massimo di 1000 studenti in un’unica soluzione.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 2: 10-class package -->
-            <div class="class-card" data-option="package10">
-              <h2>Pacchetto da 10 classi</h2>
-              <p>Emetti certificati in 10 emissioni separate. Scegli se ogni emissione include un singolo studente o
-                fino a 30 studenti.</p>
-
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- Card 3: 50-class package -->
-            <div class="class-card" data-option="package50">
-              <h2>Pacchetto da 50 classi</h2>
-              <p>Perfetto per istituzioni di grandi dimensioni. Scegli se ogni emissione include un singolo studente o
-                fino a 30 studenti.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
-              </div>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
+      <!-- Page 2: Duration -->
+      <div class="page" id="page2">
+        <h1 class="page-title" data-key="duration_title">Scegli la durata</h1>
+        <div class="cards-container">
+          <div class="card" data-option="with-expiry">
+            <h2 data-key="expiry_title">Certificati con data di scadenza</h2>
+            <p data-key="expiry_desc">Questi certificati hanno un periodo di validità e possono essere visualizzati
+              sulla nostra piattaforma fino a 10 anni dopo il rilascio.</p>
+            <div class="card-badge">✓</div>
+          </div>
+          <div class="card" data-option="without-expiry">
+            <h2 data-key="no_expiry_title">Certificati senza data di scadenza</h2>
+            <p data-key="no_expiry_desc">Questi certificati sono permanenti e possono essere consultati e verificati
+              sulla nostra piattaforma fino a 100 anni!</p>
+            <div class="card-badge">✓</div>
           </div>
         </div>
-        <!-- CONFIGURATOR FORM PAGE It -->
-        <div id="form-It" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
-          <div class="cards">
-            <!-- FINAL CARD -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <h2>Summary</h2>
-              <ul id="summaryListIt"></ul>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-            <!-- FORM -->
-            <!-- da cambiare in form card -->
-            <div class="card">
-              <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
-                <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
-              </form>
-              <div class="badge">
-                <span>🗸</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Page 3: Package -->
+      <div class="page" id="page3">
+        <h1 class="page-title" data-key="package_title">Scegli il tuo pacchetto</h1>
+        <div class="cards-container">
+          <div class="card" data-option="single">
+            <h2 data-key="single_title">Classe singola fino a 1000 studenti</h2>
+            <p data-key="single_desc">Perfetto per eventi individuali o classi scolastiche. Emetti certificati
+              manualmente o tramite API per un massimo di 1000 studenti in un'unica soluzione.</p>
+            <div class="class-buttons">
+              <button class="student-btn" data-suboption="1000" data-key="cento_studenti">1000 studenti</button>
+            </div>
+            <div class="card-badge">✓</div>
+          </div>
+          <div class="card" data-option="package-10">
+            <h2 data-key="package10_title">Pacchetto da 10 classi</h2>
+            <p data-key="package10_desc">Emetti certificati in 10 emissioni separate. Scegli se ogni emissione include
+              un singolo studente o fino a 30 studenti.</p>
+            <div class="class-buttons">
+              <button class="student-btn" data-suboption="1" data-key="uno_studente">1 studente</button>
+              <button class="student-btn" data-suboption="30" data-key="trenta_studenti">30 studenti</button>
+            </div>
+            <div class="card-badge">✓</div>
+          </div>
+          <div class="card" data-option="package-50">
+            <h2 data-key="package50_title">Pacchetto da 50 classi</h2>
+            <p data-key="package50_desc">Perfetto per istituzioni di grandi dimensioni. Scegli se ogni emissione include
+              un singolo studente o fino a 30 studenti.</p>
+            <div class="class-buttons">
+              <button class="student-btn" data-suboption="1" data-key="uno_studente">1 studente</button>
+              <button class="student-btn" data-suboption="30" data-key="trenta_studenti">30 studenti</button>
+            </div>
+            <div class="card-badge">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 4: Form -->
+      <div class="page" id="page4">
+        <h1 class="page-title" data-key="finalize_title">Finalizza la tua scelta</h1>
+
+        <div class="summary-container">
+          <h2 data-key="summary_title" style="text-align: center;">Riepilogo</h2>
+          <ul class="summary-list" id="summaryList">
+            <!-- Summary items will be populated by JavaScript -->
+          </ul>
+        </div>
+
+        <div class="form-container">
+          <form id="finalForm">
+            <div class="form-group">
+              <label class="form-label" for="userName" data-key="name_label">Nome</label>
+              <input type="text" id="userName" name="userName" class="form-input" data-key="name_placeholder"
+                placeholder="Il tuo nome..." required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="userEmail" data-key="email_label">Email</label>
+              <input type="email" id="userEmail" name="userEmail" class="form-input" data-key="email_placeholder"
+                placeholder="nome@esempio.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="userDescription" data-key="description_label">Descrizione</label>
+              <textarea id="userDescription" name="userDescription" class="form-input form-textarea"
+                data-key="description_placeholder" placeholder="Raccontaci qualcosa..." required></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <div class="navigation">
+      <button class="nav-btn prev" id="prevBtn" style="display: none;">Indietro</button>
+      <button class="nav-btn" id="nextBtn" disabled>Avanti</button>
     </div>
-    <div class="next-btn-container">
-      <button id="nextBtn" class="button next-btn" disabled>Next</button>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <button class="mobile-nav-btn prev" id="mobilePrevBtn" style="display: none;">‹</button>
+      <button class="mobile-nav-btn next" id="mobileNextBtn">›</button>
     </div>
   </div>
 
+  <script>
+    // Translations
+    const translations = {
+      it: {
+        setup_title: "Scegli il tuo Set-Up",
+        duration_title: "Scegli la durata",
+        package_title: "Scegli il tuo pacchetto",
+        finalize_title: "Finalizza la tua scelta",
+        manual_title: "Registrazione manuale dei certificati",
+        manual_desc: "Ideale per utenti individuali o piccoli team. Tutti i certificati vengono registrati manualmente tramite la nostra piattaforma, senza integrazione API.",
+        api_title: "Registrazione automatizzata tramite API",
+        api_desc: "Pensato per organizzazioni con sistemi IT proprietari. Integra il nostro servizio tramite l'API KeCert per l'emissione di certificati blockchain in modo fluido e scalabile.",
+        expiry_title: "Certificati con data di scadenza",
+        expiry_desc: "Questi certificati hanno un periodo di validità e possono essere visualizzati sulla nostra piattaforma fino a 10 anni dopo il rilascio.",
+        no_expiry_title: "Certificati senza data di scadenza",
+        no_expiry_desc: "Questi certificati sono permanenti e possono essere consultati e verificati sulla nostra piattaforma fino a 100 anni!",
+        single_title: "Classe singola fino a 1000 studenti",
+        single_desc: "Perfetto per eventi individuali o classi scolastiche. Emetti certificati manualmente o tramite API per un massimo di 1000 studenti in un'unica soluzione.",
+        package10_title: "Pacchetto da 10 classi",
+        package10_desc: "Emetti certificati in 10 emissioni separate. Scegli se ogni emissione include un singolo studente o fino a 30 studenti.",
+        package50_title: "Pacchetto da 50 classi",
+        package50_desc: "Perfetto per istituzioni di grandi dimensioni. Scegli se ogni emissione include un singolo studente o fino a 30 studenti.",
+        summary_title: "Riepilogo",
+        name_label: "Nome",
+        email_label: "Email",
+        description_label: "Descrizione",
+        name_placeholder: "Il tuo nome...",
+        email_placeholder: "nome@esempio.com",
+        description_placeholder: "Raccontaci qualcosa...",
+        next_btn: "Avanti",
+        prev_btn: "Indietro",
+        finish_btn: "Finalizza",
+        cento_studenti: "1000 Studenti",
+        uno_studente: "1 Studente",
+        trenta_studenti:"30 Studenti",
+      },
+      en: {
+        setup_title: "Choose your Set-Up",
+        duration_title: "Choose the duration",
+        package_title: "Choose your package",
+        finalize_title: "Finalize your choice",
+        manual_title: "Manual certificate registration",
+        manual_desc: "Ideal for individual users or small teams. All certificates are registered manually through our platform, without API integration.",
+        api_title: "Automated certificate registration via API",
+        api_desc: "Designed for organizations with their own IT systems. Integrate with our service through the KeCert API for seamless and scalable blockchain certificate issuance.",
+        expiry_title: "Certificates with expiry date",
+        expiry_desc: "These certificates have a validity period and can be viewed on our platform for up to 10 years after issuance.",
+        no_expiry_title: "Certificates without expiry date",
+        no_expiry_desc: "These certificates are permanent and can be accessed and verified on our platform for up to 100 years.",
+        single_title: "Single class – up to 1000 students",
+        single_desc: "Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000 students in one go.",
+        package10_title: "10-Class Package",
+        package10_desc: "Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30 students.",
+        package50_title: "50-Class Package",
+        package50_desc: "Perfect for larger institutions. Choose whether each class contains one student or up to 30 students per emission.",
+        summary_title: "Summary",
+        name_label: "Name",
+        email_label: "Email",
+        description_label: "Description",
+        name_placeholder: "Your name...",
+        email_placeholder: "name@example.com",
+        description_placeholder: "Tell us something...",
+        next_btn: "Next",
+        prev_btn: "Back", 
+        finish_btn: "Finish",
+        uno_studente: "1 Student",
+        trenta_studenti: "30 Students",
+        cento_studenti: "1000 Students",
+      },
+es: {
+        setup_title: "Elige tu configuración",
+        duration_title: "Elige la duración",
+        package_title: "Elige tu paquete",
+        finalize_title: "Finaliza tu elección",
+        manual_title: "Registro manual de certificados",
+        manual_desc: "Ideal para usuarios individuales o pequeños equipos. Todos los certificados se registran manualmente a través de nuestra plataforma, sin integración de API.",
+        api_title: "Registro automatizado de certificados vía API",
+        api_desc: "Diseñado para organizaciones con sistemas informáticos propios. Integra nuestro servicio a través de la API KeCert para emitir certificados blockchain de forma ágil y escalable.",
+        expiry_title: "Certificados con fecha de caducidad",
+        expiry_desc: "Estos certificados tienen un periodo de validez y pueden verse en nuestra plataforma hasta 10 años después de su emisión.",
+        no_expiry_title: "Certificados sin fecha de caducidad",
+        no_expiry_desc: "Estos certificados son permanentes y pueden accederse y verificarse en nuestra plataforma hasta 100 años",
+        single_title: "Clase única hasta 1000 estudiantes",
+        single_desc: "Perfecto para eventos individuales o clases escolares. Emite certificados manualmente o vía API para un máximo de 1000 estudiantes de una vez.",
+        package10_title: "Paquete de 10 clases",
+        package10_desc: "Emite certificados en 10 emisiones separadas. Elige si cada emisión incluye un solo estudiante o hasta 30 estudiantes.",
+        package50_title: "Paquete de 50 clases",
+        package50_desc: "Perfecto para instituciones grandes. Elige si cada emisión incluye un solo estudiante o hasta 30 estudiantes.",
+        summary_title: "Resumen",
+        name_label: "Nombre",
+        email_label: "Email",
+        description_label: "Descripción",
+        name_placeholder: "Tu nombre...",
+        email_placeholder: "nombre@ejemplo.com",
+        description_placeholder: "Cuéntanos algo...",
+        next_btn: "Siguiente",
+        prev_btn: "Atrás",
+        finish_btn: "Finalizar",
+        setup_base: "Registro manual",
+        setup_advanced: "Registro API",
+        duration_expiry: "Con caducidad",
+        duration_no_expiry: "Sin caducidad",
+        package_single: "Clase única",
+        package_10: "Paquete 10 clases",
+        package_50: "Paquete 50 clases",
+        students_count: "estudiantes",
+        cento_studenti: "1000 Estudiantes",
+        uno_studente: "1 Estudiante",
+        trenta_studenti:"30 Estudiantes",
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
-    </script>
-  <!-- <script src="../../public/scripts/configurator.js"></script> -->
-  <script src="../../public/scripts/FinalConfigurator.js"></script>
-</body>
 
-</html>
+      }
+    };
+
+    // Application state
+    let currentPage = 1;
+    let currentLanguage = 'it';
+    let selectedOptions = {
+      setup: null,
+      duration: null,
+      package: null,
+      students: null
+    };
+
+    const flags = {
+      it: '🇮🇹',
+      en: '🇬🇧',
+      es: '🇪🇸'
+    };
+
+    // DOM elements
+    const languageSelect = document.getElementById('languageSelect');
+    const flagContainer = document.getElementById('flagContainer');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const mobileNextBtn = document.getElementById('mobileNextBtn');
+    const mobilePrevBtn = document.getElementById('mobilePrevBtn');
+    const pages = document.querySelectorAll('.page');
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const cards = document.querySelectorAll('.card');
+    const summaryList = document.getElementById('summaryList');
+    const finalForm = document.getElementById('finalForm');
+
+    // Initialize the application
+    function init() {
+      updateLanguage();
+      updateNavigation();
+      attachEventListeners();
+      updateProgressBar();
+    }
+
+    // Event listeners
+    function attachEventListeners() {
+      // Language selector
+      languageSelect.addEventListener('change', (e) => {
+        currentLanguage = e.target.value;
+        flagContainer.textContent = flags[currentLanguage];
+        updateLanguage();
+      });
+
+      // Navigation buttons
+      nextBtn.addEventListener('click', nextPage);
+      prevBtn.addEventListener('click', prevPage);
+      mobileNextBtn.addEventListener('click', nextPage);
+      mobilePrevBtn.addEventListener('click', prevPage);
+
+      // Card selection
+      cards.forEach(card => {
+        card.addEventListener('click', () => selectCard(card));
+      });
+
+      // Student button selection
+      document.querySelectorAll('.student-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          selectStudentOption(btn);
+        });
+      });
+
+      // Progress step navigation
+      progressSteps.forEach(step => {
+        step.addEventListener('click', () => {
+          const stepNumber = parseInt(step.dataset.step);
+          if (stepNumber <= getMaxEnabledStep()) {
+            goToPage(stepNumber);
+          }
+        });
+      });
+
+      // Form validation
+      const formInputs = finalForm.querySelectorAll('input, textarea');
+      formInputs.forEach(input => {
+        input.addEventListener('input', validateForm);
+      });
+    }
+
+    // Language management
+    function updateLanguage() {
+      document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[currentLanguage][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.placeholder = translations[currentLanguage][key];
+          } else {
+            element.textContent = translations[currentLanguage][key];
+          }
+        }
+      });
+
+      // Update button text
+      const nextBtnText = currentPage === 4 ? translations[currentLanguage].finish_btn : translations[currentLanguage].next_btn;
+      nextBtn.textContent = nextBtnText;
+      prevBtn.textContent = translations[currentLanguage].prev_btn;
+
+      // Update progress step text
+      updateProgressStepText();
+    }
+
+    function updateProgressStepText() {
+      const stepTexts = {
+        1: 'Set-Up',
+        2: translations[currentLanguage].duration_title.replace('Scegli la ', '').replace('Choose the ', '').replace('Elige la ', ''),
+        3: translations[currentLanguage].package_title.replace('Scegli il tuo ', '').replace('Choose your ', '').replace('Elige tu ', ''),
+        4: translations[currentLanguage].finalize_title.replace('Finalizza la tua ', '').replace('Finalize your ', '').replace('Finaliza tu ', '')
+      };
+
+      progressSteps.forEach((step, index) => {
+        step.textContent = stepTexts[index + 1] || step.textContent;
+      });
+    }
+
+    // Navigation functions
+    function nextPage() {
+      if (currentPage < 4 && canProceed()) {
+        currentPage++;
+        updatePageDisplay();
+        updateNavigation();
+        updateProgressBar();
+        
+        if (currentPage === 4) {
+          updateSummary();
+        }
+      } else if (currentPage === 4 && validateForm()) {
+        submitForm();
+}
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePageDisplay();
+        updateNavigation();
+        updateProgressBar();
+      }
+    }
+
+    function goToPage(pageNumber) {
+      if (pageNumber >= 1 && pageNumber <= 4) {
+        currentPage = pageNumber;
+        updatePageDisplay();
+        updateNavigation();
+        updateProgressBar();
+        
+        if (currentPage === 4) {
+          updateSummary();
+        }
+      }
+    }
+
+    function updatePageDisplay() {
+      pages.forEach((page, index) => {
+        page.classList.toggle('active', index + 1 === currentPage);
+      });
+    }
+
+    function updateNavigation() {
+      const canGoNext = canProceed();
+      const isLastPage = currentPage === 4;
+      
+      // Desktop buttons
+      nextBtn.disabled = isLastPage ? !validateForm() : !canGoNext;
+      prevBtn.disabled = currentPage === 1;
+      
+      // Mobile buttons
+      mobileNextBtn.disabled = isLastPage ? !validateForm() : !canGoNext;
+      mobilePrevBtn.disabled = currentPage === 1;
+      
+      // Update button text
+      const nextBtnText = isLastPage ? translations[currentLanguage].finish_btn : translations[currentLanguage].next_btn;
+      nextBtn.textContent = nextBtnText;
+      mobileNextBtn.textContent = nextBtnText;
+      
+      prevBtn.textContent = translations[currentLanguage].prev_btn;
+      mobilePrevBtn.textContent = translations[currentLanguage].prev_btn;
+    }
+
+    function canProceed() {
+      switch (currentPage) {
+        case 1:
+          return selectedOptions.setup !== null;
+        case 2:
+          return selectedOptions.duration !== null;
+        case 3:
+          return selectedOptions.package !== null && selectedOptions.students !== null;
+        case 4:
+          return validateForm();
+        default:
+          return false;
+      }
+    }
+
+    function getMaxEnabledStep() {
+      let maxStep = 1;
+      if (selectedOptions.setup) maxStep = 2;
+      if (selectedOptions.duration) maxStep = 3;
+      if (selectedOptions.package && selectedOptions.students) maxStep = 4;
+      return maxStep;
+    }
+
+    // Progress bar management
+    function updateProgressBar() {
+      progressSteps.forEach((step, index) => {
+        const stepNumber = index + 1;
+        const isActive = stepNumber === currentPage;
+        const isCompleted = stepNumber < currentPage;
+        const isEnabled = stepNumber <= getMaxEnabledStep();
+        
+        step.classList.toggle('active', isActive);
+        step.classList.toggle('completed', isCompleted);
+        step.classList.toggle('enabled', isEnabled);
+        step.classList.toggle('disabled', !isEnabled);
+      });
+    }
+
+    // Card selection functions
+    function selectCard(selectedCard) {
+      const pageNumber = currentPage;
+      const cardType = selectedCard.dataset.type;
+      
+      // Remove active class from all cards in current page
+      const currentPageCards = document.querySelectorAll(`.page:nth-child(${pageNumber}) .card`);
+      currentPageCards.forEach(card => card.classList.remove('active'));
+      
+      // Add active class to selected card
+      selectedCard.classList.add('active');
+      
+      // Update selected options
+      switch (pageNumber) {
+        case 1:
+          selectedOptions.setup = cardType;
+          break;
+        case 2:
+          selectedOptions.duration = cardType;
+          break;
+        case 3:
+          selectedOptions.package = cardType;
+          // Reset students selection when package changes
+          selectedOptions.students = null;
+          updateStudentButtons();
+          break;
+      }
+      
+      updateNavigation();
+      updateProgressBar();
+    }
+
+    function selectStudentOption(selectedBtn) {
+      const students = selectedBtn.dataset.students;
+      
+      // Remove active class from all student buttons
+      document.querySelectorAll('.student-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Add active class to selected button
+      selectedBtn.classList.add('active');
+      
+      // Update selected options
+      selectedOptions.students = students;
+      
+      updateNavigation();
+      updateProgressBar();
+    }
+
+    function updateStudentButtons() {
+      const package10Card = document.querySelector('[data-type="package10"]');
+      const package50Card = document.querySelector('[data-type="package50"]');
+      
+      if (selectedOptions.package === 'package10' || selectedOptions.package === 'package50') {
+        // Show student buttons for package options
+        const studentButtons = document.querySelectorAll('.student-btn');
+        studentButtons.forEach(btn => {
+          btn.classList.remove('active');
+        });
+      }
+    }
+
+    // Summary functions
+    function updateSummary() {
+      const summaryItems = [];
+      
+      // Setup summary
+      if (selectedOptions.setup) {
+        const setupText = selectedOptions.setup === 'manual' 
+          ? translations[currentLanguage].setup_base 
+          : translations[currentLanguage].setup_advanced;
+        summaryItems.push(`<strong>Set-Up:</strong> ${setupText}`);
+      }
+      
+      // Duration summary
+      if (selectedOptions.duration) {
+        const durationText = selectedOptions.duration === 'expiry' 
+          ? translations[currentLanguage].duration_expiry 
+          : translations[currentLanguage].duration_no_expiry;
+        summaryItems.push(`<strong>${translations[currentLanguage].duration_title.replace('Scegli la ', '').replace('Choose the ', '').replace('Elige la ', '')}:</strong> ${durationText}`);
+      }
+      
+      // Package summary
+      if (selectedOptions.package) {
+        let packageText = '';
+        switch (selectedOptions.package) {
+          case 'single':
+            packageText = translations[currentLanguage].package_single;
+            break;
+          case 'package10':
+            packageText = translations[currentLanguage].package_10;
+            break;
+          case 'package50':
+            packageText = translations[currentLanguage].package_50;
+            break;
+        }
+        summaryItems.push(`<strong>${translations[currentLanguage].package_title.replace('Scegli il tuo ', '').replace('Choose your ', '').replace('Elige tu ', '')}:</strong> ${packageText}`);
+      }
+      
+      // Students summary
+      if (selectedOptions.students) {
+        const studentsText = selectedOptions.students === '1' 
+          ? `1 ${translations[currentLanguage].students_count || 'student'}`
+          : `30 ${translations[currentLanguage].students_count || 'students'}`;
+        summaryItems.push(`<strong>${translations[currentLanguage].students_count || 'Students'}:</strong> ${studentsText}`);
+      }
+      
+      summaryList.innerHTML = summaryItems.map(item => `<li>${item}</li>`).join('');
+    }
+
+    // Form validation
+    function validateForm() {
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const descriptionInput = document.getElementById('description');
+      
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const description = descriptionInput.value.trim();
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      const isValid = name.length > 0 && 
+                     emailRegex.test(email) && 
+                     description.length > 0;
+      
+      return isValid;
+    }
+
+    // Form submission
+    function submitForm() {
+      const formData = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        description: document.getElementById('description').value.trim(),
+        selections: selectedOptions,
+        language: currentLanguage,
+        timestamp: new Date().toISOString()
+      };
+      
+      console.log('Form submitted:', formData);
+      
+      // Here you would typically send the data to your server
+      // For now, we'll just show a success message
+      alert(translations[currentLanguage].success_message || 'Form submitted successfully!');
+      
+      // Reset form for demo purposes
+      resetForm();
+    }
+
+    function resetForm() {
+      // Reset all selections
+      selectedOptions = {
+        setup: null,
+        duration: null,
+        package: null,
+        students: null
+      };
+      
+      // Reset page to first
+      currentPage = 1;
+      
+      // Clear form inputs
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('description').value = '';
+      
+      // Remove active classes from all cards
+      cards.forEach(card => card.classList.remove('active'));
+      
+      // Remove active classes from student buttons
+      document.querySelectorAll('.student-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Update displays
+      updatePageDisplay();
+      updateNavigation();
+      updateProgressBar();
+    }
+
+    // Utility functions
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // Add some additional translations for success message
+    translations.it.success_message = "Modulo inviato con successo!";
+    translations.en.success_message = "Form submitted successfully!";
+    translations.es.success_message = "¡Formulario enviado exitosamente!";
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' && currentPage > 1) {
+        prevPage();
+      } else if (e.key === 'ArrowRight' && currentPage < 4 && canProceed()) {
+        nextPage();
+      } else if (e.key === 'Enter' && currentPage === 4 && validateForm()) {
+        submitForm();
+      }
+    });
+
+    // Add responsive handling
+    function handleResize() {
+      // Update any responsive elements if needed
+      updateNavigation();
+    }
+
+    window.addEventListener('resize', debounce(handleResize, 250));
+
+</script>
