@@ -272,8 +272,6 @@ function renderSummary() {
   }
 }
 
-
-
 //EVENTS
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -314,62 +312,14 @@ nextBtn.addEventListener("click", () => {
   console.log(currentPage);
 })
 
-//  function mobileView() {
-//   const MOBILE_WIDTH = 1080;
-//   const cardContainers = document.querySelectorAll(".cards");
-
-//   cardContainers.forEach((container) => {
-//     const cards = Array.from(container.querySelectorAll(".card, .class-card, .form-card"));
-//     const classCards = Array.from(container.querySelectorAll(".class-card"));
-//     const formCards  = Array.from(container.querySelectorAll(".form-card"));
-//     const prevBtn = document.querySelector(".prev");
-//     const nextBtn = document.querySelector(".next");
-
-//     if (!cards.length || !prevBtn || !nextBtn) return;
-
-//     let currentIndex = 0;
-
-//     const updateCardsView = () => {
-//       const isMobile = window.innerWidth < MOBILE_WIDTH;
-
-//       if (isMobile) {
-//         cards.forEach((card, i) => {
-//           card.classList.toggle("d-none", i !== currentIndex);
-//         });
-
-//         prevBtn.classList.toggle("d-none", cards.length <= 1);
-//         nextBtn.classList.toggle("d-none", cards.length <= 1);
-//       } else {
-//         cards.forEach((card) => card.classList.remove("d-none"));
-//         prevBtn.classList.add("d-none");
-//         nextBtn.classList.add("d-none");
-//       }
-//     };
-
-//     // Navigazione
-//     prevBtn.addEventListener("click", () => {
-//       currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-//       updateCardsView();
-//     });
-
-//     nextBtn.addEventListener("click", () => {
-//       currentIndex = (currentIndex + 1) % cards.length;
-//       updateCardsView();
-//     });
-
-//     window.addEventListener("resize", updateCardsView);
-//     updateCardsView();
-//   });
-// }
-
 function mobileView() {
-  const MOBILE_WIDTH = 1080;
+  const MOBILE_WIDTH = 1400;
   const cardContainers = document.querySelectorAll(".cards");
 
   cardContainers.forEach((container) => {
     const cards = Array.from(container.querySelectorAll(".card, .class-card, .form-card"));
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+    const prevBtn = container.querySelector(".prev");
+    const nextBtn = container.querySelector(".next");
 
     let currentIndex = 0;
 
@@ -431,3 +381,20 @@ function mobileView() {
     updateCardsView();
   });
 }
+
+function skip(){
+  let skipBtn = document.getElementById("skip");
+    skipBtn.addEventListener("click", ()=>{
+      nodes[currentPage].classList.add("completed");
+      currentPage = "form";
+      nodes.form.disabled = false;
+      progressBarNodes.forEach((node) => node.classList.remove("active"));
+      nodes[currentPage].classList.add("active");
+      removeOtherPages();
+      initializeCards();
+      mobileView();
+      renderSummary();
+    })
+}
+
+skip();

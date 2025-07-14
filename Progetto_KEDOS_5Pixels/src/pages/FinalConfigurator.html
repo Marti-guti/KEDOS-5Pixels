@@ -28,8 +28,8 @@
       <button id="classNumberPageNode" class="progressBarNode" disabled>third Page</button>
       <button id="formPageNode" class="progressBarNode" disabled>fourth Page</button>
     </div>
-    <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
-    <button class="carousel-arrow next" aria-label="Next card">›</button>
+    <!-- <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
+    <button class="carousel-arrow next" aria-label="Next card">›</button> -->
 
     <!-- LANGUAGE PAGE EN -->
     <div id="en-page" class="d-none">
@@ -39,6 +39,7 @@
           <h1 class="title-personal">Choose your Set-Up</h1>
           <!-- CARD CONTAINER EN -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="base bases base" data-suboption="1000">
               <h2>Manual certificate registration.</h2>
               <p>Ideal for individual users or small teams. All certificates are registered manually through our
@@ -57,6 +58,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- DURATION EN -->
@@ -64,6 +66,7 @@
           <h1 class="title-personal">Choose the duration</h1>
           <!-- CARD CONTAINER EN -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
               <h2>Certificates with expiry date.</h2>
               <p>These certificates have a validity period and can be viewed on our platform for up to 10 years after
@@ -80,6 +83,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
@@ -89,6 +93,7 @@
           <!-- CARD CONTAINER EN -->
           <div class="cards">
             <!-- Card 1: Single class -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="class-card" data-option="single singolas singola">
               <h2>Single class – up to 1000 students</h2>
               <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
@@ -127,6 +132,18 @@
                 <span>🗸</span>
               </div>
             </div>
+            <div class="class-card" data-option="single singolas singola">
+              <h2>Single class – up to 1000 students</h2>
+              <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
+                students in one go.</p>
+              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" id="skip" class="button btn">skip</button>
+              </div>
+              <div class="badge">
+                <span>🗸</span>
+              </div>
+            </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- CONFIGURATOR FORM PAGE EN -->
@@ -135,6 +152,7 @@
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card">
               <h2>Summary</h2>
               <ul id="summaryListEn"></ul>
@@ -158,6 +176,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
@@ -171,6 +190,7 @@
           <h1 class="title-personal">Choose your Set-Up</h1>
           <!-- CARD CONTAINER ES -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="base bases base" data-suboption="1000">
               <h2>Registro manual de certificados</h2>
               <p>Ideal para usuarios individuales o pequeños equipos. Todos los certificados se registran manualmente a
@@ -187,6 +207,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- DURATION Es -->
@@ -194,6 +215,7 @@
           <h1 class="title-personal">Choose the duration</h1>
           <!-- CARD CONTAINER Es -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
               <h2>Certificados con fecha de caducidad</h2>
               <p>Estos certificados tienen un periodo de validez y pueden verse en nuestra plataforma hasta 10 años
@@ -210,6 +232,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
@@ -219,6 +242,7 @@
           <!-- CARD CONTAINER Es -->
           <div class="cards">
             <!-- Card 1: Single class -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="class-card" data-option="single singolas singola">
               <h2>Clase única hasta 1000 estudiantes</h2>
               <p>Perfecto para eventos individuales o clases escolares. Emite certificados manualmente o vía API para
@@ -256,6 +280,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- CONFIGURATOR FORM PAGE Es -->
@@ -264,6 +289,7 @@
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card">
               <h2>Summary</h2>
               <ul id="summaryListEs"></ul>
@@ -287,6 +313,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
@@ -300,6 +327,7 @@
           <h1 class="title-personal">Choose your Set-Up</h1>
           <!-- CARD CONTAINER it -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="base bases base" data-suboption="1000">
               <h2>Registrazione manuale dei certificati</h2>
               <p>Ideale per utenti individuali o piccoli team. Tutti i certificati vengono registrati manualmente
@@ -316,6 +344,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- DURATION It -->
@@ -323,6 +352,7 @@
           <h1 class="title-personal">Choose the duration</h1>
           <!-- CARD CONTAINER It -->
           <div class="cards">
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card" data-option="with-expiry con-scadenzas con-scadenza">
               <h2>Certificati con data di scadenza</h2>
               <p>Questi certificati hanno un periodo di validità e possono essere visualizzati sulla nostra piattaforma
@@ -339,6 +369,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
@@ -348,6 +379,7 @@
           <!-- CARD CONTAINER It -->
           <div class="cards">
             <!-- Card 1: Single class -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="class-card" data-option="single singolas singola">
               <h2>Classe singola fino a 1000 studenti</h2>
               <p>Perfetto per eventi individuali o classi scolastiche. Emetti certificati manualmente o tramite API per
@@ -386,6 +418,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
         <!-- CONFIGURATOR FORM PAGE It -->
@@ -394,6 +427,7 @@
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
+            <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
             <div class="card">
               <h2>Summary</h2>
               <ul id="summaryListIt"></ul>
@@ -417,6 +451,7 @@
                 <span>🗸</span>
               </div>
             </div>
+            <button class="carousel-arrow next" aria-label="Next card">›</button>
           </div>
         </div>
 
