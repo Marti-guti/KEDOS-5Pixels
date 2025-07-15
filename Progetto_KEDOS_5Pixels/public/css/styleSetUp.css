@@ -476,7 +476,7 @@ body {
 }
 
 .carousel-arrow.next {
-  /* grid-column: 12; */
+
   justify-self: end;
 }
 

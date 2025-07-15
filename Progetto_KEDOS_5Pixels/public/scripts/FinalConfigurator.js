@@ -114,6 +114,7 @@ function next() {
     nodes.duration.disabled = false;
     progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
+    nextBtn.disabled = true;
   }
   else if (currentPage === "duration") {
     currentPage = "classNumber";
@@ -121,6 +122,7 @@ function next() {
     nodes.classNumber.disabled = false;
     progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
+    nextBtn.disabled = true;
   }
   else if (currentPage === "classNumber") {
     currentPage = "form";
@@ -129,15 +131,16 @@ function next() {
     progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
     renderSummary();
+    nextBtn.disabled = false;
   }
   else if (currentPage === "form") {
     nodes.form.classList.add("completed");
     progressBarNodes.forEach((node) => node.classList.remove("active"));
     nodes[currentPage].classList.add("active")
-
+    nextBtn.disabled = false;
   };
 
-  nextBtn.disabled = true;
+  // nextBtn.disabled = true;
 }
 
 function initializeCards() {
@@ -307,18 +310,29 @@ languageSelect.addEventListener('change', () => {
   updateNextButtonText();
 });
 
-progressBarNodes.forEach(node => node.addEventListener('click', btn => {
-  const previousPage = currentPage;
-  const page = btn.target.id.replace('PageNode', '');
-  currentPage = page;
-  nodes[previousPage].classList.add("completed");
-  removeOtherPages();
-  initializeCards();
-  const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
-  mobileView(currentContainer);
-  progressBarNodes.forEach((node) => node.classList.remove("active"));
-  nodes[currentPage].classList.add("active");
-}));
+progressBarNodes.forEach(node => {
+  node.addEventListener('click', (e) => {
+    const previousPage = currentPage;
+    const page = e.currentTarget.id.replace("PageNode", "");
+
+    // Solo se il nodo esiste
+    if (!pages[currentLang][page]) return;
+
+    currentPage = page;
+    nodes[previousPage].classList.add("completed");
+    removeOtherPages();
+    initializeCards();
+
+    const currentContainer = pages[currentLang][currentPage]?.querySelector(".cards");
+    if (currentContainer) {
+      mobileView(currentContainer);
+    }
+
+    progressBarNodes.forEach((node) => node.classList.remove("active"));
+    nodes[currentPage].classList.add("active");
+    nextBtn.disabled = true;
+  });
+});
 
 nextBtn.addEventListener("click", () => {
   next();
@@ -396,11 +410,13 @@ function mobileView(container) {
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("skip")) {      
+  if (e.target.classList.contains("skip")) {
+          
     currentPage = "formAlt";
     nodes.duration.disabled = true;
-    nodes.duration.classList.remove("completed");
+    nodes.duration.classList.remove("completed")
     nodes.classNumber.disabled = true;
+    nodes.classNumber.classList.remove("completed")
     removeOtherPages();
     initializeCards();
     progressBarNodes.forEach((node) => node.classList.remove("active"));
