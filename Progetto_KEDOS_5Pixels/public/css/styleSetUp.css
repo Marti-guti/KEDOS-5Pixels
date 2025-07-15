@@ -386,6 +386,8 @@ body {
 }
 
 
+
+
 .check-icon {
   display: inline-block;
   background-color: #5a60ea;
@@ -705,7 +707,7 @@ body {
 }
 
   .btn-student {
-    max-width: 100%;
+    font-size: 12px;
   }
 
   .container-personal {
@@ -754,31 +756,31 @@ body {
     justify-self: center;
     padding: 0%;
     margin: 0%;
-    height: 45vh;
+    height: 330px;
     width: 60vw;
-    max-height: 260px; 
+    /* max-height: 260px;  */
     max-width: 250px;
     min-width: 230px;
     gap: 0%;
   }
 
   .class-card,.card {
-    height: 45vh;
+    height: 330px;
     width: 60vw;
     min-width: 230px;
     max-width: 250px;
-    max-height: 300px impr !important;
+    /* max-height: 330px; */
   }
 
   .card[data-option],
   .class-card[data-option] {
-    min-height: auto !important;
-    max-height: 300px !important;
+    min-height: auto ;
+    max-height: 330px ;
   }
 
   .carousel-dots {
   position: absolute;
-  bottom: -90px;
+  bottom: -49px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -813,6 +815,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.class-card p{
+  margin-bottom: 0.5rem;
 }
 
 }
