@@ -244,10 +244,10 @@ function renderSummary() {
     ];
     const summaryItemsEs = [
       "Set-Up: " + getTranslated(setUp),
-      "Duratas: " + getTranslated(duration),
-      "Package: " + getTranslated(classNumber),
-      "Students per emission: " + subOption,
-      "Final price: " + finalPrice + " €"
+      "Duración: " + getTranslated(duration),
+      "Paquete: " + getTranslated(classNumber),
+      "Estudiantes por emisión: " + subOption,
+      "precio final: " + finalPrice + " €"
     ];
     const summaryItemsIt = [
       "Set-Up: " + getTranslated(setUp),
