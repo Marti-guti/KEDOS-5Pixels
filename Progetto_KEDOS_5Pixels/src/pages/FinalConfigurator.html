@@ -86,7 +86,7 @@
             <div class="class-card" data-option="none">
               <h2>None of the options suit you?</h2>
               <p>Go directly to the contact form and explain your needs in the description</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
                 <button type="button" class="button btn skip">skip</button>
               </div>
               <div class="badge">
@@ -108,8 +108,8 @@
               <h2>Single class – up to 1000 students</h2>
               <p>Perfect for individual events or school classes. Issue certificates manually or via API for up to 1000
                 students in one go.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1000">1000</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -120,9 +120,9 @@
               <h2>10-Class Package</h2>
               <p>Issue certificates in 10 separate emissions. Choose whether each class contains one student or up to 30
                 students.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -134,9 +134,9 @@
               <p>Perfect for larger institutions. Choose whether each class contains one student or up to 30 students
                 per
                 emission.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -146,7 +146,7 @@
             <div class="class-card" data-option="none">
               <h2>None of the options suit you?</h2>
               <p>Go directly to the contact form and explain your needs in the description</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
                 <button type="button" class="button btn skip">skip</button>
               </div>
               <div class="badge">
@@ -172,15 +172,14 @@
             </div>
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card" data-option="none">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Name</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Description</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>
@@ -197,15 +196,14 @@
             <!-- da cambiare in form card -->
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Name</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Description</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>
@@ -221,7 +219,7 @@
       <div class="container-personal">
         <!-- QUESTION SET-UP ES -->
         <div id="setUp-Es" class="d-none">
-          <h1 class="title-personal">Choose your Set-Up</h1>
+          <h1 class="title-personal">Elige la configuración</h1>
           <!-- CARD CONTAINER ES -->
           <div class="cards">
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
@@ -246,7 +244,7 @@
         </div>
         <!-- DURATION Es -->
         <div id="duration-Es" class="d-none">
-          <h1 class="title-personal">Choose the duration</h1>
+          <h1 class="title-personal">Elige la duración</h1>
           <!-- CARD CONTAINER Es -->
           <div class="cards">
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
@@ -269,8 +267,8 @@
             <div class="class-card" data-option="none">
               <h2>¿Ninguna de las opciones te satisface?</h2>
               <p>Ve directamente al formulario de contacto y explícamos tus necesidades en la descripción</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn skip">skip</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn skip">Saltar</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -282,7 +280,7 @@
 
         <!-- NUMBER OF CLASSES Es -->
         <div id="classNumber-Es" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
+          <h1 class="title-personal">Elige el paquete</h1>
           <!-- CARD CONTAINER Es -->
           <div class="cards">
             <!-- Card 1: Single class -->
@@ -291,8 +289,8 @@
               <h2>Clase única hasta 1000 estudiantes</h2>
               <p>Perfecto para eventos individuales o clases escolares. Emite certificados manualmente o vía API para
                 hasta 1000 estudiantes de una sola vez.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1000">1000</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -303,9 +301,9 @@
               <h2>Paquete de 10 clases</h2>
               <p>Emite certificados en 10 emisiones separadas. Elige si cada clase contiene un estudiante o hasta 30
                 estudiantes.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -316,9 +314,9 @@
               <h2>Paquete de 50 clases</h2>
               <p>Perfecto para instituciones de mayor tamaño. Elige si cada clase contiene un estudiante o hasta 30
                 estudiantes por emisión.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -327,8 +325,8 @@
             <div class="class-card" data-option="none">
               <h2>¿Ninguna de las opciones te satisface?</h2>
               <p>Ve directamente al formulario de contacto y explícamos tus necesidades en la descripción</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn skip">skip</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn skip">Saltar</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -339,13 +337,13 @@
         </div>
         <!-- CONFIGURATOR FORM PAGE Es -->
         <div id="form-Es" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
+          <h1 class="title-personal">Resumen de elecciones</h1>
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
-            <div class="card summary-card">
-              <h2>Summary</h2>
+            <div class="card summary-card" data-option="none">
+              <h2>Resumen</h2>
               <ul id="summaryListEs"></ul>
               <div class="badge">
                 <span>🗸</span>
@@ -353,15 +351,14 @@
             </div>
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Nombre</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Descripción</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>
@@ -372,21 +369,20 @@
         </div>
         <!-- ALT FORM -->
         <div id="form-alt-Es" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
+          <h1 class="title-personal">Resumen de elecciones</h1>
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Nombre</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Descripción</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>
@@ -402,7 +398,7 @@
       <div class="container-personal">
         <!-- QUESTION SET-UP it -->
         <div id="setUp-It" class="d-none">
-          <h1 class="title-personal">Choose your Set-Up</h1>
+          <h1 class="title-personal">Scegli il set-up</h1>
           <!-- CARD CONTAINER it -->
           <div class="cards">
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
@@ -427,7 +423,7 @@
         </div>
         <!-- DURATION It -->
         <div id="duration-It" class="d-none">
-          <h1 class="title-personal">Choose the duration</h1>
+          <h1 class="title-personal">Scegli la durata</h1>
           <!-- CARD CONTAINER It -->
           <div class="cards">
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
@@ -450,8 +446,8 @@
             <div class="class-card" data-option="none">
               <h2>Nessuna delle opzioni ti soddisfa?</h2>
               <p>Vai direttamente al form di contatto e nella descrizione spiegaci le tue necessità</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn skip">skip</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn skip">salta</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -463,7 +459,7 @@
 
         <!-- NUMBER OF CLASSES It -->
         <div id="classNumber-It" class="d-none">
-          <h1 class="title-personal">Choose your package</h1>
+          <h1 class="title-personal">Scegli il pacchetto</h1>
           <!-- CARD CONTAINER It -->
           <div class="cards">
             <!-- Card 1: Single class -->
@@ -472,8 +468,8 @@
               <h2>Classe singola fino a 1000 studenti</h2>
               <p>Perfetto per eventi individuali o classi scolastiche. Emetti certificati manualmente o tramite API per
                 un massimo di 1000 studenti in un’unica soluzione.</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1000">1000 student</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1000">1000</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -485,9 +481,9 @@
               <p>Emetti certificati in 10 emissioni separate. Scegli se ogni emissione include un singolo studente o
                 fino a 30 studenti.</p>
 
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -498,9 +494,9 @@
               <h2>Pacchetto da 50 classi</h2>
               <p>Perfetto per istituzioni di grandi dimensioni. Scegli se ogni emissione include un singolo studente o
                 fino a 30 studenti.</p>
-              <div class="mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
-                <button type="button" class="button btn btn-student" data-suboption="1">1 student</button>
-                <button type="button" class="button btn btn-student" data-suboption="30">30 students</button>
+              <div class="btn-wrapper mt-auto d-flex flex-row justify-content-center gap-2 mb-5">
+                <button type="button" class="button btn btn-student" data-suboption="1">1</button>
+                <button type="button" class="button btn btn-student" data-suboption="30">30</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -509,8 +505,8 @@
             <div class="class-card" data-option="none">
               <h2>Nessuna delle opzioni ti soddisfa?</h2>
               <p>Vai direttamente al form di contatto e nella descrizione spiegaci le tue necessità</p>
-              <div class="mt-auto d-flex flex-column align-items-center gap-2 mb-5">
-                <button type="button" class="button btn skip">skip</button>
+              <div class="btn-wrapper-alt mt-auto d-flex flex-column align-items-center gap-2 mb-5">
+                <button type="button" class="button btn skip">salta</button>
               </div>
               <div class="badge">
                 <span>🗸</span>
@@ -521,13 +517,13 @@
         </div>
         <!-- CONFIGURATOR FORM PAGE It -->
         <div id="form-It" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
+          <h1 class="title-personal">Riepilogo delle scelte</h1>
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
             <button class="carousel-arrow prev" aria-label="Previous card">‹</button>
-            <div class="card summary-card">
-              <h2>Summary</h2>
+            <div class="card summary-card" data-option="none">
+              <h2>Riepilogo</h2>
               <ul id="summaryListIt"></ul>
               <div class="badge">
                 <span>🗸</span>
@@ -535,15 +531,14 @@
             </div>
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Nome</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Descrizione</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>
@@ -554,21 +549,20 @@
         </div>
         <!-- ALT FORM -->
         <div id="form-alt-It" class="d-none">
-          <h1 class="title-personal">Finalize your choice</h1>
+          <h1 class="title-personal">Riepilogo delle scelte</h1>
           <div class="cards">
             <!-- FINAL CARD -->
             <!-- da cambiare in form card -->
             <!-- FORM -->
             <!-- da cambiare in form card -->
-            <div class="card" data-option="none">
+            <div class="card form-card" data-option="none">
               <form id="finalForm" class="form-personal">
-                <label for="userName">Name</label>
-                <input type="text" id="userName" name="userName" required>
-                <label for="userEmail">Email</label>
-                <input type="email" id="userEmail" name="userEmail" required>
-                <label for="userDescription">Description</label>
+                <label for="userName">Nome</label><br>
+                <input type="text" id="userName" name="userName" required><br>
+                <label for="userEmail">Email</label><br>
+                <input type="email" id="userEmail" name="userEmail" required><br>
+                <label for="userDescription">Descrizione</label><br>
                 <textarea id="userDescription" name="userDescription" rows="4" required></textarea>
-                <button class="button" type="submit">Submit</button>
               </form>
               <div class="badge">
                 <span>🗸</span>

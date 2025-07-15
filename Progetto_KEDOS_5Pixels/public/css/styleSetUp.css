@@ -1,13 +1,14 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(135deg, #1a1a3c, #4c4c96, #a0a0ff);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   font-size: 16px;
+  font-family: "DM Sans", sans-serif;
 }
 
 .container-personal {
@@ -62,7 +63,18 @@ body {
   max-width: 180px;
   transition: background-color 0.3s;
 }
+.btn-wrapper, .btn-wrapper-alt {
+  position: absolute;
+  left: 50%;                 
+  transform: translateX(-50%);
+  bottom: 0px;
+}
 
+.btn-wrapper button, .btn-wrapper button {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
 
 .btn-student:hover {
   background-color:  #d4bdff;
@@ -345,7 +357,7 @@ body {
   background-color: rgba(255, 255, 255);
 }
 
-.class-card {
+.class-card,.form-card {
   background-color: white;
   border: 4px solid #2a2a2a;
   border-radius: 10px;
@@ -363,6 +375,17 @@ body {
   height: 500px;
 }
 
+.summary-card {
+  text-align: start;
+}
+
+  .form-card label{
+    font-size: 1rem;
+  }
+
+  .form-card input {
+    width: 90%;
+  }
 
 .class-card h2 {
   text-align: center;
@@ -379,7 +402,6 @@ body {
 
 .class-card li {
   margin: 1rem 0;
-  font-size: 1rem;
   display: flex;
   align-items: center;
   color: #333;
@@ -705,10 +727,28 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   font-size: 16px;
 }
-
-  .btn-student {
-    font-size: 12px;
+  
+  .btn-wrapper button {
+    font-size: 1rem;
+    height: 35px;
+    width: 55px;
   }
+
+  .btn-wrapper-alt {
+  position: absolute;
+  left: 50%;                 
+  transform: translateX(-50%);
+  bottom: 0px;
+}
+
+.btn-wrapper-alt button{
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 1rem;
+  height: 35px;
+  width: 55px;
+}
 
   .container-personal {
     padding: 0 1rem;
@@ -764,12 +804,28 @@ body {
     gap: 0%;
   }
 
-  .class-card,.card {
+  .class-card,.card,.form-card {
     height: 330px;
     width: 60vw;
     min-width: 230px;
     max-width: 250px;
     /* max-height: 330px; */
+  }
+
+  .summary-card li {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 0.7rem;
+}
+
+  .form-card{
+    align-items: center;
+  }
+
+  .form-card label{
+    font-size: 0.7rem;
   }
 
   .card[data-option],

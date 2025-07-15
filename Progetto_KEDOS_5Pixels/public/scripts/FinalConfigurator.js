@@ -1,7 +1,6 @@
 // VARIABLES
 let gettingLangFromHome = new URLSearchParams(window.location.search);
 let currentLang = gettingLangFromHome.get("lang") || "en";
-console.log(currentLang);
 
 let languageSelect = document.getElementById('languageSelect');
 
@@ -327,7 +326,6 @@ nextBtn.addEventListener("click", () => {
   initializeCards();
   const currentContainer = pages[currentLang][currentPage].querySelector(".cards");
   mobileView(currentContainer);
-  console.log(currentPage);
 })
 
 function mobileView(container) {
@@ -398,12 +396,14 @@ function mobileView(container) {
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("skip")) {
-    const previousPage = currentPage;      
+  if (e.target.classList.contains("skip")) {      
     currentPage = "formAlt";
-    nodes[previousPage].classList.add("completed");
+    nodes.duration.disabled = true;
+    nodes.duration.classList.remove("completed");
+    nodes.classNumber.disabled = true;
     removeOtherPages();
     initializeCards();
     progressBarNodes.forEach((node) => node.classList.remove("active"));
   }
 });
+
