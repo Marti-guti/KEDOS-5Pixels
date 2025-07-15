@@ -417,6 +417,8 @@ document.addEventListener("click", (e) => {
     nodes.duration.classList.remove("completed")
     nodes.classNumber.disabled = true;
     nodes.classNumber.classList.remove("completed")
+    nodes.form.disabled = true;
+    nodes.form.classList.remove("completed")
     removeOtherPages();
     initializeCards();
     progressBarNodes.forEach((node) => node.classList.remove("active"));
