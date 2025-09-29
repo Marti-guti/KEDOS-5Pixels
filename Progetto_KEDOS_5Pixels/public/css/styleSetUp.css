@@ -1,7 +1,12 @@
 body {
   margin: 0;
+<<<<<<< HEAD
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #1a1a3c, #4c4c96, #a0a0ff);
+=======
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
   color: #fff;
   display: flex;
   align-items: center;
@@ -12,7 +17,6 @@ body {
 }
 
 .container-personal {
-
   text-align: center;
   grid-column: 1 / -1;
 
@@ -20,8 +24,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  
-  align-items: center;   
+  align-items: center;
   justify-content: center;
 }
 
@@ -34,7 +37,7 @@ body {
 .button {
   padding: 12px 30px;
   font-size: 1rem;
-  background-color:  #6b6bff;
+  background-color: #6b6bff;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -70,21 +73,36 @@ body {
   bottom: 0px;
 }
 
+<<<<<<< HEAD
 .btn-wrapper button, .btn-wrapper button {
   display: flex;
   align-items: center;
   justify-items: center;
 }
 
+=======
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 .btn-student:hover {
-  background-color:  #d4bdff;
+  background-color: #d4bdff;
 }
 
+<<<<<<< HEAD
 
 /* LANGUAGE DROPDOWN */
 
 #flag {
   grid-column: 1 / span 1;
+=======
+/* ============================
+   LANGUAGE DROPDOWN CIRCOLARE
+   ============================ */
+.dropdown-personal {
+  /* position: absolute;
+  top: 2vh;
+  right: 1vw;
+  z-index: 999; */
+  grid-column: 12 / span 2;
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
   grid-row: 1;
   width: 50px;
   aspect-ratio: 1 / 1;
@@ -112,10 +130,17 @@ body {
 }
 
 .dropdown-personal select {
+<<<<<<< HEAD
   width: 100%;
   height: 50px;
   padding-left: 0; 
   border-radius: 8px;  
+=======
+  width: 160px;
+  height: 40px;
+  padding-left: 45px;
+  border-radius: 8px;
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
   border: none;
   appearance: none;
   -webkit-appearance: none;
@@ -142,6 +167,7 @@ body {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
+<<<<<<< HEAD
 }
 /* 
 .next-btn-container{
@@ -164,6 +190,8 @@ body {
   z-index: 50;
 }
 
+=======
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 /* ============================
    BARRA DI AVANZAMENTO (PROGRESS BAR)
    ============================ */
@@ -173,9 +201,15 @@ body {
   justify-content: center;
   gap: 1rem;
   position: relative;
+<<<<<<< HEAD
   grid-column: 5 / 9;
   grid-row: 2 / 3;
   /* margin: 0 auto; */
+=======
+  padding: 20px 0;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 }
 
 /* Nodo base */
@@ -260,8 +294,48 @@ body {
   }
 }
 
-/* Card Container */
+/* ================================
+   Layout Mobile (max-width: 768px)
+=================================== */
+@media (max-width: 768px) {
+  .breadcrumbs {
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    padding: 10px 0;
+    overflow-x: auto; /* opzionale se vuoi evitare tagli */
+  }
 
+  .progressBarNode {
+    width: 45px;
+    height: 45px;
+    font-size: 0.65rem;
+    padding: 3px;
+  }
+
+  .breadcrumbs .progressBarNode:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 4px;
+    background-color: #555;
+    z-index: 1;
+    transition: background-color 0.4s;
+  }
+
+  .progressBarNode.completed::after {
+    background-color: #87cefa;
+  }
+}
+/* Card Container */ 
+ 
+
+<<<<<<< HEAD
 #en-page, 
 #es-page, 
 #it-page {
@@ -269,9 +343,30 @@ body {
   margin-bottom: 30px;
   grid-column: 2 / 12;
   grid-row: 4 / 12; 
+=======
+#en-page {
+  width: 100%;
+  max-width: 980px;
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10;
 }
 
-.cards { 
+#es-page {
+  width: 100%;
+  max-width: 980px;
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10;
+}
+
+#it-page {
+  width: 100%;
+  max-width: 980px;
+  margin-bottom: 30px;
+  grid-area: 4 / 4 / 12 / 10;
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
+}
+
+.cards {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -282,8 +377,11 @@ body {
   align-items: center;
 }
 
+<<<<<<< HEAD
 /* CARD */
 
+=======
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 .card:hover {
   border-color: #5a60ea;
   background-color: rgba(255, 255, 255);
@@ -304,7 +402,7 @@ body {
   border: 4px solid #2a2a2a;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   position: relative;
   box-sizing: border-box;
   /* max-width: 350px; */
@@ -500,63 +598,54 @@ body {
 }
 
 ::placeholder {
+<<<<<<< HEAD
   font-size: 0.875rem; 
   color: #6c757d;       
+=======
+  font-size: 0.875rem; /* o 14px */
+  color: #6c757d; /* colore Bootstrap per placeholder */
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
   opacity: 1;
 }
- .card[data-option] {
-    position: relative;
-    background: linear-gradient(135deg, #fbf8ff);
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    color: #2d2d2d;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    padding: 3rem;
-    overflow: visible;
-    box-sizing: border-box;
-    z-index: 1;
-  }
+.card[data-option] {
+  position: relative;
+  background: linear-gradient(135deg, #fbf8ff);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #2d2d2d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  padding: 3rem;
+  overflow: visible;
+  box-sizing: border-box;
+  z-index: 1;
+}
 
-  .card[data-option]::before,
-  .card[data-option]::after {
-    content: "";
-    position: absolute;
-    border: 2px solid #6b6bff70;
-    border-radius: 1rem;
-    pointer-events: none;
-    z-index: 0;
-  }
+.card[data-option]::before,
+.card[data-option]::after {
+  content: "";
+  position: absolute;
+  border: 2px solid #6b6bff70;
+  border-radius: 1rem;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  .card[data-option]::before {
-    top: 1rem;
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-  }
+.card[data-option]::before {
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+}
 
-  .card[data-option]::after {
-    top: 1.5rem;
-    left: 1.5rem;
-    right: 1.5rem;
-    bottom: 1.5rem;
-  }
+.card[data-option]::after {
+  top: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+}
 
-  .card[data-option] h2 {
-    z-index: 1;
-    position: relative;
-  }
-
-  .card[data-option] p {
-    text-align: center;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-  }
-
-  .card[data-option] .badge {
-    z-index: 1;
-  }
-
+<<<<<<< HEAD
   /* CLASS-CARD */
 
   .class-card[data-option] {
@@ -611,8 +700,21 @@ body {
   .class-card[data-option] .badge {
     z-index: 1;
   }
+=======
+.card[data-option] h2 {
+  z-index: 1;
+  position: relative;
+}
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 
+.card[data-option] p {
+  text-align: center;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
 
+<<<<<<< HEAD
 .carousel-dots {
   position: absolute;
   bottom: -50px;
@@ -877,4 +979,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
+=======
+.card[data-option] .badge {
+  z-index: 1;
+>>>>>>> cc496c2 (Aggiornamenti KEDOS-5Pixels)
 }
